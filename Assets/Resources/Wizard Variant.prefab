@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4161277859225267704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2655241712650096773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d4733fc2e4b41ceb6252f7bb0dc0e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  name: Wizard 1
+  description: Sexy Wizard
+  characterPrefab: {fileID: 2655241712650096773}
+  icon: {fileID: 21300000, guid: f51abdff8643c4319b9b8cbe911f959a, type: 3}
+  animator: {fileID: 0}
+  projectile: {fileID: 0}
+--- !u!1001 &6523809855049787822
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 9144113947323687, guid: 531905e630f2840ea970c42efd5838de, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f51abdff8643c4319b9b8cbe911f959a, type: 3}
+    - target: {fileID: 7708658110269889818, guid: 531905e630f2840ea970c42efd5838de, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708658110269889818, guid: 531905e630f2840ea970c42efd5838de, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708658110269889818, guid: 531905e630f2840ea970c42efd5838de, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708658110269889818, guid: 531905e630f2840ea970c42efd5838de, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708658110269889818, guid: 531905e630f2840ea970c42efd5838de, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708658110269889818, guid: 531905e630f2840ea970c42efd5838de, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708658110269889818, guid: 531905e630f2840ea970c42efd5838de, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708658110269889818, guid: 531905e630f2840ea970c42efd5838de, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708658110269889818, guid: 531905e630f2840ea970c42efd5838de, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708658110269889818, guid: 531905e630f2840ea970c42efd5838de, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708658110269889818, guid: 531905e630f2840ea970c42efd5838de, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9101891646993234219, guid: 531905e630f2840ea970c42efd5838de, type: 3}
+      propertyPath: m_Name
+      value: Wizard Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 531905e630f2840ea970c42efd5838de, type: 3}
+--- !u!1 &2655241712650096773 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9101891646993234219, guid: 531905e630f2840ea970c42efd5838de, type: 3}
+  m_PrefabInstance: {fileID: 6523809855049787822}
+  m_PrefabAsset: {fileID: 0}
