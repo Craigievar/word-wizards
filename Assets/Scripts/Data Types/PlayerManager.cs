@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Linq;
@@ -26,6 +26,11 @@ namespace Com.TypeGames.TSBR
         [Tooltip("The current word queue of our player")]
         public List<string> wordQueue = new List<string>();
 
+        // note: eventually I might want to switch back
+        // to tracking all player stats on every client for master
+        // hopping. This has the ?advantage? of making it so that
+        // we can do all db updates from master
+        // for now, doing it from each client lol.
         public List<int> killedPlayers = new List<int>();
         public int lastAttackerId;
         public int correctWords;
@@ -49,12 +54,15 @@ namespace Com.TypeGames.TSBR
 
         public float inGameTimer = 0.0f;
 
-
-        
-
         System.Random random = new System.Random();
 
         public bool alive = true;
+
+        public string firebaseUserId;
+
+        public bool isBot;
+
+
 
         #endregion
 
@@ -62,6 +70,9 @@ namespace Com.TypeGames.TSBR
 
         public void PrintStatus()
         {
+            if (isBot)
+                return;
+
             Debug.Log("Alive: " + alive + "\n" +
                 "Game Over: " + gm.gameOver + "\n" +
                 "Is Master: " + PhotonNetwork.IsMasterClient + "\n" +
@@ -96,9 +107,14 @@ namespace Com.TypeGames.TSBR
         public override void OnPlayerLeftRoom(Player remotePlayer)
         {
             Debug.Log("A player left the room");
-            if (gm.playerLookup.ContainsKey(remotePlayer.ActorNumber))
+            if(gm.GetPlayerManagerByActor(remotePlayer.ActorNumber) != null)
             {
-                gm.playerLookup.Remove(remotePlayer.ActorNumber);
+                if(!gm.positions.Contains(gm.GetPlayerManagerByActor(remotePlayer.ActorNumber).firebaseUserId))
+                    gm.positions.Add(gm.GetPlayerManagerByActor(remotePlayer.ActorNumber).firebaseUserId);
+
+                gm.GetPlayerManagerByActor(remotePlayer.ActorNumber).alive = false;
+                gm.playerLeftField.text = gm.CountLivingPlayers() + " Players Alive";
+                //gm.playerLookup.Remove(gm.GetViewByActor(remotePlayer.ActorNumber));
             }
 
             if (PhotonNetwork.IsMasterClient)
@@ -106,6 +122,7 @@ namespace Com.TypeGames.TSBR
                 CheckForGameOver();
             }
         }
+
 
         //void OnPhotonPlayerActivityChanged(Player otherPlayer)
         //{
@@ -115,7 +132,6 @@ namespace Com.TypeGames.TSBR
         public void GenerateWordsForAllPlayers()
         {
             //TODO: use wordlists...
-            Debug.Log("Wordlist " + wordList.ToString());
             if(this.wordList == null || this.wordList.Count == 0)
             {
                 Debug.Log("Setting wordlist");
@@ -137,13 +153,12 @@ namespace Com.TypeGames.TSBR
                 Debug.Log("wordlist already exists with length " + this.wordList.Count);
             }
 
-
             wordQueue.Add(this.wordList[random.Next(this.wordList.Count)]);
-            Debug.Log("Word queue is" + String.Join(",", this.wordQueue));
+            //Debug.Log("Word queue is" + String.Join(",", this.wordQueue));
            
             String[] toSend = wordQueue.ToArray<string>();
-            Debug.Log("To send queue is" + String.Join(",", toSend));
-            Debug.Log("To send obj is " + toSend);
+            //Debug.Log("To send queue is" + String.Join(",", toSend));
+            //Debug.Log("To send obj is " + toSend);
             this.photonView.RPC(
                 "AddWordFromMaster",
                 RpcTarget.AllBuffered,
@@ -155,22 +170,28 @@ namespace Com.TypeGames.TSBR
 
         public void AddWord()
         {
+            //Debug.Log("Above wq");
             wordQueue.Add(wordList[random.Next(wordList.Count)]);
             String[] toSend = wordQueue.ToArray<string>();
+
+            //Debug.Log("Above rpc1");
             this.photonView.RPC(
                 "AddWordFromClient",
                 RpcTarget.AllBuffered,
                 toSend
             );
 
-
+            //Debug.Log("Above mc check");
             //called on global updates from master
             if (PhotonNetwork.IsMasterClient && alive)
             {
+                //Debug.Log("Above cfd");
+
                 CheckForDeath();
                 if (photonView.IsMine)
                 {
                     //safety check
+                    //Debug.Log("Above cfgo");
                     CheckForGameOver();
                 }
             }
@@ -180,23 +201,24 @@ namespace Com.TypeGames.TSBR
             PlayerManager attacker = gm.playerLookup[attackerId];
             Player attackerPlayer = attacker.photonView.Owner;
             string word;
+
             if (attacker != null && attacker.wordList != null && attacker.wordList.Count > 0)
             {
                 word = attacker.wordList[random.Next(attacker.wordList.Count)];
             }
-            else if (attackerPlayer != null && attackerPlayer.CustomProperties.ContainsKey("wordList"))
+            else if (attackerPlayer != null && attackerPlayer.CustomProperties.ContainsKey("wordList") && !attacker.isBot)
             {
                 Debug.LogError("Don't have my attacker's word list yet, but can get");
                 try
                 {
+                    //Debug.Log("Attacker ? " + attacker == null);
+                    //Debug.Log("attacker wl :" + String.Join(",", ((String[])attackerPlayer.CustomProperties["wordList"]).ToList<string>()));
                     attacker.wordList = ((String[])attackerPlayer.CustomProperties["wordList"]).ToList<string>();
                 }
                 catch (Exception e) {
                     Debug.Log("Wordlist error: " + e);
                 }
 
-
-                
                 word = attacker.wordList[random.Next(attacker.wordList.Count)];
             }
             else
@@ -207,6 +229,7 @@ namespace Com.TypeGames.TSBR
 
             this.wordQueue.Add(word);
             String[] toSend = wordQueue.ToArray<string>();
+
             this.photonView.RPC(
                 "AddWordFromClient",
                 RpcTarget.AllBuffered,
@@ -226,19 +249,10 @@ namespace Com.TypeGames.TSBR
                 return;
             }
 
-            
+
             if (wordQueue.Count > gm.maxWordsInQueue && !gm.gameOver)
             {
-                //if master client dies, reassign it...since most likely they'll
-                // disconnect
-                if (photonView.IsMine) {
-                    int target = GetTarget();
-                    if (gm.playerLookup.ContainsKey(target))
-                    {
-                        PhotonNetwork.SetMasterClient(gm.playerLookup[GetTarget()].photonView.Owner);
-                    }
-                    
-                }
+                Debug.Log("Player died!!!");
 
                 //send death message
                 this.photonView.RPC(
@@ -248,29 +262,108 @@ namespace Com.TypeGames.TSBR
                 );
 
                 Debug.Log("Checking if game is over with " + gm.CountLivingPlayers());
+
                 CheckForGameOver();
+                
+
+                //if master client dies, reassign it...since most likely they'll
+                //disconnect
+                if (photonView.IsMine && !gm.gameOver)
+                {
+                    int target = GetTarget(includeBots: false);
+                    if (gm.playerLookup.ContainsKey(target))
+                    {
+                        PhotonNetwork.SetMasterClient(gm.playerLookup[target].photonView.Owner);
+                    }
+
+                }
 
             }
+
         }
 
         public void CheckForGameOver()
         {
-            if (gm.CountLivingPlayers() <= gm.playersToWin)
+            Debug.Log("In checkforgameover");
+            if(gm.playerLookup.Count < 2)
             {
-                if (gm.FindLivingPlayerId() > 0)
-                {
-
+                Debug.Log("Can't check for game over before 2 players load lol");
+                Debug.Log(gm.playerLookup.Count);
+                return;
+            }
+            //only called on MASTER
+            //Debug.Log("above first if");
+            //if 1 living player incl. bots, or no living non-bot players
+            if (gm.CountLivingPlayers() <= gm.playersToWin || gm.CountLivingPlayers(includeBots: false) == 0)
+            {
+                if (!isBot)
                     sendInterval.IsEnabled = false;
 
+
+                //first case 
+                if (gm.CountLivingPlayers() <= gm.playersToWin)
+                {
+                    if(!(gm.FindLivingPlayerId() > 0))
+                    {
+                        Debug.Log("There's " + gm.CountLivingPlayers() + "players, but no living human player");
+                        return;
+                    }
+
+                    //bots don't have a send interval
+                    Debug.Log("won rpc players");
+
+                    WriteGameStats(false);
+                    //todo: handle players losing to bots lol
                     gm.playerLookup[gm.FindLivingPlayerId()].photonView.RPC(
                         "PlayerWon",
-                        RpcTarget.AllBuffered
+                        RpcTarget.AllBuffered,
+                        false //human victory flag
                     );
-                    
+                }
+                else if (gm.CountLivingPlayers(includeBots: false) == 0)
+                {
+                    Debug.Log("The distant future...the year 2000...the humans are dead");
+
+                    //master is only client guaranteed to be alive, so it'll
+                    //send the data
+                    WriteGameStats(true);
+
+                    this.photonView.RPC(
+                        "PlayerWon",
+                        RpcTarget.AllBuffered,
+                        true //botvictory flag
+                    );
+
+                   
                 }
 
             }
         }
+
+        public void WriteGameStats(bool botWin)
+        {
+            //called from master only
+            Debug.Log("Running db calls for postgame");
+            if (botWin)
+            {
+                int botsLeft = gm.CountLivingPlayers();
+                Debug.Log(botsLeft + " Bot winners");
+                for (int i = 0; i < botsLeft; i++)
+                    gm.positions.Add("botWinner");
+                    
+            }
+            else
+            {
+                Debug.Log("Player won, adding the winner's id");
+                Debug.Log("Did I win? " + photonView.IsMine);
+                Debug.Log(gm.localPlayerManager.firebaseUserId);
+                gm.positions.Add(gm.localPlayerManager.firebaseUserId);
+                Debug.Log("Positions: " + string.Join(",", gm.positions));
+            }
+
+            DatabaseManager.ProcessMatchOutcomes(gm.positions);
+        }
+
 
         public void WordWasCorrect() 
         {
@@ -289,6 +382,22 @@ namespace Com.TypeGames.TSBR
                 wordQueue.RemoveAt(0);
             }
 
+            SendAttack();
+            // animations
+            try
+            {
+                character.Animate(Character.Anim.Attack);
+            }
+            catch(Exception e)
+            {
+                Debug.Log("Animation error");
+            }
+
+            character.Attack();
+        }
+
+        public void SendAttack()
+        {
             Debug.Log("Sending my words first");
             String[] toSend = wordQueue.ToArray<string>();
             this.photonView.RPC(
@@ -299,22 +408,17 @@ namespace Com.TypeGames.TSBR
 
             int target = GetTarget();
             Debug.Log("Attacking " + target);
-            if(gm.playerLookup.ContainsKey(target))
+            if (gm.playerLookup.ContainsKey(target))
             {
                 Debug.Log("sending rpc");
                 gm.playerLookup[target].photonView.RPC(
                     "PlayerAttacked",
                     RpcTarget.AllBuffered,
-                    this.photonView.OwnerActorNr,
+                    this.photonView.ViewID,
                     target
                 );
 
             }
-
-            // animations
-            character.Animate(Character.Anim.Attack);
-            character.Attack();
-
 
         }
 
@@ -336,35 +440,51 @@ namespace Com.TypeGames.TSBR
             AddWord();
             AddWord();
 
-            character.Animate(Character.Anim.FailCast);
+            try
+            {
+                character.Animate(Character.Anim.FailCast);
+            }
+            catch(Exception e)
+            {
+                Debug.LogError("Animation Error");
+            }
+            
             LocalData.audioManager.Play(AudioManager.SoundType.playerAttacked);
         }
 
-        public int GetTarget()
+        public int GetTarget(bool includeBots = true)
         {
             int target = -1;
-            List<Player> options = PhotonNetwork.PlayerList.ToList<Player>();
+            //List<Player> options = PhotonNetwork.PlayerList.ToList<Player>();
+            List<PlayerManager> options = gm.playerLookup.Values.ToList<PlayerManager>();
 
             Debug.Log("Options: " + options.Count);
 
-            options.Remove(photonView.Owner);
+            options.Remove(this);
             Debug.Log("Options: " + options.Count);
 
-            foreach(Player option in options)
-            {
-                if(!gm.playerLookup.ContainsKey(option.ActorNumber)
-                    || !gm.playerLookup[option.ActorNumber].alive
-                ){
-                    options.Remove(option);
-                }
-            }
+            options = options
+                .Where(x => x.alive && (includeBots || x.isBot)).ToList<PlayerManager>();
+
+            //foreach(PlayerManager option in options)
+            //{
+            //    if(!option.alive){
+            //        Debug.Log("removing target option as it's dead");
+            //        options.Remove(option);
+            //    }
+            //    else if(!includeBots && option.isBot)
+            //    {
+            //        Debug.Log("removing target option as it's a bot");
+            //        options.Remove(option);
+            //    }
+            //}
 
             Debug.Log("Options: " + options.Count);
             //gm.PrintLookup();
 
             if (options.Count > 0)
             {
-                return options[random.Next(options.Count)].ActorNumber;
+                return options[random.Next(options.Count)].photonView.ViewID;
             }
 
             return -1;
@@ -383,8 +503,14 @@ namespace Com.TypeGames.TSBR
 
         public int SortPlayers(Player p1, Player p2)
         {
-            int p1Score = p1.ActorNumber + (gm.playerLookup[p1.ActorNumber].alive ? 0 : 1000);
-            int p2Score = p2.ActorNumber + (gm.playerLookup[p2.ActorNumber].alive ? 0 : 1000);
+            int p1Alive = gm.GetPlayerManagerByActor(p1.ActorNumber) != null
+                && gm.GetPlayerManagerByActor(p1.ActorNumber).alive ? 0 : 1000;
+            int p2Alive = gm.GetPlayerManagerByActor(p1.ActorNumber) != null
+                && gm.GetPlayerManagerByActor(p1.ActorNumber).alive ? 0 : 1000;
+
+            int p1Score = p1.ActorNumber + p1Alive;
+            int p2Score = p2.ActorNumber + p2Alive;
+
             return p1Score > p2Score ? 1 : -1;
         }
 
@@ -406,25 +532,75 @@ namespace Com.TypeGames.TSBR
         void PlayerAttacked(int attacker, int target) {
             //eventually we want to route this thru the master client.
             //for now it's just whatever
-            AddWordFromPlayer(attacker);
+
             lastAttackerId = attacker;
 
 
+            //todo check if this is correct
+            // I think every client was updating it lol
+            if (PhotonNetwork.IsMasterClient)
+            {
+                AddWordFromPlayer(attacker);
+            }
            
             if (photonView.IsMine)
             {
                 LocalData.timesAttacked++;
                 try
                 {
-                    LocalData.killerNickName = gm.playerLookup[attacker].photonView.Owner.NickName;
+                    LocalData.killerNickName = gm.playerLookup[attacker].isBot ?
+                        "Bot" : gm.playerLookup[attacker].photonView.Owner.NickName;
                 }
                 catch (Exception e)
                 {
                     Debug.Log("Couldn't get attacker nickname");
                 }
 
-                character.Animate(Character.Anim.Attacked);
+                try
+                {
+                    character.Animate(Character.Anim.Attacked);
+                }
+                catch(Exception e)
+                {
+                    Debug.LogError("Animation error");
+                }
+
+                //try {
+                    //this.photonView.getc
+                    if (gm.playerLookup[attacker].photonView.Owner.CustomProperties.ContainsKey("characterId"))
+                    {
+                        Character attackingCharacter = LocalData
+                            .characterSet
+                            .GetCharacterById((int)gm.playerLookup[attacker].photonView.Owner.CustomProperties["characterId"]);
+
+                        GameObject attackerChar = GameObject.Instantiate(attackingCharacter.characterPrefab, gm.attackerSpawnLocation);
+                        attackerChar.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+                        attackerChar.transform.localRotation = Quaternion.Euler(0, 180, 0);
+                        Character toAnimate = attackerChar.GetComponent<Character>();
+                        toAnimate.Animate(Character.Anim.Attack);
+                        toAnimate.AttackMe(gm.attackerProjectileSpawnLocation);
+
+                    }
+                    else
+                    {
+                        Debug.LogError("Couldn't get character from attacker");
+                    }
+                //}
+                //catch(Exception e)
+                //{
+                //    Debug.Log("Issue with attackedanim");
+                //    Debug.Log(e.Message);
+                //}
+                
                 LocalData.audioManager.Play(AudioManager.SoundType.playerAttacked);
+
+                if(gm.playerLookup[attacker] != null && gm.playerLookup[attacker].name != null)
+                {
+                    gm.ShowAlert("Attacked by " + gm.playerLookup[attacker].name);
+                } else
+                {
+                    gm.ShowAlert("You were attacked!");
+                }
             }
         }
 
@@ -460,12 +636,21 @@ namespace Com.TypeGames.TSBR
         [PunRPC]
         void AddWordFromClient(String[] newQueue)
         {
-            Debug.Log("Adding word from client (string[] newqueue)");
+            if (photonView.IsMine)
+            {
+                Debug.Log("Adding words from client");
+            }
             this.wordQueue = newQueue.ToList<string>();
+            //Debug.Log(String.Join(",", this.wordQueue));
 
             if (PhotonNetwork.IsMasterClient)
             {
+                Debug.Log("Checking for death");
                 CheckForDeath();
+            }
+            if (photonView.IsMine)
+            {
+                //Debug.Log("Made thru");
             }
         }
 
@@ -488,9 +673,6 @@ namespace Com.TypeGames.TSBR
                 Debug.Log("Checking for death");
                 CheckForDeath();
             }
-
-            Debug.Log("Made it through addword;");
-            Debug.Log("wordqueue is " + String.Join(",", this.wordQueue));
         }
 
         [PunRPC]
@@ -515,29 +697,79 @@ namespace Com.TypeGames.TSBR
         [PunRPC]
         void PlayerDied(int killerId)
         {
-            alive = false;
-            if (gm.playerLookup.ContainsKey(killerId))
+            Debug.Log("player died, updating players left");
+            gm.playerLeftField.text = gm.CountLivingPlayers() + " Players Alive";
+
+            if (!alive)
             {
-                gm.playerLookup[killerId].killedPlayers.Add(this.photonView.OwnerActorNr);
+                return;
             }
 
+            alive = false;
+
+
+            if (gm.playerLookup.ContainsKey(killerId))
+            {
+                Debug.Log("We have a reference to the player");
+                gm.playerLookup[killerId].killedPlayers.Add(this.photonView.ViewID);
+                Debug.Log("positions: " + String.Join(",", gm.positions));
+            }
+            else {
+                Debug.Log("No reference to the player");
+            }
+
+
             //if I'm the killer...
-            if (killerId == gm.localPlayerManager.photonView.OwnerActorNr)
+            if (killerId == gm.localPlayerManager.photonView.ViewID)
             {
                 LocalData.kills++;
+                if(this.name != null)
+                {
+                    gm.ShowAlert("You killed " + this.name);
+                }
+                else
+                {
+                    gm.ShowAlert("You killed a player");
+                }
             }
-            
+
+            Debug.Log("adding firebase userid " + this.firebaseUserId);
+            if(!gm.positions.Contains(this.firebaseUserId))
+                gm.positions.Add(this.firebaseUserId);
+
+            Debug.Log("positions: " + String.Join(",", gm.positions));
+
+            if (photonView.IsMine)
+            {
+
+                LocalData.playersLeft = gm.CountLivingPlayers();
+                //if I'm master and game is over, I need to wait around to write states
+                if (PhotonNetwork.IsMasterClient &&
+                    (gm.CountLivingPlayers() <= gm.playersToWin ||
+                    gm.CountLivingPlayers(includeBots: false) == 0))
+                {
+                    return;
+                }
+
+                
+
+                PhotonNetwork.Disconnect();
+                SceneManager.LoadScene("Post Game");
+            }
+
         }
 
         [PunRPC]
-        void PlayerWon()
+        void PlayerWon(bool botVictory)
         {
+
+            Debug.Log("In playerwon");
             gm.gameOver = true;
             gm.DisableSends();
 
 
             //this is sent via the winner player's photonview
-            if (photonView.AmOwner)
+            if (photonView.AmOwner && !botVictory)
             {
                 LocalData.amWinner = true;
             }
@@ -545,7 +777,7 @@ namespace Com.TypeGames.TSBR
             if (PhotonNetwork.IsMasterClient && !gm.isLoading)
             {
                 gm.isLoading = true;
-                Debug.Log("Calling loadlevel");
+
                 PhotonNetwork.LoadLevel("Post Game");
             }
         }
@@ -559,22 +791,36 @@ namespace Com.TypeGames.TSBR
         #endregion
 
         #region Monobehavior callbacks
+
         void Awake()
         {
-            
+            gm = GameObject.Find("Game Manager").GetComponent<GameManager>();
+            gm.RegisterPlayer(this);
         }
         // Use this for initialization
         void Start()
         {
 
-            
+            gm.playerLeftField.text = ((int)(PhotonNetwork.CurrentRoom.CustomProperties.ContainsKey("bots") ?
+                PhotonNetwork.CurrentRoom.CustomProperties["bots"] : 0) + PhotonNetwork.CurrentRoom.PlayerCount)
+                + " Players Alive";
+
+            this.debugInterval = new TimeKeeper(5000);
+            this.sendInterval = new TimeKeeper(2000);
+            this.masterHealthInterval = new TimeKeeper(500);
+
+            Debug.Log("Db? " + LocalData.ShouldUseDB());
+
             if (photonView.IsMine)
             {
-                //setup wordlist sh
                 this.wordList = LocalData.wordList.words;
+
+                this.firebaseUserId = LocalData.ShouldUseDB() ? LocalData.authManager.auth.CurrentUser.UserId : "logged_out";
                 Hashtable hash = new Hashtable();
-                hash.Add("wordList", this.wordList.ToArray<String>());
-                photonView.Owner.SetCustomProperties(hash);
+                hash.Add("wordList", LocalData.wordList.words.ToArray<string>());
+                hash.Add("characterId", LocalData.character.id);
+                hash.Add("FirebaseUserId", this.firebaseUserId);
+                this.photonView.Owner.SetCustomProperties(hash);
 
                 //prefab stuff
                 GameObject spawn = GameObject.Find("Character Model Spawn");
@@ -583,27 +829,29 @@ namespace Com.TypeGames.TSBR
                     spawn.transform
                 );
                 character = characterModel.GetComponent<Character>();
+                
 
-
-                if (photonView.Owner.IsMasterClient)
-                {
-                    for (int i = 0; i < startingWords; i++)
-                        GenerateWordsForAllPlayers();
-                }
-
+                for (int i = 0; i < startingWords; i++)
+                    AddWord();
+            } else
+            {
+                this.firebaseUserId = (string)photonView.Owner.CustomProperties["FirebaseUserId"];
             }
-            
-            this.debugInterval = new TimeKeeper(5000);
 
 
             
+            Debug.Log((photonView.IsMine ? "my " : "other ") + "firebase userid is " + firebaseUserId);
+            //if (photonView.Owner.IsMasterClient)
+            //{
+            //    for (int i = 0; i < 5; i++)
+            //    {
+            //        Instantiate()
+            //    }
+            //}
 
 
-            gm = GameObject.Find("Game Manager").GetComponent<GameManager>();
-            gm.RegisterPlayer(this);
-            sendInterval = new TimeKeeper(2000);
-            masterHealthInterval = new TimeKeeper(500);
-            //eventually keep, and populate, from custom properties list
+
+
         }
 
         // Update is called once per frame
@@ -613,7 +861,7 @@ namespace Com.TypeGames.TSBR
             if (sendInterval.ShouldExecute) {
                 if (PhotonNetwork.IsMasterClient && !gm.gameOver)
                 {
-                    Debug.Log("Triggering Words");
+                    //Debug.Log("Triggering Words");
                     GenerateWordsForAllPlayers();
                     //this.photonView.RPC(
                     //    "AddWordFromMaster",
@@ -627,7 +875,7 @@ namespace Com.TypeGames.TSBR
             if (masterHealthInterval.ShouldExecute) {
                 if (PhotonNetwork.IsMasterClient)
                 {
-                    Debug.Log("Sending Health Ping");
+                    //Debug.Log("Sending Health Ping");
 
                     this.photonView.RPC(
                         "MasterHealthPing",
@@ -645,7 +893,7 @@ namespace Com.TypeGames.TSBR
 
             if (debugInterval.ShouldExecute && photonView.IsMine)
             {
-                Debug.Log("Should I print status?");
+                //Debug.Log("Should I print status?");
                 if (gm.logDebug)
                 {
                     PrintStatus();

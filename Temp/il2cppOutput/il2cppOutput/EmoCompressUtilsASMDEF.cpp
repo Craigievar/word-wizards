@@ -17,8 +17,6 @@ struct ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726;
 // System.String
 struct String_t;
 
-IL2CPP_EXTERN_C String_t* _stringLiteral0B214330EF207A5642B8DF295B69315BD32387B1;
-IL2CPP_EXTERN_C String_t* _stringLiteral268266D15C0D89FE80DC94F1B57B808CB167F6C2;
 
 struct ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726;
 
@@ -45,51 +43,6 @@ public:
 struct Il2CppArrayBounds;
 
 // System.Array
-
-
-// System.String
-struct  String_t  : public RuntimeObject
-{
-public:
-	// System.Int32 System.String::m_stringLength
-	int32_t ___m_stringLength_0;
-	// System.Char System.String::m_firstChar
-	Il2CppChar ___m_firstChar_1;
-
-public:
-	inline static int32_t get_offset_of_m_stringLength_0() { return static_cast<int32_t>(offsetof(String_t, ___m_stringLength_0)); }
-	inline int32_t get_m_stringLength_0() const { return ___m_stringLength_0; }
-	inline int32_t* get_address_of_m_stringLength_0() { return &___m_stringLength_0; }
-	inline void set_m_stringLength_0(int32_t value)
-	{
-		___m_stringLength_0 = value;
-	}
-
-	inline static int32_t get_offset_of_m_firstChar_1() { return static_cast<int32_t>(offsetof(String_t, ___m_firstChar_1)); }
-	inline Il2CppChar get_m_firstChar_1() const { return ___m_firstChar_1; }
-	inline Il2CppChar* get_address_of_m_firstChar_1() { return &___m_firstChar_1; }
-	inline void set_m_firstChar_1(Il2CppChar value)
-	{
-		___m_firstChar_1 = value;
-	}
-};
-
-struct String_t_StaticFields
-{
-public:
-	// System.String System.String::Empty
-	String_t* ___Empty_5;
-
-public:
-	inline static int32_t get_offset_of_Empty_5() { return static_cast<int32_t>(offsetof(String_t_StaticFields, ___Empty_5)); }
-	inline String_t* get_Empty_5() const { return ___Empty_5; }
-	inline String_t** get_address_of_Empty_5() { return &___Empty_5; }
-	inline void set_Empty_5(String_t* value)
-	{
-		___Empty_5 = value;
-		Il2CppCodeGenWriteBarrier((void**)(&___Empty_5), (void*)value);
-	}
-};
 
 
 // System.ValueType
@@ -1269,12 +1222,6 @@ public:
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR uint8_t ByteConverter_get_Item_m2E90147A1ED14E49F2730A5F271FF66C04776771 (ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A * __this, int32_t ___index0, const RuntimeMethod* method);
 // System.Void Photon.Compression.ByteConverter::GetBytes(System.Byte[],System.Int32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ByteConverter_GetBytes_m310E9CA2F5114808E4CAFDF1966D0AA71459DF08 (ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A * __this, ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* ___target0, int32_t ___count1, const RuntimeMethod* method);
-// System.String System.Int32::ToString()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* Int32_ToString_m340C0A14D16799421EFDF8A81C8A16FA76D48411 (int32_t* __this, const RuntimeMethod* method);
-// System.String System.String::Concat(System.String,System.String,System.String)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* String_Concat_m89EAB4C6A96B0E5C3F87300D6BE78D386B9EFC44 (String_t* ___str00, String_t* ___str11, String_t* ___str22, const RuntimeMethod* method);
-// System.Void System.Diagnostics.Debug::Assert(System.Boolean,System.String)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Debug_Assert_mF38F151A59545D7B88E70FDA929669CB15D9C97B (bool ___condition0, String_t* ___message1, const RuntimeMethod* method);
 // System.Void Photon.Compression.ByteConverter::ExtractByteArray(System.Byte[])
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ByteConverter_ExtractByteArray_m43F2E23EF065FB9F49654A8E64A1D742223EAB17 (ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A * __this, ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* ___targetArray0, const RuntimeMethod* method);
 #ifdef __clang__
@@ -1468,14 +1415,13 @@ IL2CPP_EXTERN_C void ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A_mar
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ByteConverter_GetBytes_m310E9CA2F5114808E4CAFDF1966D0AA71459DF08 (ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A * __this, ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* ___target0, int32_t ___count1, const RuntimeMethod* method)
 {
 	int32_t V_0 = 0;
-	bool V_1 = false;
 	{
 		// for (int i = 0; i < count; ++i)
 		V_0 = 0;
-		goto IL_0013;
+		goto IL_0012;
 	}
 
-IL_0005:
+IL_0004:
 	{
 		// target[i] = this[i];
 		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_0 = ___target0;
@@ -1490,16 +1436,14 @@ IL_0005:
 		V_0 = ((int32_t)il2cpp_codegen_add((int32_t)L_4, (int32_t)1));
 	}
 
-IL_0013:
+IL_0012:
 	{
 		// for (int i = 0; i < count; ++i)
 		int32_t L_5 = V_0;
 		int32_t L_6 = ___count1;
-		V_1 = (bool)((((int32_t)L_5) < ((int32_t)L_6))? 1 : 0);
-		bool L_7 = V_1;
-		if (L_7)
+		if ((((int32_t)L_5) < ((int32_t)L_6)))
 		{
-			goto IL_0005;
+			goto IL_0004;
 		}
 	}
 	{
@@ -1516,146 +1460,108 @@ IL2CPP_EXTERN_C  void ByteConverter_GetBytes_m310E9CA2F5114808E4CAFDF1966D0AA714
 // System.Byte Photon.Compression.ByteConverter::get_Item(System.Int32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR uint8_t ByteConverter_get_Item_m2E90147A1ED14E49F2730A5F271FF66C04776771 (ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A * __this, int32_t ___index0, const RuntimeMethod* method)
 {
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
 	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral0B214330EF207A5642B8DF295B69315BD32387B1);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral268266D15C0D89FE80DC94F1B57B808CB167F6C2);
-		s_Il2CppMethodInitialized = true;
-	}
-	int32_t V_0 = 0;
-	int32_t V_1 = 0;
-	uint8_t V_2 = 0x0;
-	{
-		// switch (index)
 		int32_t L_0 = ___index0;
-		V_1 = L_0;
-		int32_t L_1 = V_1;
-		V_0 = L_1;
-		int32_t L_2 = V_0;
-		switch (L_2)
+		switch (L_0)
 		{
 			case 0:
 			{
-				goto IL_002d;
+				goto IL_0028;
 			}
 			case 1:
 			{
-				goto IL_0036;
+				goto IL_002f;
 			}
 			case 2:
 			{
-				goto IL_003f;
+				goto IL_0036;
 			}
 			case 3:
 			{
-				goto IL_0048;
+				goto IL_003d;
 			}
 			case 4:
 			{
-				goto IL_0051;
+				goto IL_0044;
 			}
 			case 5:
 			{
-				goto IL_005a;
+				goto IL_004b;
 			}
 			case 6:
 			{
-				goto IL_0063;
+				goto IL_0052;
 			}
 			case 7:
 			{
-				goto IL_006c;
+				goto IL_0059;
 			}
 		}
 	}
 	{
-		goto IL_0075;
+		goto IL_0060;
 	}
 
-IL_002d:
+IL_0028:
 	{
 		// case 0: return byte0;
-		uint8_t L_3 = __this->get_byte0_10();
-		V_2 = L_3;
-		goto IL_009c;
+		uint8_t L_1 = __this->get_byte0_10();
+		return L_1;
+	}
+
+IL_002f:
+	{
+		// case 1: return byte1;
+		uint8_t L_2 = __this->get_byte1_11();
+		return L_2;
 	}
 
 IL_0036:
 	{
-		// case 1: return byte1;
-		uint8_t L_4 = __this->get_byte1_11();
-		V_2 = L_4;
-		goto IL_009c;
-	}
-
-IL_003f:
-	{
 		// case 2: return byte2;
-		uint8_t L_5 = __this->get_byte2_12();
-		V_2 = L_5;
-		goto IL_009c;
+		uint8_t L_3 = __this->get_byte2_12();
+		return L_3;
 	}
 
-IL_0048:
+IL_003d:
 	{
 		// case 3: return byte3;
-		uint8_t L_6 = __this->get_byte3_13();
-		V_2 = L_6;
-		goto IL_009c;
+		uint8_t L_4 = __this->get_byte3_13();
+		return L_4;
 	}
 
-IL_0051:
+IL_0044:
 	{
 		// case 4: return byte4;
-		uint8_t L_7 = __this->get_byte4_14();
-		V_2 = L_7;
-		goto IL_009c;
+		uint8_t L_5 = __this->get_byte4_14();
+		return L_5;
 	}
 
-IL_005a:
+IL_004b:
 	{
 		// case 5: return byte5;
-		uint8_t L_8 = __this->get_byte5_15();
-		V_2 = L_8;
-		goto IL_009c;
+		uint8_t L_6 = __this->get_byte5_15();
+		return L_6;
 	}
 
-IL_0063:
+IL_0052:
 	{
 		// case 6: return byte6;
-		uint8_t L_9 = __this->get_byte6_16();
-		V_2 = L_9;
-		goto IL_009c;
+		uint8_t L_7 = __this->get_byte6_16();
+		return L_7;
 	}
 
-IL_006c:
+IL_0059:
 	{
 		// case 7: return byte7;
-		uint8_t L_10 = __this->get_byte7_17();
-		V_2 = L_10;
-		goto IL_009c;
+		uint8_t L_8 = __this->get_byte7_17();
+		return L_8;
 	}
 
-IL_0075:
+IL_0060:
 	{
-		// System.Diagnostics.Debug.Assert((index >= 8), "Index value of " + index + " is invalid. ByteConverter this[] indexer must be a value between 0 and 7.");
-		int32_t L_11 = ___index0;
-		String_t* L_12;
-		L_12 = Int32_ToString_m340C0A14D16799421EFDF8A81C8A16FA76D48411((int32_t*)(&___index0), /*hidden argument*/NULL);
-		String_t* L_13;
-		L_13 = String_Concat_m89EAB4C6A96B0E5C3F87300D6BE78D386B9EFC44(_stringLiteral0B214330EF207A5642B8DF295B69315BD32387B1, L_12, _stringLiteral268266D15C0D89FE80DC94F1B57B808CB167F6C2, /*hidden argument*/NULL);
-		Debug_Assert_mF38F151A59545D7B88E70FDA929669CB15D9C97B((bool)((((int32_t)((((int32_t)L_11) < ((int32_t)8))? 1 : 0)) == ((int32_t)0))? 1 : 0), L_13, /*hidden argument*/NULL);
 		// return 0;
-		V_2 = (uint8_t)0;
-		goto IL_009c;
-	}
-
-IL_009c:
-	{
-		// }
-		uint8_t L_14 = V_2;
-		return L_14;
+		return (uint8_t)0;
 	}
 }
 IL2CPP_EXTERN_C  uint8_t ByteConverter_get_Item_m2E90147A1ED14E49F2730A5F271FF66C04776771_AdjustorThunk (RuntimeObject * __this, int32_t ___index0, const RuntimeMethod* method)
@@ -1671,23 +1577,24 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ByteConverter_t93982272F214070BD1AAC06E546392
 {
 	ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  V_0;
 	memset((&V_0), 0, sizeof(V_0));
-	int32_t V_1 = 0;
-	bool V_2 = false;
-	bool V_3 = false;
-	bool V_4 = false;
-	bool V_5 = false;
-	bool V_6 = false;
-	bool V_7 = false;
-	bool V_8 = false;
-	ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  V_9;
-	memset((&V_9), 0, sizeof(V_9));
+	int32_t G_B2_0 = 0;
+	int32_t G_B1_0 = 0;
+	int32_t G_B4_0 = 0;
+	int32_t G_B3_0 = 0;
+	int32_t G_B6_0 = 0;
+	int32_t G_B5_0 = 0;
+	int32_t G_B8_0 = 0;
+	int32_t G_B7_0 = 0;
+	int32_t G_B10_0 = 0;
+	int32_t G_B9_0 = 0;
+	int32_t G_B12_0 = 0;
+	int32_t G_B11_0 = 0;
 	{
 		// ByteConverter bc = default(ByteConverter);
 		il2cpp_codegen_initobj((&V_0), sizeof(ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A ));
 		// int len = bytes.Length;
 		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_0 = ___bytes0;
 		NullCheck(L_0);
-		V_1 = ((int32_t)((int32_t)(((RuntimeArray*)L_0)->max_length)));
 		// bc.byte0 = bytes[0];
 		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_1 = ___bytes0;
 		NullCheck(L_1);
@@ -1695,156 +1602,151 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ByteConverter_t93982272F214070BD1AAC06E546392
 		uint8_t L_3 = (L_1)->GetAt(static_cast<il2cpp_array_size_t>(L_2));
 		(&V_0)->set_byte0_10(L_3);
 		// if (len > 0) bc.byte1 = bytes[1];
-		int32_t L_4 = V_1;
-		V_2 = (bool)((((int32_t)L_4) > ((int32_t)0))? 1 : 0);
-		bool L_5 = V_2;
-		if (!L_5)
+		int32_t L_4 = ((int32_t)((int32_t)(((RuntimeArray*)L_0)->max_length)));
+		G_B1_0 = L_4;
+		if ((((int32_t)L_4) <= ((int32_t)0)))
 		{
-			goto IL_0029;
+			G_B2_0 = L_4;
+			goto IL_0023;
 		}
 	}
 	{
 		// if (len > 0) bc.byte1 = bytes[1];
-		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_6 = ___bytes0;
-		NullCheck(L_6);
-		int32_t L_7 = 1;
-		uint8_t L_8 = (L_6)->GetAt(static_cast<il2cpp_array_size_t>(L_7));
-		(&V_0)->set_byte1_11(L_8);
+		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_5 = ___bytes0;
+		NullCheck(L_5);
+		int32_t L_6 = 1;
+		uint8_t L_7 = (L_5)->GetAt(static_cast<il2cpp_array_size_t>(L_6));
+		(&V_0)->set_byte1_11(L_7);
+		G_B2_0 = G_B1_0;
 	}
 
-IL_0029:
+IL_0023:
 	{
 		// if (len > 1) bc.byte2 = bytes[2];
-		int32_t L_9 = V_1;
-		V_3 = (bool)((((int32_t)L_9) > ((int32_t)1))? 1 : 0);
-		bool L_10 = V_3;
-		if (!L_10)
+		int32_t L_8 = G_B2_0;
+		G_B3_0 = L_8;
+		if ((((int32_t)L_8) <= ((int32_t)1)))
 		{
-			goto IL_003b;
+			G_B4_0 = L_8;
+			goto IL_0031;
 		}
 	}
 	{
 		// if (len > 1) bc.byte2 = bytes[2];
-		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_11 = ___bytes0;
-		NullCheck(L_11);
-		int32_t L_12 = 2;
-		uint8_t L_13 = (L_11)->GetAt(static_cast<il2cpp_array_size_t>(L_12));
-		(&V_0)->set_byte2_12(L_13);
+		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_9 = ___bytes0;
+		NullCheck(L_9);
+		int32_t L_10 = 2;
+		uint8_t L_11 = (L_9)->GetAt(static_cast<il2cpp_array_size_t>(L_10));
+		(&V_0)->set_byte2_12(L_11);
+		G_B4_0 = G_B3_0;
 	}
 
-IL_003b:
+IL_0031:
 	{
 		// if (len > 2) bc.byte3 = bytes[3];
-		int32_t L_14 = V_1;
-		V_4 = (bool)((((int32_t)L_14) > ((int32_t)2))? 1 : 0);
-		bool L_15 = V_4;
-		if (!L_15)
+		int32_t L_12 = G_B4_0;
+		G_B5_0 = L_12;
+		if ((((int32_t)L_12) <= ((int32_t)2)))
 		{
-			goto IL_004f;
+			G_B6_0 = L_12;
+			goto IL_003f;
 		}
 	}
 	{
 		// if (len > 2) bc.byte3 = bytes[3];
-		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_16 = ___bytes0;
-		NullCheck(L_16);
-		int32_t L_17 = 3;
-		uint8_t L_18 = (L_16)->GetAt(static_cast<il2cpp_array_size_t>(L_17));
-		(&V_0)->set_byte3_13(L_18);
+		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_13 = ___bytes0;
+		NullCheck(L_13);
+		int32_t L_14 = 3;
+		uint8_t L_15 = (L_13)->GetAt(static_cast<il2cpp_array_size_t>(L_14));
+		(&V_0)->set_byte3_13(L_15);
+		G_B6_0 = G_B5_0;
 	}
 
-IL_004f:
+IL_003f:
 	{
 		// if (len > 3) bc.byte4 = bytes[4];
-		int32_t L_19 = V_1;
-		V_5 = (bool)((((int32_t)L_19) > ((int32_t)3))? 1 : 0);
-		bool L_20 = V_5;
-		if (!L_20)
+		int32_t L_16 = G_B6_0;
+		G_B7_0 = L_16;
+		if ((((int32_t)L_16) <= ((int32_t)3)))
 		{
-			goto IL_0063;
+			G_B8_0 = L_16;
+			goto IL_004d;
 		}
 	}
 	{
 		// if (len > 3) bc.byte4 = bytes[4];
+		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_17 = ___bytes0;
+		NullCheck(L_17);
+		int32_t L_18 = 4;
+		uint8_t L_19 = (L_17)->GetAt(static_cast<il2cpp_array_size_t>(L_18));
+		(&V_0)->set_byte4_14(L_19);
+		G_B8_0 = G_B7_0;
+	}
+
+IL_004d:
+	{
+		// if (len > 4) bc.byte5 = bytes[5];
+		int32_t L_20 = G_B8_0;
+		G_B9_0 = L_20;
+		if ((((int32_t)L_20) <= ((int32_t)4)))
+		{
+			G_B10_0 = L_20;
+			goto IL_005b;
+		}
+	}
+	{
+		// if (len > 4) bc.byte5 = bytes[5];
 		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_21 = ___bytes0;
 		NullCheck(L_21);
-		int32_t L_22 = 4;
+		int32_t L_22 = 5;
 		uint8_t L_23 = (L_21)->GetAt(static_cast<il2cpp_array_size_t>(L_22));
-		(&V_0)->set_byte4_14(L_23);
+		(&V_0)->set_byte5_15(L_23);
+		G_B10_0 = G_B9_0;
 	}
 
-IL_0063:
-	{
-		// if (len > 4) bc.byte5 = bytes[5];
-		int32_t L_24 = V_1;
-		V_6 = (bool)((((int32_t)L_24) > ((int32_t)4))? 1 : 0);
-		bool L_25 = V_6;
-		if (!L_25)
-		{
-			goto IL_0077;
-		}
-	}
-	{
-		// if (len > 4) bc.byte5 = bytes[5];
-		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_26 = ___bytes0;
-		NullCheck(L_26);
-		int32_t L_27 = 5;
-		uint8_t L_28 = (L_26)->GetAt(static_cast<il2cpp_array_size_t>(L_27));
-		(&V_0)->set_byte5_15(L_28);
-	}
-
-IL_0077:
+IL_005b:
 	{
 		// if (len > 5) bc.byte6 = bytes[3];
-		int32_t L_29 = V_1;
-		V_7 = (bool)((((int32_t)L_29) > ((int32_t)5))? 1 : 0);
-		bool L_30 = V_7;
-		if (!L_30)
+		int32_t L_24 = G_B10_0;
+		G_B11_0 = L_24;
+		if ((((int32_t)L_24) <= ((int32_t)5)))
 		{
-			goto IL_008b;
+			G_B12_0 = L_24;
+			goto IL_0069;
 		}
 	}
 	{
 		// if (len > 5) bc.byte6 = bytes[3];
-		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_31 = ___bytes0;
-		NullCheck(L_31);
-		int32_t L_32 = 3;
-		uint8_t L_33 = (L_31)->GetAt(static_cast<il2cpp_array_size_t>(L_32));
-		(&V_0)->set_byte6_16(L_33);
+		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_25 = ___bytes0;
+		NullCheck(L_25);
+		int32_t L_26 = 3;
+		uint8_t L_27 = (L_25)->GetAt(static_cast<il2cpp_array_size_t>(L_26));
+		(&V_0)->set_byte6_16(L_27);
+		G_B12_0 = G_B11_0;
 	}
 
-IL_008b:
+IL_0069:
 	{
 		// if (len > 6) bc.byte7 = bytes[7];
-		int32_t L_34 = V_1;
-		V_8 = (bool)((((int32_t)L_34) > ((int32_t)6))? 1 : 0);
-		bool L_35 = V_8;
-		if (!L_35)
+		if ((((int32_t)G_B12_0) <= ((int32_t)6)))
 		{
-			goto IL_009f;
+			goto IL_0076;
 		}
 	}
 	{
 		// if (len > 6) bc.byte7 = bytes[7];
-		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_36 = ___bytes0;
-		NullCheck(L_36);
-		int32_t L_37 = 7;
-		uint8_t L_38 = (L_36)->GetAt(static_cast<il2cpp_array_size_t>(L_37));
-		(&V_0)->set_byte7_17(L_38);
+		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_28 = ___bytes0;
+		NullCheck(L_28);
+		int32_t L_29 = 7;
+		uint8_t L_30 = (L_28)->GetAt(static_cast<il2cpp_array_size_t>(L_29));
+		(&V_0)->set_byte7_17(L_30);
 	}
 
-IL_009f:
+IL_0076:
 	{
 		// return bc;
-		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_39 = V_0;
-		V_9 = L_39;
-		goto IL_00a4;
-	}
-
-IL_00a4:
-	{
-		// }
-		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_40 = V_9;
-		return L_40;
+		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_31 = V_0;
+		return L_31;
 	}
 }
 // Photon.Compression.ByteConverter Photon.Compression.ByteConverter::op_Implicit(System.Byte)
@@ -1852,8 +1754,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ByteConverter_t93982272F214070BD1AAC06E546392
 {
 	ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  V_0;
 	memset((&V_0), 0, sizeof(V_0));
-	ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  V_1;
-	memset((&V_1), 0, sizeof(V_1));
 	{
 		// ByteConverter bc = default(ByteConverter);
 		il2cpp_codegen_initobj((&V_0), sizeof(ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A ));
@@ -1862,15 +1762,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ByteConverter_t93982272F214070BD1AAC06E546392
 		(&V_0)->set_byte0_10(L_0);
 		// return bc;
 		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_1 = V_0;
-		V_1 = L_1;
-		goto IL_0015;
-	}
-
-IL_0015:
-	{
-		// }
-		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_2 = V_1;
-		return L_2;
+		return L_1;
 	}
 }
 // Photon.Compression.ByteConverter Photon.Compression.ByteConverter::op_Implicit(System.SByte)
@@ -1878,8 +1770,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ByteConverter_t93982272F214070BD1AAC06E546392
 {
 	ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  V_0;
 	memset((&V_0), 0, sizeof(V_0));
-	ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  V_1;
-	memset((&V_1), 0, sizeof(V_1));
 	{
 		// ByteConverter bc = default(ByteConverter);
 		il2cpp_codegen_initobj((&V_0), sizeof(ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A ));
@@ -1888,15 +1778,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ByteConverter_t93982272F214070BD1AAC06E546392
 		(&V_0)->set_int8_2(L_0);
 		// return bc;
 		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_1 = V_0;
-		V_1 = L_1;
-		goto IL_0015;
-	}
-
-IL_0015:
-	{
-		// }
-		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_2 = V_1;
-		return L_2;
+		return L_1;
 	}
 }
 // Photon.Compression.ByteConverter Photon.Compression.ByteConverter::op_Implicit(System.Char)
@@ -1904,8 +1786,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ByteConverter_t93982272F214070BD1AAC06E546392
 {
 	ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  V_0;
 	memset((&V_0), 0, sizeof(V_0));
-	ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  V_1;
-	memset((&V_1), 0, sizeof(V_1));
 	{
 		// ByteConverter bc = default(ByteConverter);
 		il2cpp_codegen_initobj((&V_0), sizeof(ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A ));
@@ -1914,15 +1794,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ByteConverter_t93982272F214070BD1AAC06E546392
 		(&V_0)->set_character_5(L_0);
 		// return bc;
 		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_1 = V_0;
-		V_1 = L_1;
-		goto IL_0015;
-	}
-
-IL_0015:
-	{
-		// }
-		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_2 = V_1;
-		return L_2;
+		return L_1;
 	}
 }
 // Photon.Compression.ByteConverter Photon.Compression.ByteConverter::op_Implicit(System.UInt32)
@@ -1930,8 +1802,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ByteConverter_t93982272F214070BD1AAC06E546392
 {
 	ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  V_0;
 	memset((&V_0), 0, sizeof(V_0));
-	ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  V_1;
-	memset((&V_1), 0, sizeof(V_1));
 	{
 		// ByteConverter bc = default(ByteConverter);
 		il2cpp_codegen_initobj((&V_0), sizeof(ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A ));
@@ -1940,15 +1810,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ByteConverter_t93982272F214070BD1AAC06E546392
 		(&V_0)->set_uint32_7(L_0);
 		// return bc;
 		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_1 = V_0;
-		V_1 = L_1;
-		goto IL_0015;
-	}
-
-IL_0015:
-	{
-		// }
-		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_2 = V_1;
-		return L_2;
+		return L_1;
 	}
 }
 // Photon.Compression.ByteConverter Photon.Compression.ByteConverter::op_Implicit(System.Int32)
@@ -1956,8 +1818,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ByteConverter_t93982272F214070BD1AAC06E546392
 {
 	ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  V_0;
 	memset((&V_0), 0, sizeof(V_0));
-	ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  V_1;
-	memset((&V_1), 0, sizeof(V_1));
 	{
 		// ByteConverter bc = default(ByteConverter);
 		il2cpp_codegen_initobj((&V_0), sizeof(ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A ));
@@ -1966,15 +1826,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ByteConverter_t93982272F214070BD1AAC06E546392
 		(&V_0)->set_int32_6(L_0);
 		// return bc;
 		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_1 = V_0;
-		V_1 = L_1;
-		goto IL_0015;
-	}
-
-IL_0015:
-	{
-		// }
-		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_2 = V_1;
-		return L_2;
+		return L_1;
 	}
 }
 // Photon.Compression.ByteConverter Photon.Compression.ByteConverter::op_Implicit(System.UInt64)
@@ -1982,8 +1834,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ByteConverter_t93982272F214070BD1AAC06E546392
 {
 	ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  V_0;
 	memset((&V_0), 0, sizeof(V_0));
-	ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  V_1;
-	memset((&V_1), 0, sizeof(V_1));
 	{
 		// ByteConverter bc = default(ByteConverter);
 		il2cpp_codegen_initobj((&V_0), sizeof(ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A ));
@@ -1992,15 +1842,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ByteConverter_t93982272F214070BD1AAC06E546392
 		(&V_0)->set_uint64_9(L_0);
 		// return bc;
 		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_1 = V_0;
-		V_1 = L_1;
-		goto IL_0015;
-	}
-
-IL_0015:
-	{
-		// }
-		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_2 = V_1;
-		return L_2;
+		return L_1;
 	}
 }
 // Photon.Compression.ByteConverter Photon.Compression.ByteConverter::op_Implicit(System.Int64)
@@ -2008,8 +1850,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ByteConverter_t93982272F214070BD1AAC06E546392
 {
 	ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  V_0;
 	memset((&V_0), 0, sizeof(V_0));
-	ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  V_1;
-	memset((&V_1), 0, sizeof(V_1));
 	{
 		// ByteConverter bc = default(ByteConverter);
 		il2cpp_codegen_initobj((&V_0), sizeof(ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A ));
@@ -2018,15 +1858,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ByteConverter_t93982272F214070BD1AAC06E546392
 		(&V_0)->set_int64_8(L_0);
 		// return bc;
 		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_1 = V_0;
-		V_1 = L_1;
-		goto IL_0015;
-	}
-
-IL_0015:
-	{
-		// }
-		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_2 = V_1;
-		return L_2;
+		return L_1;
 	}
 }
 // Photon.Compression.ByteConverter Photon.Compression.ByteConverter::op_Implicit(System.Single)
@@ -2034,8 +1866,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ByteConverter_t93982272F214070BD1AAC06E546392
 {
 	ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  V_0;
 	memset((&V_0), 0, sizeof(V_0));
-	ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  V_1;
-	memset((&V_1), 0, sizeof(V_1));
 	{
 		// ByteConverter bc = default(ByteConverter);
 		il2cpp_codegen_initobj((&V_0), sizeof(ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A ));
@@ -2044,15 +1874,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ByteConverter_t93982272F214070BD1AAC06E546392
 		(&V_0)->set_float32_0(L_0);
 		// return bc;
 		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_1 = V_0;
-		V_1 = L_1;
-		goto IL_0015;
-	}
-
-IL_0015:
-	{
-		// }
-		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_2 = V_1;
-		return L_2;
+		return L_1;
 	}
 }
 // Photon.Compression.ByteConverter Photon.Compression.ByteConverter::op_Implicit(System.Double)
@@ -2060,8 +1882,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ByteConverter_t93982272F214070BD1AAC06E546392
 {
 	ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  V_0;
 	memset((&V_0), 0, sizeof(V_0));
-	ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  V_1;
-	memset((&V_1), 0, sizeof(V_1));
 	{
 		// ByteConverter bc = default(ByteConverter);
 		il2cpp_codegen_initobj((&V_0), sizeof(ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A ));
@@ -2070,15 +1890,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ByteConverter_t93982272F214070BD1AAC06E546392
 		(&V_0)->set_float64_1(L_0);
 		// return bc;
 		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_1 = V_0;
-		V_1 = L_1;
-		goto IL_0015;
-	}
-
-IL_0015:
-	{
-		// }
-		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_2 = V_1;
-		return L_2;
+		return L_1;
 	}
 }
 // Photon.Compression.ByteConverter Photon.Compression.ByteConverter::op_Implicit(System.Boolean)
@@ -2086,8 +1898,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ByteConverter_t93982272F214070BD1AAC06E546392
 {
 	ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  V_0;
 	memset((&V_0), 0, sizeof(V_0));
-	ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  V_1;
-	memset((&V_1), 0, sizeof(V_1));
 	ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A * G_B2_0 = NULL;
 	ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A * G_B1_0 = NULL;
 	int32_t G_B3_0 = 0;
@@ -2101,190 +1911,188 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ByteConverter_t93982272F214070BD1AAC06E546392
 		if (L_0)
 		{
 			G_B2_0 = (&V_0);
-			goto IL_0011;
+			goto IL_0010;
 		}
 	}
 	{
 		G_B3_0 = 0;
 		G_B3_1 = G_B1_0;
-		goto IL_0012;
+		goto IL_0011;
 	}
 
-IL_0011:
+IL_0010:
 	{
 		G_B3_0 = 1;
 		G_B3_1 = G_B2_0;
 	}
 
-IL_0012:
+IL_0011:
 	{
 		G_B3_1->set_int32_6(G_B3_0);
 		// return bc;
 		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_1 = V_0;
-		V_1 = L_1;
-		goto IL_001b;
-	}
-
-IL_001b:
-	{
-		// }
-		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_2 = V_1;
-		return L_2;
+		return L_1;
 	}
 }
 // System.Void Photon.Compression.ByteConverter::ExtractByteArray(System.Byte[])
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ByteConverter_ExtractByteArray_m43F2E23EF065FB9F49654A8E64A1D742223EAB17 (ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A * __this, ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* ___targetArray0, const RuntimeMethod* method)
 {
-	int32_t V_0 = 0;
-	bool V_1 = false;
-	bool V_2 = false;
-	bool V_3 = false;
-	bool V_4 = false;
-	bool V_5 = false;
-	bool V_6 = false;
-	bool V_7 = false;
+	int32_t G_B2_0 = 0;
+	int32_t G_B1_0 = 0;
+	int32_t G_B4_0 = 0;
+	int32_t G_B3_0 = 0;
+	int32_t G_B6_0 = 0;
+	int32_t G_B5_0 = 0;
+	int32_t G_B8_0 = 0;
+	int32_t G_B7_0 = 0;
+	int32_t G_B10_0 = 0;
+	int32_t G_B9_0 = 0;
+	int32_t G_B12_0 = 0;
+	int32_t G_B11_0 = 0;
 	{
 		// int len = targetArray.Length;
 		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_0 = ___targetArray0;
 		NullCheck(L_0);
-		V_0 = ((int32_t)((int32_t)(((RuntimeArray*)L_0)->max_length)));
 		// targetArray[0] = byte0;
 		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_1 = ___targetArray0;
 		uint8_t L_2 = __this->get_byte0_10();
 		NullCheck(L_1);
 		(L_1)->SetAt(static_cast<il2cpp_array_size_t>(0), (uint8_t)L_2);
 		// if (len > 0) targetArray[1] = byte1;
-		int32_t L_3 = V_0;
-		V_1 = (bool)((((int32_t)L_3) > ((int32_t)0))? 1 : 0);
-		bool L_4 = V_1;
-		if (!L_4)
+		int32_t L_3 = ((int32_t)((int32_t)(((RuntimeArray*)L_0)->max_length)));
+		G_B1_0 = L_3;
+		if ((((int32_t)L_3) <= ((int32_t)0)))
 		{
-			goto IL_001f;
+			G_B2_0 = L_3;
+			goto IL_0019;
 		}
 	}
 	{
 		// if (len > 0) targetArray[1] = byte1;
-		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_5 = ___targetArray0;
-		uint8_t L_6 = __this->get_byte1_11();
-		NullCheck(L_5);
-		(L_5)->SetAt(static_cast<il2cpp_array_size_t>(1), (uint8_t)L_6);
+		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_4 = ___targetArray0;
+		uint8_t L_5 = __this->get_byte1_11();
+		NullCheck(L_4);
+		(L_4)->SetAt(static_cast<il2cpp_array_size_t>(1), (uint8_t)L_5);
+		G_B2_0 = G_B1_0;
 	}
 
-IL_001f:
+IL_0019:
 	{
 		// if (len > 1) targetArray[2] = byte2;
-		int32_t L_7 = V_0;
-		V_2 = (bool)((((int32_t)L_7) > ((int32_t)1))? 1 : 0);
-		bool L_8 = V_2;
-		if (!L_8)
+		int32_t L_6 = G_B2_0;
+		G_B3_0 = L_6;
+		if ((((int32_t)L_6) <= ((int32_t)1)))
 		{
-			goto IL_0030;
+			G_B4_0 = L_6;
+			goto IL_0026;
 		}
 	}
 	{
 		// if (len > 1) targetArray[2] = byte2;
-		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_9 = ___targetArray0;
-		uint8_t L_10 = __this->get_byte2_12();
-		NullCheck(L_9);
-		(L_9)->SetAt(static_cast<il2cpp_array_size_t>(2), (uint8_t)L_10);
+		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_7 = ___targetArray0;
+		uint8_t L_8 = __this->get_byte2_12();
+		NullCheck(L_7);
+		(L_7)->SetAt(static_cast<il2cpp_array_size_t>(2), (uint8_t)L_8);
+		G_B4_0 = G_B3_0;
 	}
 
-IL_0030:
+IL_0026:
 	{
 		// if (len > 2) targetArray[3] = byte3;
-		int32_t L_11 = V_0;
-		V_3 = (bool)((((int32_t)L_11) > ((int32_t)2))? 1 : 0);
-		bool L_12 = V_3;
-		if (!L_12)
+		int32_t L_9 = G_B4_0;
+		G_B5_0 = L_9;
+		if ((((int32_t)L_9) <= ((int32_t)2)))
 		{
-			goto IL_0041;
+			G_B6_0 = L_9;
+			goto IL_0033;
 		}
 	}
 	{
 		// if (len > 2) targetArray[3] = byte3;
+		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_10 = ___targetArray0;
+		uint8_t L_11 = __this->get_byte3_13();
+		NullCheck(L_10);
+		(L_10)->SetAt(static_cast<il2cpp_array_size_t>(3), (uint8_t)L_11);
+		G_B6_0 = G_B5_0;
+	}
+
+IL_0033:
+	{
+		// if (len > 3) targetArray[4] = byte4;
+		int32_t L_12 = G_B6_0;
+		G_B7_0 = L_12;
+		if ((((int32_t)L_12) <= ((int32_t)3)))
+		{
+			G_B8_0 = L_12;
+			goto IL_0040;
+		}
+	}
+	{
+		// if (len > 3) targetArray[4] = byte4;
 		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_13 = ___targetArray0;
-		uint8_t L_14 = __this->get_byte3_13();
+		uint8_t L_14 = __this->get_byte4_14();
 		NullCheck(L_13);
-		(L_13)->SetAt(static_cast<il2cpp_array_size_t>(3), (uint8_t)L_14);
+		(L_13)->SetAt(static_cast<il2cpp_array_size_t>(4), (uint8_t)L_14);
+		G_B8_0 = G_B7_0;
 	}
 
-IL_0041:
-	{
-		// if (len > 3) targetArray[4] = byte4;
-		int32_t L_15 = V_0;
-		V_4 = (bool)((((int32_t)L_15) > ((int32_t)3))? 1 : 0);
-		bool L_16 = V_4;
-		if (!L_16)
-		{
-			goto IL_0054;
-		}
-	}
-	{
-		// if (len > 3) targetArray[4] = byte4;
-		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_17 = ___targetArray0;
-		uint8_t L_18 = __this->get_byte4_14();
-		NullCheck(L_17);
-		(L_17)->SetAt(static_cast<il2cpp_array_size_t>(4), (uint8_t)L_18);
-	}
-
-IL_0054:
+IL_0040:
 	{
 		// if (len > 4) targetArray[5] = byte5;
-		int32_t L_19 = V_0;
-		V_5 = (bool)((((int32_t)L_19) > ((int32_t)4))? 1 : 0);
-		bool L_20 = V_5;
-		if (!L_20)
+		int32_t L_15 = G_B8_0;
+		G_B9_0 = L_15;
+		if ((((int32_t)L_15) <= ((int32_t)4)))
 		{
-			goto IL_0067;
+			G_B10_0 = L_15;
+			goto IL_004d;
 		}
 	}
 	{
 		// if (len > 4) targetArray[5] = byte5;
+		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_16 = ___targetArray0;
+		uint8_t L_17 = __this->get_byte5_15();
+		NullCheck(L_16);
+		(L_16)->SetAt(static_cast<il2cpp_array_size_t>(5), (uint8_t)L_17);
+		G_B10_0 = G_B9_0;
+	}
+
+IL_004d:
+	{
+		// if (len > 5) targetArray[6] = byte6;
+		int32_t L_18 = G_B10_0;
+		G_B11_0 = L_18;
+		if ((((int32_t)L_18) <= ((int32_t)5)))
+		{
+			G_B12_0 = L_18;
+			goto IL_005a;
+		}
+	}
+	{
+		// if (len > 5) targetArray[6] = byte6;
+		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_19 = ___targetArray0;
+		uint8_t L_20 = __this->get_byte6_16();
+		NullCheck(L_19);
+		(L_19)->SetAt(static_cast<il2cpp_array_size_t>(6), (uint8_t)L_20);
+		G_B12_0 = G_B11_0;
+	}
+
+IL_005a:
+	{
+		// if (len > 6) targetArray[7] = byte7;
+		if ((((int32_t)G_B12_0) <= ((int32_t)6)))
+		{
+			goto IL_0066;
+		}
+	}
+	{
+		// if (len > 6) targetArray[7] = byte7;
 		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_21 = ___targetArray0;
-		uint8_t L_22 = __this->get_byte5_15();
+		uint8_t L_22 = __this->get_byte7_17();
 		NullCheck(L_21);
-		(L_21)->SetAt(static_cast<il2cpp_array_size_t>(5), (uint8_t)L_22);
+		(L_21)->SetAt(static_cast<il2cpp_array_size_t>(7), (uint8_t)L_22);
 	}
 
-IL_0067:
-	{
-		// if (len > 5) targetArray[6] = byte6;
-		int32_t L_23 = V_0;
-		V_6 = (bool)((((int32_t)L_23) > ((int32_t)5))? 1 : 0);
-		bool L_24 = V_6;
-		if (!L_24)
-		{
-			goto IL_007a;
-		}
-	}
-	{
-		// if (len > 5) targetArray[6] = byte6;
-		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_25 = ___targetArray0;
-		uint8_t L_26 = __this->get_byte6_16();
-		NullCheck(L_25);
-		(L_25)->SetAt(static_cast<il2cpp_array_size_t>(6), (uint8_t)L_26);
-	}
-
-IL_007a:
-	{
-		// if (len > 6) targetArray[7] = byte7;
-		int32_t L_27 = V_0;
-		V_7 = (bool)((((int32_t)L_27) > ((int32_t)6))? 1 : 0);
-		bool L_28 = V_7;
-		if (!L_28)
-		{
-			goto IL_008d;
-		}
-	}
-	{
-		// if (len > 6) targetArray[7] = byte7;
-		ByteU5BU5D_tDBBEB0E8362242FA7223000D978B0DD19D4B0726* L_29 = ___targetArray0;
-		uint8_t L_30 = __this->get_byte7_17();
-		NullCheck(L_29);
-		(L_29)->SetAt(static_cast<il2cpp_array_size_t>(7), (uint8_t)L_30);
-	}
-
-IL_008d:
+IL_0066:
 	{
 		// }
 		return;
@@ -2299,229 +2107,121 @@ IL2CPP_EXTERN_C  void ByteConverter_ExtractByteArray_m43F2E23EF065FB9F49654A8E64
 // System.Byte Photon.Compression.ByteConverter::op_Implicit(Photon.Compression.ByteConverter)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR uint8_t ByteConverter_op_Implicit_mE6C934400E6D023CF9CD08255A2880307E043C47 (ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  ___bc0, const RuntimeMethod* method)
 {
-	uint8_t V_0 = 0x0;
 	{
 		// public static implicit operator Byte(ByteConverter bc) { return bc.byte0; }
 		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_0 = ___bc0;
 		uint8_t L_1 = L_0.get_byte0_10();
-		V_0 = L_1;
-		goto IL_000a;
-	}
-
-IL_000a:
-	{
-		// public static implicit operator Byte(ByteConverter bc) { return bc.byte0; }
-		uint8_t L_2 = V_0;
-		return L_2;
+		return L_1;
 	}
 }
 // System.SByte Photon.Compression.ByteConverter::op_Implicit(Photon.Compression.ByteConverter)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int8_t ByteConverter_op_Implicit_m374556648E30AD386B2B69C23C76A52540686859 (ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  ___bc0, const RuntimeMethod* method)
 {
-	int8_t V_0 = 0x0;
 	{
 		// public static implicit operator SByte(ByteConverter bc) { return bc.int8; }
 		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_0 = ___bc0;
 		int8_t L_1 = L_0.get_int8_2();
-		V_0 = L_1;
-		goto IL_000a;
-	}
-
-IL_000a:
-	{
-		// public static implicit operator SByte(ByteConverter bc) { return bc.int8; }
-		int8_t L_2 = V_0;
-		return L_2;
+		return L_1;
 	}
 }
 // System.Char Photon.Compression.ByteConverter::op_Implicit(Photon.Compression.ByteConverter)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Il2CppChar ByteConverter_op_Implicit_mE1749B0C3A8919079698E5EED1ACE82E223CB931 (ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  ___bc0, const RuntimeMethod* method)
 {
-	Il2CppChar V_0 = 0x0;
 	{
 		// public static implicit operator Char(ByteConverter bc) { return bc.character; }
 		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_0 = ___bc0;
 		Il2CppChar L_1 = L_0.get_character_5();
-		V_0 = L_1;
-		goto IL_000a;
-	}
-
-IL_000a:
-	{
-		// public static implicit operator Char(ByteConverter bc) { return bc.character; }
-		Il2CppChar L_2 = V_0;
-		return L_2;
+		return L_1;
 	}
 }
 // System.UInt16 Photon.Compression.ByteConverter::op_Implicit(Photon.Compression.ByteConverter)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR uint16_t ByteConverter_op_Implicit_m72EA1D6CDCFB88B51FCA6C919144C3D519B122A3 (ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  ___bc0, const RuntimeMethod* method)
 {
-	uint16_t V_0 = 0;
 	{
 		// public static implicit operator UInt16(ByteConverter bc) { return bc.uint16; }
 		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_0 = ___bc0;
 		uint16_t L_1 = L_0.get_uint16_4();
-		V_0 = L_1;
-		goto IL_000a;
-	}
-
-IL_000a:
-	{
-		// public static implicit operator UInt16(ByteConverter bc) { return bc.uint16; }
-		uint16_t L_2 = V_0;
-		return L_2;
+		return L_1;
 	}
 }
 // System.Int16 Photon.Compression.ByteConverter::op_Implicit(Photon.Compression.ByteConverter)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int16_t ByteConverter_op_Implicit_m6DF575C5E6631108AD33D22A1832471ECCB92204 (ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  ___bc0, const RuntimeMethod* method)
 {
-	int16_t V_0 = 0;
 	{
 		// public static implicit operator Int16(ByteConverter bc) { return bc.int16; }
 		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_0 = ___bc0;
 		int16_t L_1 = L_0.get_int16_3();
-		V_0 = L_1;
-		goto IL_000a;
-	}
-
-IL_000a:
-	{
-		// public static implicit operator Int16(ByteConverter bc) { return bc.int16; }
-		int16_t L_2 = V_0;
-		return L_2;
+		return L_1;
 	}
 }
 // System.UInt32 Photon.Compression.ByteConverter::op_Implicit(Photon.Compression.ByteConverter)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR uint32_t ByteConverter_op_Implicit_mF445F4A54CFF13291E834C49B1873F57BA5A8DCE (ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  ___bc0, const RuntimeMethod* method)
 {
-	uint32_t V_0 = 0;
 	{
 		// public static implicit operator UInt32(ByteConverter bc) { return bc.uint32; }
 		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_0 = ___bc0;
 		uint32_t L_1 = L_0.get_uint32_7();
-		V_0 = L_1;
-		goto IL_000a;
-	}
-
-IL_000a:
-	{
-		// public static implicit operator UInt32(ByteConverter bc) { return bc.uint32; }
-		uint32_t L_2 = V_0;
-		return L_2;
+		return L_1;
 	}
 }
 // System.Int32 Photon.Compression.ByteConverter::op_Implicit(Photon.Compression.ByteConverter)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t ByteConverter_op_Implicit_mF81F298773F1DAC5C3C4E44BF5C053630BE96C39 (ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  ___bc0, const RuntimeMethod* method)
 {
-	int32_t V_0 = 0;
 	{
 		// public static implicit operator Int32(ByteConverter bc) { return bc.int32; }
 		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_0 = ___bc0;
 		int32_t L_1 = L_0.get_int32_6();
-		V_0 = L_1;
-		goto IL_000a;
-	}
-
-IL_000a:
-	{
-		// public static implicit operator Int32(ByteConverter bc) { return bc.int32; }
-		int32_t L_2 = V_0;
-		return L_2;
+		return L_1;
 	}
 }
 // System.UInt64 Photon.Compression.ByteConverter::op_Implicit(Photon.Compression.ByteConverter)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR uint64_t ByteConverter_op_Implicit_m0B2A52F8845ABFFC6E61B6F0555E7C9EED730A99 (ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  ___bc0, const RuntimeMethod* method)
 {
-	uint64_t V_0 = 0;
 	{
 		// public static implicit operator UInt64(ByteConverter bc) { return bc.uint64; }
 		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_0 = ___bc0;
 		uint64_t L_1 = L_0.get_uint64_9();
-		V_0 = L_1;
-		goto IL_000a;
-	}
-
-IL_000a:
-	{
-		// public static implicit operator UInt64(ByteConverter bc) { return bc.uint64; }
-		uint64_t L_2 = V_0;
-		return L_2;
+		return L_1;
 	}
 }
 // System.Int64 Photon.Compression.ByteConverter::op_Implicit(Photon.Compression.ByteConverter)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int64_t ByteConverter_op_Implicit_m2B10F9C1D7D695EC8797D8888EF9D55EA6E0C341 (ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  ___bc0, const RuntimeMethod* method)
 {
-	int64_t V_0 = 0;
 	{
 		// public static implicit operator Int64(ByteConverter bc) { return bc.int64; }
 		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_0 = ___bc0;
 		int64_t L_1 = L_0.get_int64_8();
-		V_0 = L_1;
-		goto IL_000a;
-	}
-
-IL_000a:
-	{
-		// public static implicit operator Int64(ByteConverter bc) { return bc.int64; }
-		int64_t L_2 = V_0;
-		return L_2;
+		return L_1;
 	}
 }
 // System.Single Photon.Compression.ByteConverter::op_Implicit(Photon.Compression.ByteConverter)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float ByteConverter_op_Implicit_m1D161D372E77F223F02EE225432107C826AE74E9 (ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  ___bc0, const RuntimeMethod* method)
 {
-	float V_0 = 0.0f;
 	{
 		// public static implicit operator Single(ByteConverter bc) { return bc.float32; }
 		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_0 = ___bc0;
 		float L_1 = L_0.get_float32_0();
-		V_0 = L_1;
-		goto IL_000a;
-	}
-
-IL_000a:
-	{
-		// public static implicit operator Single(ByteConverter bc) { return bc.float32; }
-		float L_2 = V_0;
-		return L_2;
+		return L_1;
 	}
 }
 // System.Double Photon.Compression.ByteConverter::op_Implicit(Photon.Compression.ByteConverter)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR double ByteConverter_op_Implicit_m00075B7217E05FBB50CB1B8562E2122AC06B9B96 (ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  ___bc0, const RuntimeMethod* method)
 {
-	double V_0 = 0.0;
 	{
 		// public static implicit operator Double(ByteConverter bc) { return bc.float64; }
 		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_0 = ___bc0;
 		double L_1 = L_0.get_float64_1();
-		V_0 = L_1;
-		goto IL_000a;
-	}
-
-IL_000a:
-	{
-		// public static implicit operator Double(ByteConverter bc) { return bc.float64; }
-		double L_2 = V_0;
-		return L_2;
+		return L_1;
 	}
 }
 // System.Boolean Photon.Compression.ByteConverter::op_Implicit(Photon.Compression.ByteConverter)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool ByteConverter_op_Implicit_m5B852C6D62A2252BFFDD51FFE959EDEE8DD9C64D (ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  ___bc0, const RuntimeMethod* method)
 {
-	bool V_0 = false;
 	{
 		// public static implicit operator Boolean(ByteConverter bc) { return bc.int32 != 0; }
 		ByteConverter_t93982272F214070BD1AAC06E546392F70896AF7A  L_0 = ___bc0;
 		int32_t L_1 = L_0.get_int32_6();
-		V_0 = (bool)((!(((uint32_t)L_1) <= ((uint32_t)0)))? 1 : 0);
-		goto IL_000d;
-	}
-
-IL_000d:
-	{
-		// public static implicit operator Boolean(ByteConverter bc) { return bc.int32 != 0; }
-		bool L_2 = V_0;
-		return L_2;
+		return (bool)((!(((uint32_t)L_1) <= ((uint32_t)0)))? 1 : 0);
 	}
 }
 #ifdef __clang__
@@ -2535,153 +2235,81 @@ IL_000d:
 // System.UInt64 Photon.Compression.ZigZagExt::ZigZag(System.Int64)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR uint64_t ZigZagExt_ZigZag_m7FAE5134ADF8E924427553875909EC723C126420 (int64_t ___s0, const RuntimeMethod* method)
 {
-	uint64_t V_0 = 0;
 	{
 		// return (ulong)((s << 1) ^ (s >> 63));
 		int64_t L_0 = ___s0;
 		int64_t L_1 = ___s0;
-		V_0 = ((int64_t)((int64_t)((int64_t)((int64_t)L_0<<(int32_t)1))^(int64_t)((int64_t)((int64_t)L_1>>(int32_t)((int32_t)63)))));
-		goto IL_000c;
-	}
-
-IL_000c:
-	{
-		// }
-		uint64_t L_2 = V_0;
-		return L_2;
+		return ((int64_t)((int64_t)((int64_t)((int64_t)L_0<<(int32_t)1))^(int64_t)((int64_t)((int64_t)L_1>>(int32_t)((int32_t)63)))));
 	}
 }
 // System.Int64 Photon.Compression.ZigZagExt::UnZigZag(System.UInt64)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int64_t ZigZagExt_UnZigZag_m42196870B0101F37DEFC0EC78569509707876F76 (uint64_t ___u0, const RuntimeMethod* method)
 {
-	int64_t V_0 = 0;
 	{
 		// return ((long)(u >> 1) ^ (-(long)(u & 1)));
 		uint64_t L_0 = ___u0;
 		uint64_t L_1 = ___u0;
-		V_0 = ((int64_t)((int64_t)((int64_t)((uint64_t)L_0>>1))^(int64_t)((-((int64_t)((int64_t)L_1&(int64_t)((int64_t)((int64_t)1))))))));
-		goto IL_000d;
-	}
-
-IL_000d:
-	{
-		// }
-		int64_t L_2 = V_0;
-		return L_2;
+		return ((int64_t)((int64_t)((int64_t)((uint64_t)L_0>>1))^(int64_t)((-((int64_t)((int64_t)L_1&(int64_t)((int64_t)((int64_t)1))))))));
 	}
 }
 // System.UInt32 Photon.Compression.ZigZagExt::ZigZag(System.Int32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR uint32_t ZigZagExt_ZigZag_mE34273352955DB4A9D056B1CB4E96019FCB73955 (int32_t ___s0, const RuntimeMethod* method)
 {
-	uint32_t V_0 = 0;
 	{
 		// return (uint)((s << 1) ^ (s >> 31));
 		int32_t L_0 = ___s0;
 		int32_t L_1 = ___s0;
-		V_0 = ((int32_t)((int32_t)((int32_t)((int32_t)L_0<<(int32_t)1))^(int32_t)((int32_t)((int32_t)L_1>>(int32_t)((int32_t)31)))));
-		goto IL_000c;
-	}
-
-IL_000c:
-	{
-		// }
-		uint32_t L_2 = V_0;
-		return L_2;
+		return ((int32_t)((int32_t)((int32_t)((int32_t)L_0<<(int32_t)1))^(int32_t)((int32_t)((int32_t)L_1>>(int32_t)((int32_t)31)))));
 	}
 }
 // System.Int32 Photon.Compression.ZigZagExt::UnZigZag(System.UInt32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t ZigZagExt_UnZigZag_m355D1384E7ED03110F82096F557FCC82EEB7EED6 (uint32_t ___u0, const RuntimeMethod* method)
 {
-	int32_t V_0 = 0;
 	{
 		// return (int)((u >> 1) ^ (-(int)(u & 1)));
 		uint32_t L_0 = ___u0;
 		uint32_t L_1 = ___u0;
-		V_0 = ((int32_t)((int32_t)((int64_t)((int64_t)((int64_t)((uint64_t)((uint32_t)((uint32_t)((int32_t)((uint32_t)L_0>>1))))))^(int64_t)((int64_t)((int64_t)((-((int32_t)((int32_t)L_1&(int32_t)1))))))))));
-		goto IL_000f;
-	}
-
-IL_000f:
-	{
-		// }
-		int32_t L_2 = V_0;
-		return L_2;
+		return ((int32_t)((int32_t)((int64_t)((int64_t)((int64_t)((uint64_t)((uint32_t)((uint32_t)((int32_t)((uint32_t)L_0>>1))))))^(int64_t)((int64_t)((int64_t)((-((int32_t)((int32_t)L_1&(int32_t)1))))))))));
 	}
 }
 // System.UInt16 Photon.Compression.ZigZagExt::ZigZag(System.Int16)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR uint16_t ZigZagExt_ZigZag_mCECDDE256DFF748C389C79D59A377480C868DE9B (int16_t ___s0, const RuntimeMethod* method)
 {
-	uint16_t V_0 = 0;
 	{
 		// return (ushort)((s << 1) ^ (s >> 15));
 		int16_t L_0 = ___s0;
 		int16_t L_1 = ___s0;
-		V_0 = (uint16_t)((int32_t)((uint16_t)((int32_t)((int32_t)((int32_t)((int32_t)L_0<<(int32_t)1))^(int32_t)((int32_t)((int32_t)L_1>>(int32_t)((int32_t)15)))))));
-		goto IL_000d;
-	}
-
-IL_000d:
-	{
-		// }
-		uint16_t L_2 = V_0;
-		return L_2;
+		return (uint16_t)((int32_t)((uint16_t)((int32_t)((int32_t)((int32_t)((int32_t)L_0<<(int32_t)1))^(int32_t)((int32_t)((int32_t)L_1>>(int32_t)((int32_t)15)))))));
 	}
 }
 // System.Int16 Photon.Compression.ZigZagExt::UnZigZag(System.UInt16)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int16_t ZigZagExt_UnZigZag_m6350217B1656399B11B7CE0499448D8C5EB539ED (uint16_t ___u0, const RuntimeMethod* method)
 {
-	int16_t V_0 = 0;
 	{
 		// return (short)((u >> 1) ^ (-(short)(u & 1)));
 		uint16_t L_0 = ___u0;
 		uint16_t L_1 = ___u0;
-		V_0 = ((int16_t)((int16_t)((int32_t)((int32_t)((int32_t)((int32_t)L_0>>(int32_t)1))^(int32_t)((-((int16_t)((int16_t)((int32_t)((int32_t)L_1&(int32_t)1))))))))));
-		goto IL_000e;
-	}
-
-IL_000e:
-	{
-		// }
-		int16_t L_2 = V_0;
-		return L_2;
+		return ((int16_t)((int16_t)((int32_t)((int32_t)((int32_t)((int32_t)L_0>>(int32_t)1))^(int32_t)((-((int16_t)((int16_t)((int32_t)((int32_t)L_1&(int32_t)1))))))))));
 	}
 }
 // System.Byte Photon.Compression.ZigZagExt::ZigZag(System.SByte)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR uint8_t ZigZagExt_ZigZag_m8DB6228DB0FD6C79D63F3FD643308CBBDEDB6914 (int8_t ___s0, const RuntimeMethod* method)
 {
-	uint8_t V_0 = 0x0;
 	{
 		// return (byte)((s << 1) ^ (s >> 7));
 		int8_t L_0 = ___s0;
 		int8_t L_1 = ___s0;
-		V_0 = (uint8_t)((int32_t)((uint8_t)((int32_t)((int32_t)((int32_t)((int32_t)L_0<<(int32_t)1))^(int32_t)((int32_t)((int32_t)L_1>>(int32_t)7))))));
-		goto IL_000c;
-	}
-
-IL_000c:
-	{
-		// }
-		uint8_t L_2 = V_0;
-		return L_2;
+		return (uint8_t)((int32_t)((uint8_t)((int32_t)((int32_t)((int32_t)((int32_t)L_0<<(int32_t)1))^(int32_t)((int32_t)((int32_t)L_1>>(int32_t)7))))));
 	}
 }
 // System.SByte Photon.Compression.ZigZagExt::UnZigZag(System.Byte)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int8_t ZigZagExt_UnZigZag_mAE4F1FF6813EFB24C9FA6545088B0DE2B353CA5B (uint8_t ___u0, const RuntimeMethod* method)
 {
-	int8_t V_0 = 0x0;
 	{
 		// return (sbyte)((u >> 1) ^ (-(sbyte)(u & 1)));
 		uint8_t L_0 = ___u0;
 		uint8_t L_1 = ___u0;
-		V_0 = ((int8_t)((int8_t)((int32_t)((int32_t)((int32_t)((int32_t)L_0>>(int32_t)1))^(int32_t)((-((int8_t)((int8_t)((int32_t)((int32_t)L_1&(int32_t)1))))))))));
-		goto IL_000e;
-	}
-
-IL_000e:
-	{
-		// }
-		int8_t L_2 = V_0;
-		return L_2;
+		return ((int8_t)((int8_t)((int32_t)((int32_t)((int32_t)((int32_t)L_0>>(int32_t)1))^(int32_t)((-((int8_t)((int8_t)((int32_t)((int32_t)L_1&(int32_t)1))))))))));
 	}
 }
 #ifdef __clang__

@@ -14,12 +14,19 @@ namespace Com.TypeGames.TSBR
         public Text title;
         public Text description;
         public GameObject characterHolder;
-        
+
+        public Text selectButtonText;
+        public CharacterPurchaseConfirmationPane purchaseConfirmationPane;
+        public Button exitButton;
+        public Button selectButton;
+
         private GameObject currentCharacter;
 
         public void Start()
         {
             Hide();
+            EnableUI();
+            purchaseConfirmationPane.gameObject.SetActive(false);
         }
 
         public void RenderCharacter(CharacterButton button)
@@ -34,13 +41,22 @@ namespace Com.TypeGames.TSBR
 
             title.text = character.name;
             description.text = character.description;
+            selectButtonText.text = button.owned ? "Select Character" : "Purchase Character";
         }
 
         public void OnSelectButtonPressed()
         {
-            Debug.Log("Character selected");
-            buttonManager.CharacterSelected(this.currentButton);
-            Hide();
+            if (currentButton.owned)
+            {
+                Debug.Log("Character selected");
+                buttonManager.CharacterSelected(this.currentButton);
+                Hide();
+            }
+            else {
+                purchaseConfirmationPane.SetValues(currentButton);
+                DisableUI();
+                purchaseConfirmationPane.gameObject.SetActive(true);
+            }
         }
 
         public void OnExitPressed()
@@ -55,6 +71,20 @@ namespace Com.TypeGames.TSBR
             {
                 Destroy(currentCharacter);
             }          
+        }
+
+        public void EnableUI()
+        {
+            exitButton.enabled = true;
+            selectButton.enabled = true;
+            this.gameObject.GetComponent<Image>().color = new Color32(0, 0, 0, 128);
+        }
+
+        public void DisableUI()
+        {
+            exitButton.enabled = false;
+            selectButton.enabled = false;
+            this.gameObject.GetComponent<Image>().color = new Color32(0, 0, 0, 190);
         }
     }
 }

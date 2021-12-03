@@ -1,0 +1,84 @@
+﻿<Properties StartupConfiguration="{CC6C64DC-D078-6CD1-54E5-DF9CD1D3F46D}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Scene Scripts/Battle Royale/GameManager.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Data Types/PlayerManager.cs" Line="809" Column="50" />
+      <File FileName="Assets/Scripts/Scene Scripts/Battle Royale/GameManager.cs" Line="22" Column="20" />
+      <File FileName="Assets/Scripts/Data Types/BotManager.cs" />
+      <File FileName="Assets/Scripts/Data Types/Character.cs" />
+      <File FileName="Assets/Scripts/Data Types/MatchData.cs" />
+      <File FileName="Assets/Scripts/Data Types/CharacterSet.cs" />
+      <File FileName="Assets/Scripts/Scene Scripts/PostGame/PostGameManager.cs" />
+      <File FileName="Assets/Scripts/Scene Scripts/Character Select/CharacterButton.cs" />
+      <File FileName="Assets/Scripts/Scene Scripts/Battle Royale/KeyboardHandler.cs" />
+      <File FileName="Assets/Scripts/Scene Scripts/Lobby/LobbyNetwork.cs" />
+      <File FileName="Assets/Scripts/Scene Scripts/Character Select/CharacterPurchaseConfirmationPane.cs" />
+      <File FileName="Assets/Scripts/Data Types/TimeKeeper.cs" />
+      <File FileName="Assets/Scripts/Data Types/Word.cs" />
+      <File FileName="Assets/Scripts/Data Types/User.cs" />
+      <File FileName="Assets/Scripts/Scene Scripts/Settings/SettingsManager.cs" />
+      <File FileName="Assets/Scripts/Global/DatabaseManager.cs" />
+      <File FileName="Assets/Scripts/Global/ButtonSound.cs" />
+      <File FileName="Assets/Scripts/Data Types/Projectile.cs" />
+      <File FileName="Assets/Scripts/Global/LocalData.cs" />
+      <File FileName="Assets/Scripts/Scene Scripts/Character Select/CharacterButtonManager.cs" />
+      <File FileName="Assets/Scripts/Global/AudioManager.cs" />
+      <File FileName="Assets/PreventDeselect.cs" />
+      <File FileName="Assets/Scripts/Scene Scripts/Battle Royale/PermanentInput.cs" />
+      <File FileName="Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs" />
+      <File FileName="Assets/Scripts/Global/PopUpButton.cs" />
+      <File FileName="Assets/Scripts/Scene Scripts/Character Select/CharacterPaneManager.cs" />
+      <File FileName="Assets/Scripts/Authentication/AuthInterface.cs" />
+      <File FileName="Assets/NewBehaviourScript.cs" />
+      <File FileName="Assets/Photon/PhotonUnityNetworking/Code/PunClasses.cs" />
+      <File FileName="Assets/Scripts/Scene Scripts/Lobby/LobbyUI.cs" />
+      <File FileName="Assets/Scripts/Authentication/AuthManager.cs" />
+      <File FileName="Assets/Scripts/Global/SceneChangeButton.cs" />
+      <File FileName="Assets/Scripts/Scene Scripts/Library/WordListButtonManager.cs" />
+      <File FileName="Assets/Scripts/Scene Scripts/Library/WordListButton.cs" />
+      <File FileName="Assets/Scripts/Scene Scripts/New User Flow/SetupHandler.cs" />
+      <File FileName="Assets/Scripts/Scene Scripts/Library/PurchaseConfirmationPane.cs" />
+      <File FileName="Assets/Scripts/Data Types/AlertText.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="tsbr-pun" expanded="True">
+            <Node name="Assets" expanded="True" selected="True">
+              <Node name="Photon" expanded="True">
+                <Node name="PhotonRealtime" expanded="True">
+                  <Node name="Code" expanded="True" />
+                </Node>
+                <Node name="PhotonUnityNetworking" expanded="True">
+                  <Node name="Code" expanded="True" />
+                </Node>
+              </Node>
+              <Node name="Plugins" expanded="True" />
+              <Node name="Scripts" expanded="True">
+                <Node name="Authentication" expanded="True" />
+                <Node name="Data Types" expanded="True" />
+                <Node name="Editor" expanded="True" />
+                <Node name="Global" expanded="True" />
+                <Node name="Scene Scripts" expanded="True">
+                  <Node name="Battle Royale" expanded="True" />
+                  <Node name="Character Select" expanded="True" />
+                  <Node name="Library" expanded="True" />
+                  <Node name="Lobby" expanded="True" />
+                  <Node name="New User Flow" expanded="True" />
+                  <Node name="PostGame" expanded="True" />
+                  <Node name="Settings" expanded="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="3bf411d8-a94f-421c-9c1d-0d6e244de464" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

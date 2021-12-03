@@ -19,6 +19,9 @@ namespace Com.TypeGames.TSBR
         public static WordList wordList;
         public static Character character;
         public static AudioManager audioManager;
+        public static int botCount = 0;
+        public static PlayerInfoUI infoUI;
+        public static GameObject uiPrefab;
         #endregion
 
         #region game instance variable
@@ -30,12 +33,20 @@ namespace Com.TypeGames.TSBR
         public static int kills;
         public static float gameTimer = 0.0f;
         public static string killerNickName;
+        public static int playersLeft;
         #endregion
 
         #region player pref keys
         const string playerNamePrefKey = "PlayerName";
         const string wordListPrefKey = "WordListId";
         const string characterPrefKey = "CharacterId";
+        public const string winsKey = "Wins";
+        public const string lossesKey = "Losses";
+        public const string wordsCorrectKey = "WordsCorrect";
+        public const string wordsIncorrectKey = "WordsIncorrect";
+        public const string minutesPlayedKey = "minutesPlayed";
+        public const string killsKey = "kills";
+        public const string updateHashKey = "UpdateHash";
         #endregion
 
         #region setup management
@@ -43,6 +54,14 @@ namespace Com.TypeGames.TSBR
         public static int setUpIndex;
         public static bool userHasAccount;
         public static AuthManager authManager;
+        #endregion
+
+        #region database management
+        public static bool dbReady = false;
+        public static bool authReady = false;
+        public static bool setupDone = false;
+
+        public static User user;
         #endregion
 
         #region global methods
@@ -104,6 +123,9 @@ namespace Com.TypeGames.TSBR
             if(trackingInstance == null)
             {
                 trackingInstance = this;
+                user = new User();
+
+                //resetting data
                 //PlayerPrefs.DeleteAll();
                 //var auth = FirebaseAuth.DefaultInstance;
                 //auth.SignOut();
@@ -111,6 +133,7 @@ namespace Com.TypeGames.TSBR
                 Destroy(gameObject);
             }
 
+            
 
             
         }
@@ -121,6 +144,7 @@ namespace Com.TypeGames.TSBR
             characterSet = this.gameObject.GetComponent<CharacterSet>();
             authManager = this.gameObject.GetComponent<AuthManager>();
             audioManager = GameObject.FindObjectOfType<AudioManager>();
+            //infoUI = GameObject.FindObjectOfType<PlayerInfoUI>();
             ResetGameStats();
             HandleNameInit();
             HandleWordListInit();
@@ -149,24 +173,21 @@ namespace Com.TypeGames.TSBR
                 //SceneManager.LoadScene("Settings");
                 SceneManager.LoadScene("New Player");
             }
-
         }
 
         private void HandleWordListInit()
         {
             //Debug.Log("Getting wordlist");
-            LocalData.wordList = PlayerPrefs.HasKey(wordListPrefKey) ?
-                WordListSet.GetWordListById(PlayerPrefs.GetInt(wordListPrefKey)) :
-                WordListSet.GetWordListById(0);
+            SetWordList(PlayerPrefs.HasKey(wordListPrefKey) ?
+                PlayerPrefs.GetInt(wordListPrefKey) : 0);
             Debug.Log("Wordlist is " + LocalData.wordList.name);
         }
 
         private void HandleCharacterInit()
         {
             //Debug.Log("Getting character");
-            LocalData.character = PlayerPrefs.HasKey(characterPrefKey) ?
-                characterSet.GetCharacterById(PlayerPrefs.GetInt(characterPrefKey)) :
-                characterSet.GetCharacterById(0);
+            SetCharacter(PlayerPrefs.HasKey(characterPrefKey) ?
+                PlayerPrefs.GetInt(characterPrefKey) : 0);
             Debug.Log("Character is " + LocalData.character.name);
         }
 
@@ -180,6 +201,12 @@ namespace Com.TypeGames.TSBR
                 //return;
             }
 
+            user.name = value;
+
+            if(ShouldUseDB()) {
+                DatabaseManager.WriteUser();
+            }
+            
             PhotonNetwork.NickName = value;
             PlayerPrefs.SetString(playerNamePrefKey, value);
             //todo: fix execution order, auth loads after this
@@ -195,17 +222,68 @@ namespace Com.TypeGames.TSBR
             }
         }
 
-        public static void SetWordList(int value)
+        public static void SetWordList(int value = 0, bool useDb = true)
         {
+            wordList = WordListSet.GetWordListById(value);
             PlayerPrefs.SetInt(wordListPrefKey, value);
+
+            if (ShouldUseDB() && useDb)
+            {
+                DatabaseManager.OnUserSelectedWordList(value);
+            }
         }
 
-        public static void SetCharacter(int value)
+        public static void SetCharacter(int value = 0, bool useDb = true)
         {
+            character = characterSet.GetCharacterById(value);
             PlayerPrefs.SetInt(characterPrefKey, value);
+
+            if (ShouldUseDB() && useDb)
+            {
+                DatabaseManager.OnUserSelectedCharacter(value);
+            }
+            
+        }
+
+        public static void SetUpInfoPane(Transform spawnPoint)
+        {
+            infoUI = Instantiate(uiPrefab, spawnPoint).GetComponent<PlayerInfoUI>();
+            infoUI.Refresh();
         }
 
         #endregion
+
+        #region database setup and general
+        public static void OnDatabaseReady()
+        {
+            dbReady = true;
+            Debug.Log("In ondatabaseready with setupdone: " + setupDone);
+            if (authReady && !setupDone)
+            {
+                setupDone = true;
+                DatabaseManager.OnDatabaseAndAuthReady();
+            }
+        }
+
+        public static void OnAuthReady()
+        {
+            authReady = true;
+            Debug.Log("In Onauthready with setupdone: " + setupDone);
+            if (dbReady && !setupDone)
+            {
+                setupDone = true;
+                DatabaseManager.OnDatabaseAndAuthReady();
+            }
+        }
+
+        public static bool ShouldUseDB()
+        {
+            return authManager.auth != null &&
+                authManager.auth.CurrentUser != null &&
+                authManager.auth.CurrentUser.IsEmailVerified;
+        }
+        #endregion
+
 
     }
 

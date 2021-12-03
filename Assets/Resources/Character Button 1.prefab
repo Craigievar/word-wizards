@@ -65,6 +65,7 @@ MonoBehaviour:
   manager: {fileID: 0}
   selectionIndicator: {fileID: 1376439157226225994}
   icon: {fileID: 1610836770700803567}
+  owned: 0
 --- !u!114 &6370089698606233416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,7 +188,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: ef514b61a8d364229aa0de893881cb33, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -340,7 +341,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c34a8d1f1a37f4e259cea532fff3eda6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 06f23e28acfed4cf9bde401e17961bda, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

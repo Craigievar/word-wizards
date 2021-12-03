@@ -9,6 +9,7 @@ namespace Com.TypeGames.TSBR
     {
         public WordList wordList;
         public WordListButtonManager manager;
+        public bool owned;
 
         public void Start()
         {

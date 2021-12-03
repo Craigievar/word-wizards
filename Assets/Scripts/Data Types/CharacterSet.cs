@@ -6,12 +6,14 @@ namespace Com.TypeGames.TSBR
 {
     public class CharacterSet: MonoBehaviour
     {
-        public GameObject[] characters;
+        //public GameObject[] characters;
+        [SerializeField]
+        public Character[] characters;
 
         public Character GetCharacterById(int id){
-            foreach(GameObject g in characters){
-                if(g.GetComponent<Character>().id == id){
-                    return g.GetComponent<Character>();
+            foreach(Character c in characters){
+                if(c.id == id){
+                    return c;
                 }
             }
 

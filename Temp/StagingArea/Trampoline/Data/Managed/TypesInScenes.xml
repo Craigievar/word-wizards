@@ -65,30 +65,39 @@
 	</assembly>
 	<assembly fullname="Assembly-CSharp">
 		<type fullname="Com.TypeGames.TSBR.AdManager" preserve="nothing"/>
+		<type fullname="Com.TypeGames.TSBR.AddWordListButton" preserve="nothing"/>
+		<type fullname="Com.TypeGames.TSBR.AlertText" preserve="nothing"/>
 		<type fullname="Com.TypeGames.TSBR.AudioManager" preserve="nothing"/>
 		<type fullname="Com.TypeGames.TSBR.AuthInterface" preserve="nothing"/>
 		<type fullname="Com.TypeGames.TSBR.AuthManager" preserve="nothing"/>
+		<type fullname="Com.TypeGames.TSBR.BotManager" preserve="nothing"/>
 		<type fullname="Com.TypeGames.TSBR.ButtonSound" preserve="nothing"/>
 		<type fullname="Com.TypeGames.TSBR.Character" preserve="nothing"/>
 		<type fullname="Com.TypeGames.TSBR.CharacterButton" preserve="nothing"/>
 		<type fullname="Com.TypeGames.TSBR.CharacterButtonManager" preserve="nothing"/>
 		<type fullname="Com.TypeGames.TSBR.CharacterPaneManager" preserve="nothing"/>
+		<type fullname="Com.TypeGames.TSBR.CharacterPurchaseConfirmationPane" preserve="nothing"/>
 		<type fullname="Com.TypeGames.TSBR.CharacterSet" preserve="nothing"/>
 		<type fullname="Com.TypeGames.TSBR.DatabaseManager" preserve="nothing"/>
 		<type fullname="Com.TypeGames.TSBR.GameManager" preserve="nothing"/>
 		<type fullname="Com.TypeGames.TSBR.KeyboardHandler" preserve="nothing"/>
 		<type fullname="Com.TypeGames.TSBR.LobbyNetwork" preserve="nothing"/>
+		<type fullname="Com.TypeGames.TSBR.LobbyUI" preserve="nothing"/>
 		<type fullname="Com.TypeGames.TSBR.LocalData" preserve="nothing"/>
+		<type fullname="Com.TypeGames.TSBR.PlayerInfoUI" preserve="nothing"/>
 		<type fullname="Com.TypeGames.TSBR.PlayerManager" preserve="nothing"/>
+		<type fullname="Com.TypeGames.TSBR.PopUpButton" preserve="nothing"/>
 		<type fullname="Com.TypeGames.TSBR.PostGameAd" preserve="nothing"/>
 		<type fullname="Com.TypeGames.TSBR.PostGameManager" preserve="nothing"/>
 		<type fullname="Com.TypeGames.TSBR.Projectile" preserve="nothing"/>
+		<type fullname="Com.TypeGames.TSBR.PurchaseConfirmationPane" preserve="nothing"/>
 		<type fullname="Com.TypeGames.TSBR.SceneChangeButton" preserve="nothing"/>
 		<type fullname="Com.TypeGames.TSBR.SettingsManager" preserve="nothing"/>
 		<type fullname="Com.TypeGames.TSBR.SetupHandler" preserve="nothing"/>
 		<type fullname="Com.TypeGames.TSBR.WordListButton" preserve="nothing"/>
 		<type fullname="Com.TypeGames.TSBR.WordListButtonManager" preserve="nothing"/>
 		<type fullname="Com.TypeGames.TSBR.WordPaneManager" preserve="nothing"/>
+		<type fullname="PermanentInput" preserve="nothing"/>
 		<type fullname="Photon.Compression.Internal.TypeCatalogue" preserve="nothing"/>
 		<type fullname="Photon.Compression.PackObjectSettings" preserve="nothing"/>
 		<type fullname="Photon.Compression.WorldBoundsSettings" preserve="nothing"/>
@@ -118,6 +127,7 @@
 		<type fullname="Photon.Pun.Simple.TickEngineSettings" preserve="nothing"/>
 		<type fullname="Photon.Pun.Simple.VitalUI" preserve="nothing"/>
 		<type fullname="Photon.Pun.Simple.VitalsContactReactor" preserve="nothing"/>
+		<type fullname="PreventDeselect" preserve="nothing"/>
 		<type fullname="SuperBasicController" preserve="nothing"/>
 		<type fullname="emotitron.TestPackObject" preserve="nothing"/>
 	</assembly>
@@ -138,6 +148,10 @@
 		<type fullname="Photon.Pun.PhotonTransformView" preserve="nothing"/>
 		<type fullname="Photon.Pun.PhotonView" preserve="nothing"/>
 		<type fullname="Photon.Pun.ServerSettings" preserve="nothing"/>
+	</assembly>
+	<assembly fullname="UnityEngine.Advertisements">
+		<type fullname="UnityEngine.Advertisements.Placeholder" preserve="nothing"/>
+		<type fullname="UnityEngine.Advertisements.Platform.Editor.BannerPlaceholder" preserve="nothing"/>
 	</assembly>
 	<assembly fullname="UnityEngine.UI">
 		<type fullname="UnityEngine.EventSystems.EventSystem" preserve="nothing"/>

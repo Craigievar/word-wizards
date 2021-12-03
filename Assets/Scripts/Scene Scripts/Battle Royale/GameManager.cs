@@ -17,17 +17,32 @@ namespace Com.TypeGames.TSBR
     {
         [Tooltip("The prefab to use for representing a player")]
         public GameObject playerPrefab;
+        public GameObject botPrefab;
         public GameObject localPlayer;
         public PlayerManager localPlayerManager;
+
+        [SerializeField]
         public Dictionary<int, PlayerManager> playerLookup = new Dictionary<int, PlayerManager>();
+        public Dictionary<int, int> viewLookup = new Dictionary<int, int>();
         public Text wordCountField;
         public Text prompt;
+        public Text playerLeftField;
+
         public bool logDebug = true;
         public float masterPingInterval = 5000.0f;
-        public int maxWordsInQueue = 20;
+        public int maxWordsInQueue = 5;
         public int playersToWin = 1;
 
+        public GameObject alertPrefab;
+        public Transform alertSource;
+
+        public Transform attackerSpawnLocation;
+        public Transform attackerProjectileSpawnLocation;
+
         public bool gameOver = false;
+
+        [SerializeField]
+        public List<string> positions;
 
         //public bool amWinner;
         //public int wordsCorrect;
@@ -47,7 +62,7 @@ namespace Com.TypeGames.TSBR
         /// </summary>
         public override void OnLeftRoom()
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("Post Game");
         }
 
 
@@ -84,20 +99,25 @@ namespace Com.TypeGames.TSBR
 
         public void RegisterPlayer(PlayerManager caller)
         {
-            playerLookup.Add(caller.photonView.OwnerActorNr, caller);
+            //Debug.Break();
+            playerLookup.Add(caller.photonView.ViewID, caller);
+            if (!caller.isBot)
+                viewLookup.Add(caller.photonView.OwnerActorNr, caller.photonView.ViewID);
         }
 
-        public int CountLivingPlayers()
+        public int CountLivingPlayers(bool includeBots = true)
         {
             int tmp = 0;
             foreach(PlayerManager p in playerLookup.Values)
             {
-                if (p.alive)
+                if (p.alive && (includeBots || (!p.isBot)))
                 {
                     tmp++;
                 }
             }
+            Debug.Log(playerLookup.Count + " players total");
             Debug.Log(tmp + " players alive");
+            //Debug.Break();
             return tmp;
         }
 
@@ -105,8 +125,19 @@ namespace Com.TypeGames.TSBR
         {
             foreach (PlayerManager p in playerLookup.Values)
             {
-                p.sendInterval.IsEnabled = false;
+                if(!p.isBot)
+                    p.sendInterval.IsEnabled = false;
             }
+        }
+
+        public int GetViewByActor(int actorId)
+        {
+            return viewLookup.ContainsKey(actorId) ? viewLookup[actorId] : -1;
+        }
+
+        public PlayerManager GetPlayerManagerByActor(int actorId)
+        {
+            return GetViewByActor(actorId) > 0 ? playerLookup[GetViewByActor(actorId)] : null;
         }
 
 
@@ -116,7 +147,7 @@ namespace Com.TypeGames.TSBR
             {
                 if (p != null && p.photonView != null && p.alive)
                 {
-                    return p.photonView.OwnerActorNr;
+                    return p.photonView.ViewID;
                 }
             }
 
@@ -159,15 +190,43 @@ namespace Com.TypeGames.TSBR
 
                 localPlayer = PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
                 localPlayerManager = localPlayer.GetComponent<PlayerManager>();
+
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    Debug.Log(LocalData.botCount + " bots");
+                    for (int i = 0; i < LocalData.botCount; i++)
+                        PhotonNetwork.Instantiate("Bot", new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
+                }
             }
+
+            positions = new List<string>();
         }
         #endregion
 
         private void Update()
         {
-            wordCountField.text = localPlayerManager.wordQueue.Count.ToString();
+            wordCountField.text = localPlayerManager.wordQueue.Count.ToString() + " Words To Type";
+
+            if(localPlayerManager.wordQueue.Count > (maxWordsInQueue / 0.85))
+            {
+                wordCountField.color = Color.red;
+            } else if (localPlayerManager.wordQueue.Count > (maxWordsInQueue / 0.50))
+            {
+                wordCountField.color = Color.yellow;
+            } else
+            {
+                wordCountField.color = Color.green;
+            }
+
+
             //Debug.Log(PhotonNetwork.PlayerList.Length);
             prompt.text = GetCurrentWord();
+        }
+
+        public void ShowAlert(string textForAlert)
+        {
+            GameObject alert = Instantiate(alertPrefab, alertSource);
+            alert.GetComponent<Text>().text = textForAlert;
         }
     }
 }

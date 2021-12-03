@@ -32,6 +32,17 @@ struct VirtActionInvoker0
 		((Action)invokeData.methodPtr)(obj, invokeData.method);
 	}
 };
+template <typename T1>
+struct VirtActionInvoker1
+{
+	typedef void (*Action)(void*, T1, const RuntimeMethod*);
+
+	static inline void Invoke (Il2CppMethodSlot slot, RuntimeObject* obj, T1 p1)
+	{
+		const VirtualInvokeData& invokeData = il2cpp_codegen_get_virtual_invoke_data(slot, obj);
+		((Action)invokeData.methodPtr)(obj, p1, invokeData.method);
+	}
+};
 template <typename T1, typename T2, typename T3>
 struct VirtActionInvoker3
 {
@@ -65,17 +76,6 @@ struct VirtActionInvoker2
 		((Action)invokeData.methodPtr)(obj, p1, p2, invokeData.method);
 	}
 };
-template <typename T1>
-struct VirtActionInvoker1
-{
-	typedef void (*Action)(void*, T1, const RuntimeMethod*);
-
-	static inline void Invoke (Il2CppMethodSlot slot, RuntimeObject* obj, T1 p1)
-	{
-		const VirtualInvokeData& invokeData = il2cpp_codegen_get_virtual_invoke_data(slot, obj);
-		((Action)invokeData.methodPtr)(obj, p1, invokeData.method);
-	}
-};
 template <typename R, typename T1>
 struct VirtFuncInvoker1
 {
@@ -85,6 +85,29 @@ struct VirtFuncInvoker1
 	{
 		const VirtualInvokeData& invokeData = il2cpp_codegen_get_virtual_invoke_data(slot, obj);
 		return ((Func)invokeData.methodPtr)(obj, p1, invokeData.method);
+	}
+};
+struct GenericVirtActionInvoker0
+{
+	typedef void (*Action)(void*, const RuntimeMethod*);
+
+	static inline void Invoke (const RuntimeMethod* method, RuntimeObject* obj)
+	{
+		VirtualInvokeData invokeData;
+		il2cpp_codegen_get_generic_virtual_invoke_data(method, obj, &invokeData);
+		((Action)invokeData.methodPtr)(obj, invokeData.method);
+	}
+};
+template <typename T1>
+struct GenericVirtActionInvoker1
+{
+	typedef void (*Action)(void*, T1, const RuntimeMethod*);
+
+	static inline void Invoke (const RuntimeMethod* method, RuntimeObject* obj, T1 p1)
+	{
+		VirtualInvokeData invokeData;
+		il2cpp_codegen_get_generic_virtual_invoke_data(method, obj, &invokeData);
+		((Action)invokeData.methodPtr)(obj, p1, invokeData.method);
 	}
 };
 template <typename T1, typename T2, typename T3>
@@ -121,29 +144,6 @@ struct GenericVirtActionInvoker2
 		VirtualInvokeData invokeData;
 		il2cpp_codegen_get_generic_virtual_invoke_data(method, obj, &invokeData);
 		((Action)invokeData.methodPtr)(obj, p1, p2, invokeData.method);
-	}
-};
-template <typename T1>
-struct GenericVirtActionInvoker1
-{
-	typedef void (*Action)(void*, T1, const RuntimeMethod*);
-
-	static inline void Invoke (const RuntimeMethod* method, RuntimeObject* obj, T1 p1)
-	{
-		VirtualInvokeData invokeData;
-		il2cpp_codegen_get_generic_virtual_invoke_data(method, obj, &invokeData);
-		((Action)invokeData.methodPtr)(obj, p1, invokeData.method);
-	}
-};
-struct GenericVirtActionInvoker0
-{
-	typedef void (*Action)(void*, const RuntimeMethod*);
-
-	static inline void Invoke (const RuntimeMethod* method, RuntimeObject* obj)
-	{
-		VirtualInvokeData invokeData;
-		il2cpp_codegen_get_generic_virtual_invoke_data(method, obj, &invokeData);
-		((Action)invokeData.methodPtr)(obj, invokeData.method);
 	}
 };
 template <typename R>
@@ -192,6 +192,27 @@ struct InterfaceFuncInvoker1
 		return ((Func)invokeData.methodPtr)(obj, p1, invokeData.method);
 	}
 };
+struct InterfaceActionInvoker0
+{
+	typedef void (*Action)(void*, const RuntimeMethod*);
+
+	static inline void Invoke (Il2CppMethodSlot slot, RuntimeClass* declaringInterface, RuntimeObject* obj)
+	{
+		const VirtualInvokeData& invokeData = il2cpp_codegen_get_interface_invoke_data(slot, obj, declaringInterface);
+		((Action)invokeData.methodPtr)(obj, invokeData.method);
+	}
+};
+template <typename T1>
+struct InterfaceActionInvoker1
+{
+	typedef void (*Action)(void*, T1, const RuntimeMethod*);
+
+	static inline void Invoke (Il2CppMethodSlot slot, RuntimeClass* declaringInterface, RuntimeObject* obj, T1 p1)
+	{
+		const VirtualInvokeData& invokeData = il2cpp_codegen_get_interface_invoke_data(slot, obj, declaringInterface);
+		((Action)invokeData.methodPtr)(obj, p1, invokeData.method);
+	}
+};
 template <typename T1, typename T2, typename T3>
 struct InterfaceActionInvoker3
 {
@@ -214,27 +235,6 @@ struct InterfaceActionInvoker4
 		((Action)invokeData.methodPtr)(obj, p1, p2, p3, p4, invokeData.method);
 	}
 };
-template <typename T1>
-struct InterfaceActionInvoker1
-{
-	typedef void (*Action)(void*, T1, const RuntimeMethod*);
-
-	static inline void Invoke (Il2CppMethodSlot slot, RuntimeClass* declaringInterface, RuntimeObject* obj, T1 p1)
-	{
-		const VirtualInvokeData& invokeData = il2cpp_codegen_get_interface_invoke_data(slot, obj, declaringInterface);
-		((Action)invokeData.methodPtr)(obj, p1, invokeData.method);
-	}
-};
-struct InterfaceActionInvoker0
-{
-	typedef void (*Action)(void*, const RuntimeMethod*);
-
-	static inline void Invoke (Il2CppMethodSlot slot, RuntimeClass* declaringInterface, RuntimeObject* obj)
-	{
-		const VirtualInvokeData& invokeData = il2cpp_codegen_get_interface_invoke_data(slot, obj, declaringInterface);
-		((Action)invokeData.methodPtr)(obj, invokeData.method);
-	}
-};
 template <typename R>
 struct InterfaceFuncInvoker0
 {
@@ -244,6 +244,29 @@ struct InterfaceFuncInvoker0
 	{
 		const VirtualInvokeData& invokeData = il2cpp_codegen_get_interface_invoke_data(slot, obj, declaringInterface);
 		return ((Func)invokeData.methodPtr)(obj, invokeData.method);
+	}
+};
+struct GenericInterfaceActionInvoker0
+{
+	typedef void (*Action)(void*, const RuntimeMethod*);
+
+	static inline void Invoke (const RuntimeMethod* method, RuntimeObject* obj)
+	{
+		VirtualInvokeData invokeData;
+		il2cpp_codegen_get_generic_interface_invoke_data(method, obj, &invokeData);
+		((Action)invokeData.methodPtr)(obj, invokeData.method);
+	}
+};
+template <typename T1>
+struct GenericInterfaceActionInvoker1
+{
+	typedef void (*Action)(void*, T1, const RuntimeMethod*);
+
+	static inline void Invoke (const RuntimeMethod* method, RuntimeObject* obj, T1 p1)
+	{
+		VirtualInvokeData invokeData;
+		il2cpp_codegen_get_generic_interface_invoke_data(method, obj, &invokeData);
+		((Action)invokeData.methodPtr)(obj, p1, invokeData.method);
 	}
 };
 template <typename T1, typename T2, typename T3>
@@ -282,29 +305,6 @@ struct GenericInterfaceActionInvoker2
 		((Action)invokeData.methodPtr)(obj, p1, p2, invokeData.method);
 	}
 };
-template <typename T1>
-struct GenericInterfaceActionInvoker1
-{
-	typedef void (*Action)(void*, T1, const RuntimeMethod*);
-
-	static inline void Invoke (const RuntimeMethod* method, RuntimeObject* obj, T1 p1)
-	{
-		VirtualInvokeData invokeData;
-		il2cpp_codegen_get_generic_interface_invoke_data(method, obj, &invokeData);
-		((Action)invokeData.methodPtr)(obj, p1, invokeData.method);
-	}
-};
-struct GenericInterfaceActionInvoker0
-{
-	typedef void (*Action)(void*, const RuntimeMethod*);
-
-	static inline void Invoke (const RuntimeMethod* method, RuntimeObject* obj)
-	{
-		VirtualInvokeData invokeData;
-		il2cpp_codegen_get_generic_interface_invoke_data(method, obj, &invokeData);
-		((Action)invokeData.methodPtr)(obj, invokeData.method);
-	}
-};
 template <typename R>
 struct GenericInterfaceFuncInvoker0
 {
@@ -330,6 +330,10 @@ struct GenericInterfaceFuncInvoker1
 	}
 };
 
+// System.Action`1<System.Threading.Tasks.Task`1<Firebase.Database.Internal.InternalDataSnapshot>>
+struct Action_1_t6173F3EA2E1988AF66B5B64F353DEBAFF3E8E6F6;
+// System.Action`1<System.Threading.Tasks.Task`1<System.Object>>
+struct Action_1_tFE20E1B68D8FC8F70518B6977AEA92C696288F1D;
 // System.Action`1<System.Object>
 struct Action_1_tD9663D9715FAA4E62035CFCF1AD4D094EE7872DC;
 // System.Action`1<System.Threading.Tasks.Task>
@@ -344,6 +348,8 @@ struct Dictionary_2_t0ACB62D0885C7AB376463C70665400A39808C5FB;
 struct Dictionary_2_tB758E2A2593CD827EFC041BE1F1BB4B68DE1C3E8;
 // System.Collections.Generic.Dictionary`2<System.Int32,Firebase.FutureVoid/Action>
 struct Dictionary_2_t557E8C31BC4DE893520F2646206D119E00AB340D;
+// System.Collections.Generic.Dictionary`2<System.Int32,Firebase.Database.Internal.Future_InternalDataSnapshot/Action>
+struct Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661;
 // System.Collections.Generic.Dictionary`2<System.IntPtr,Firebase.FirebaseApp>
 struct Dictionary_2_tB08E4A073303DAA95DDF54DF97769846A97A0BB8;
 // System.Collections.Generic.Dictionary`2<System.Object,System.Int32>
@@ -356,6 +362,8 @@ struct Dictionary_2_t80DF01C9A4AD3C3163F30545B040CD72186CD93D;
 struct Dictionary_2_t45E1EFCD85CF4521B6551E53405DA603C66106F2;
 // System.Collections.Generic.Dictionary`2<System.String,System.Int32>
 struct Dictionary_2_tC94E9875910491F8130C2DC8B11E4D1548A55162;
+// System.Collections.Generic.Dictionary`2<System.String,System.Object>
+struct Dictionary_2_t692011309BA94F599C6042A381FC9F8B3CB08399;
 // System.EventHandler`1<Firebase.Database.ChildChangedEventArgs>
 struct EventHandler_1_t93916DA5095F1484760C21BA33B40280D4C7F698;
 // System.EventHandler`1<System.Object>
@@ -372,12 +380,20 @@ struct Func_1_tBCF42601FA307876E83080BE4204110820F8BF3B;
 struct Func_2_t6263458F4D5A237EA55DE064D01BBCEA453FE079;
 // System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task>,System.Threading.Tasks.Task`1<System.Boolean>>
 struct Func_2_t24DC43D57AB022882FE433E3B16B6D7E4BD14BB4;
+// System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task>,System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>>
+struct Func_2_t5339F454F4EAD362D78114465F3864611F5EF39B;
+// System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task>,System.Threading.Tasks.Task`1<Firebase.Database.Internal.InternalDataSnapshot>>
+struct Func_2_t2BB42BE7865F68814D217891C87A2C0A0F4A6D95;
+// System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task>,System.Threading.Tasks.Task`1<System.Object>>
+struct Func_2_t44F36790F9746FCE5ABFDE6205B6020B2578F6DD;
 // System.Func`2<System.Threading.Tasks.Task,System.Threading.Tasks.Task`1<Firebase.DependencyStatus>>
 struct Func_2_t0AF0BC5FCFF7606A4CFF83A68368661E19454A91;
 // System.Collections.Generic.IDictionary`2<System.Int32,System.String>
 struct IDictionary_2_tB4E97D5B9CF7274B9297433145AC382F20ACCF14;
 // System.Collections.Generic.IDictionary`2<System.String,System.Int32>
 struct IDictionary_2_tB2BA32920A64A34C26C09922B355F2ED14D11205;
+// System.Collections.Generic.IDictionary`2<System.String,System.Object>
+struct IDictionary_2_tED3FAE588A6FD3ED0A4589C52122AB8F53D8A3B8;
 // System.Collections.Generic.IEqualityComparer`1<System.Int32>
 struct IEqualityComparer_1_t62010156673DE1460AB1D1CEBE5DCD48665E1A38;
 // System.Collections.Generic.IEqualityComparer`1<System.String>
@@ -386,36 +402,66 @@ struct IEqualityComparer_1_tE6A65C5E45E33FD7D9849FD0914DE3AD32B68050;
 struct KeyCollection_t84AA1F1B52EFFF1EF375587F234C18CE2DD07628;
 // System.Collections.Generic.Dictionary`2/KeyCollection<System.Int32,System.String>
 struct KeyCollection_t95CEC57CA04600603C7E9067D11E724EE99AD7D1;
+// System.Collections.Generic.Dictionary`2/KeyCollection<System.Int32,Firebase.Database.Internal.Future_InternalDataSnapshot/Action>
+struct KeyCollection_t8840529BDE55CE192C4363210E4F099FB337B2DA;
 // System.Collections.Generic.Dictionary`2/KeyCollection<System.String,Firebase.Database.FirebaseDatabase>
 struct KeyCollection_tBE56BE44F1E8BD1CE613005863364535F676632D;
 // System.Collections.Generic.Dictionary`2/KeyCollection<System.String,System.Int32>
 struct KeyCollection_t61F8738ED346768CC112B2E27863BF9F73C76D90;
+// System.Collections.Generic.Dictionary`2/KeyCollection<System.String,System.Object>
+struct KeyCollection_t0043475CBB02FD67894529F3CAA818080A2F7A17;
 // System.Predicate`1<System.Object>
 struct Predicate_1_t5C96B81B31A697B11C4C3767E3298773AF25DFEB;
 // System.Predicate`1<System.Threading.Tasks.Task>
 struct Predicate_1_tC0DBBC8498BD1EE6ABFFAA5628024105FA7D11BD;
 // System.Threading.Tasks.TaskCompletionSource`1<System.Boolean>
 struct TaskCompletionSource_1_t56125454B9277AE49801F3DF08F7774ED6B499F3;
+// System.Threading.Tasks.TaskCompletionSource`1<Firebase.Database.DataSnapshot>
+struct TaskCompletionSource_1_t0191AA91EA1ABB8621B9AE6BAF286EF65E50DB27;
+// System.Threading.Tasks.TaskCompletionSource`1<Firebase.Database.Internal.InternalDataSnapshot>
+struct TaskCompletionSource_1_t98B3237FC25BA25DAAC9E1ED72EA4265692F02CF;
+// System.Threading.Tasks.TaskCompletionSource`1<System.Object>
+struct TaskCompletionSource_1_t5B48A13B0469AA5A5797B645926E284436099903;
 // System.Threading.Tasks.TaskFactory`1<System.Boolean>
 struct TaskFactory_1_t069438A73348A2B1B34A2C68E0478EE107ECCFC7;
+// System.Threading.Tasks.TaskFactory`1<Firebase.Database.DataSnapshot>
+struct TaskFactory_1_t24659E5AB2CA427FA53F1AAFB5668B0639ACBF05;
+// System.Threading.Tasks.TaskFactory`1<Firebase.Database.Internal.InternalDataSnapshot>
+struct TaskFactory_1_tA73E498CF30C0ED5BE1E5709F77D6C31DBD0FABC;
+// System.Threading.Tasks.TaskFactory`1<System.Object>
+struct TaskFactory_1_t16A95DD17BBA3D00F0A85C5077BB248421EF3A55;
 // System.Threading.Tasks.Task`1<System.Boolean>
 struct Task_1_t9C1FE9F18F52F3409B9E970FA38801A443AE7849;
+// System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>
+struct Task_1_t931B58DD64B4EFD7FD4C3DD754009EEE56897087;
+// System.Threading.Tasks.Task`1<Firebase.Database.Internal.InternalDataSnapshot>
+struct Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB;
+// System.Threading.Tasks.Task`1<System.Object>
+struct Task_1_tC1805497876E88B78A2B0CB81C6409E0B381AC17;
 // System.Collections.Generic.Dictionary`2/ValueCollection<System.Int32,Firebase.Database.Internal.InternalListener>
 struct ValueCollection_tBEA221820CB204DE404E8E0EC3D2485AA8C1334B;
 // System.Collections.Generic.Dictionary`2/ValueCollection<System.Int32,System.String>
 struct ValueCollection_t5C221D6474B57B05A1EF91C1C6A7B1FA1CF361BF;
+// System.Collections.Generic.Dictionary`2/ValueCollection<System.Int32,Firebase.Database.Internal.Future_InternalDataSnapshot/Action>
+struct ValueCollection_t9920295899C04624513998B1605017BDABA72056;
 // System.Collections.Generic.Dictionary`2/ValueCollection<System.String,Firebase.Database.FirebaseDatabase>
 struct ValueCollection_t133834B402F7BF43F587D3265F51AA6F4059CE28;
 // System.Collections.Generic.Dictionary`2/ValueCollection<System.String,System.Int32>
 struct ValueCollection_t17EEB7B2EDD3CB5222C660D7E739F803986BF025;
+// System.Collections.Generic.Dictionary`2/ValueCollection<System.String,System.Object>
+struct ValueCollection_tB942A1033B750DCF04FE948413982D120FC69A4E;
 // System.Collections.Generic.Dictionary`2/Entry<System.Int32,Firebase.Database.Internal.InternalListener>[]
 struct EntryU5BU5D_t6FB8446E6A2A8D6E952F3157C3A8231C53D2C9EC;
 // System.Collections.Generic.Dictionary`2/Entry<System.Int32,System.String>[]
 struct EntryU5BU5D_t0760EF54F1EA7070181C04D5D34118DC91F943ED;
+// System.Collections.Generic.Dictionary`2/Entry<System.Int32,Firebase.Database.Internal.Future_InternalDataSnapshot/Action>[]
+struct EntryU5BU5D_t8F7D64088845416B9D70EF89EFCA73CF7972BC35;
 // System.Collections.Generic.Dictionary`2/Entry<System.String,Firebase.Database.FirebaseDatabase>[]
 struct EntryU5BU5D_tC8B84C3E81C717DCA697ADAEB9CA340295C77DA4;
 // System.Collections.Generic.Dictionary`2/Entry<System.String,System.Int32>[]
 struct EntryU5BU5D_tABFC31237D6642B5D4C1DBA234CA37EE851EB0AE;
+// System.Collections.Generic.Dictionary`2/Entry<System.String,System.Object>[]
+struct EntryU5BU5D_tDCA1A62E50C5B5A40FD6F44107088AF42F5671D2;
 // System.Char[]
 struct CharU5BU5D_t7B7FC5BC8091AA3B9CB0B29CDD80B5EE9254AA34;
 // System.Delegate[]
@@ -476,8 +522,14 @@ struct FirebaseApp_t3592A6306730FCDF285B555F3B4A83F56B9C093D;
 struct FirebaseAppPlatform_t021911DCA26421E6DA90CB02A5028748C46B0ED5;
 // Firebase.Database.FirebaseDatabase
 struct FirebaseDatabase_tF1A65E0ED193AF145CFAFF4D2A13F851118CE470;
+// Firebase.FirebaseException
+struct FirebaseException_t80812F0C7BA9277B701A891E7575AC4DAEE1DA47;
+// Firebase.FutureBase
+struct FutureBase_t8A0245B874D87A58E48E0C9F16C54FD8003534F4;
 // Firebase.FutureVoid
 struct FutureVoid_t04BD035498A9875EA1D6F629741C9D1ED31EFE29;
+// Firebase.Database.Internal.Future_InternalDataSnapshot
+struct Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782;
 // System.IAsyncResult
 struct IAsyncResult_tC9F97BF36FCF122D29D3101D80642278297BF370;
 // System.Collections.IDictionary
@@ -548,6 +600,12 @@ struct U3CWrapInternalDefaultTaskU3Ec__AnonStorey1_t0F8AF8F8E14950157BA1751EC530
 struct CreateDelegate_t9B561D6BB5D924D814406F9D8AB6E93DB219BAA0;
 // Firebase.FutureVoid/SWIG_CompletionDelegate
 struct SWIG_CompletionDelegate_tB2D099DCC04B71228A5C8BF73BC0D5114A6ACF72;
+// Firebase.Database.Internal.Future_InternalDataSnapshot/<GetTask>c__AnonStorey0
+struct U3CGetTaskU3Ec__AnonStorey0_t871680D4CE9F27571B0AD8F193FA1DBFDAB9093A;
+// Firebase.Database.Internal.Future_InternalDataSnapshot/Action
+struct Action_t3C9E886ED952A5C1AC45907686BC24896CA35010;
+// Firebase.Database.Internal.Future_InternalDataSnapshot/SWIG_CompletionDelegate
+struct SWIG_CompletionDelegate_tA8D1F511687314492DCF200EFA9141D61FE38AC1;
 // Firebase.Database.Internal.InternalChildListener/<OnCancelledHandler>c__AnonStorey2
 struct U3COnCancelledHandlerU3Ec__AnonStorey2_tFB771BA61C4535C22FDD7571CB2B344E36051B9A;
 // Firebase.Database.Internal.InternalChildListener/<OnChildChangeHandler>c__AnonStorey0
@@ -568,6 +626,8 @@ struct U3COnValueChangedHandlerU3Ec__AnonStorey0_t6C09F7B305988C3A32EB8B3FBDDAAA
 struct OnCancelledDelegate_tB71F05EC8B3BBACF74EB566C58EEB8EA4A7135B5;
 // Firebase.Database.Internal.InternalValueListener/OnValueChangedDelegate
 struct OnValueChangedDelegate_t66E523D3B802E99A6B08885964ADA321A85F3444;
+// Firebase.Database.Query/<WrapInternalDataSnapshotTask>c__AnonStorey0
+struct U3CWrapInternalDataSnapshotTaskU3Ec__AnonStorey0_tC297FE6E7D8CE2EA691D22F0AA947B7DDF040BAF;
 // System.Threading.Tasks.Task/ContingentProperties
 struct ContingentProperties_t1E249C737B8B8644ED1D60EEFA101D326B199EA0;
 // Firebase.Database.Internal.DatabaseInternalPINVOKE/SWIGExceptionHelper/ExceptionArgumentDelegate
@@ -578,6 +638,8 @@ struct ExceptionDelegate_t515727DF058BBDC843A38ACCB3FCE9F2C8C62D2E;
 struct SWIGStringDelegate_tEC83CFCF354A8CE82D4CAF132FD5AC459AE1224B;
 
 IL2CPP_EXTERN_C RuntimeClass* Action_1_t20BA0CE0E9D07FB477BD3515213CA9F8C35EF142_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* Action_1_t6173F3EA2E1988AF66B5B64F353DEBAFF3E8E6F6_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* Action_t3C9E886ED952A5C1AC45907686BC24896CA35010_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Action_tAF41423D285AE0862865348CF6CE51CD085ABBA6_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* ApplicationException_t8D709C0445A040467C6A632AD7F742B25AB2A407_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* ArgumentException_t505FA8C11E883F2D96C797AD9D396490794DEE00_il2cpp_TypeInfo_var;
@@ -593,6 +655,8 @@ IL2CPP_EXTERN_C RuntimeClass* DatabaseInternalPINVOKE_t1D4393E46F390744D2215B5AB
 IL2CPP_EXTERN_C RuntimeClass* DatabaseReference_t77F184B86833D9A4C514C5EAD116D088F1BBEA9C_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Dictionary_2_t0ACB62D0885C7AB376463C70665400A39808C5FB_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Dictionary_2_t45E1EFCD85CF4521B6551E53405DA603C66106F2_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* Dictionary_2_t692011309BA94F599C6042A381FC9F8B3CB08399_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Dictionary_2_tC94E9875910491F8130C2DC8B11E4D1548A55162_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Dictionary_2_tCEEC77A1340599FFCCFAFC5D1DE3EC3AE6497EF9_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* DivideByZeroException_tEAEB89F460AFC9F565DBB5CEDDF8BDF1888879E3_il2cpp_TypeInfo_var;
@@ -604,10 +668,13 @@ IL2CPP_EXTERN_C RuntimeClass* ExceptionDelegate_t515727DF058BBDC843A38ACCB3FCE9F
 IL2CPP_EXTERN_C RuntimeClass* Exception_t_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* FirebaseApp_t3592A6306730FCDF285B555F3B4A83F56B9C093D_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* FirebaseDatabase_tF1A65E0ED193AF145CFAFF4D2A13F851118CE470_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* FirebaseException_t80812F0C7BA9277B701A891E7575AC4DAEE1DA47_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* FutureVoid_t04BD035498A9875EA1D6F629741C9D1ED31EFE29_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* GC_tD6F0377620BF01385965FD29272CF088A4309C0D_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* IDictionary_2_tB2BA32920A64A34C26C09922B355F2ED14D11205_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* IDictionary_2_tB4E97D5B9CF7274B9297433145AC382F20ACCF14_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* IDictionary_2_tED3FAE588A6FD3ED0A4589C52122AB8F53D8A3B8_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* IOException_t09E5C01DA4748C36D703728C4668C5CDF3882EBA_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* IndexOutOfRangeException_tDC9EF7A0346CE39E54DA1083F07BE6DFC3CE2EDD_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Int32_tFDE5F8CD43D10453F6A2E0C77FE48C6CC7009046_il2cpp_TypeInfo_var;
@@ -620,6 +687,7 @@ IL2CPP_EXTERN_C RuntimeClass* InternalListener_tE8680CDB1FF31888C1C78E10D9B51469
 IL2CPP_EXTERN_C RuntimeClass* InternalValueListener_tB6B7AAE3D24C0231A1E226CC18AB178237E33312_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* InvalidCastException_tD99F9FF94C3859C78E90F68C2F77A1558BCAF463_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* InvalidOperationException_t10D3EE59AD28EC641ACEE05BCA4271A527E5ECAB_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* LogUtil_tFBAA493D07B1F33B56A3C4A8A0A3CF240AE40E90_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* NullReferenceException_t44B4F3CDE3111E74591952B8BE8707B28866D724_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* ObjectU5BU5D_tC1F4EE0DB0B7300255F5FD4AF64FE4C585CF5ADE_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* OnCancelledDelegate_t40947EF3CCD2658FE2C310FA373A3F4F2F2CAE50_il2cpp_TypeInfo_var;
@@ -633,15 +701,21 @@ IL2CPP_EXTERN_C RuntimeClass* SWIGExceptionHelper_t3445DE1ECADC3122BA9E221E39BCD
 IL2CPP_EXTERN_C RuntimeClass* SWIGPendingException_t598FE8E30B9457312ECB6973A125405701E7F216_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* SWIGStringDelegate_tEC83CFCF354A8CE82D4CAF132FD5AC459AE1224B_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* SWIGStringHelper_tB66B16ED5BFF2AF2C7952C1288F9659F7939B040_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* SWIG_CompletionDelegate_tA8D1F511687314492DCF200EFA9141D61FE38AC1_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* ServerValue_t8C5228D66FF60BA65B8E17BDA2C3BDF49E63BE20_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* String_t_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* SystemException_tC551B4D6EE3772B5F32C71EE8C719F4B43ECCC62_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* TaskCompletionSource_1_t0191AA91EA1ABB8621B9AE6BAF286EF65E50DB27_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* TaskCompletionSource_1_t56125454B9277AE49801F3DF08F7774ED6B499F3_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* TaskCompletionSource_1_t98B3237FC25BA25DAAC9E1ED72EA4265692F02CF_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Type_t_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* U3CGetTaskU3Ec__AnonStorey0_t871680D4CE9F27571B0AD8F193FA1DBFDAB9093A_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* U3COnCancelledHandlerU3Ec__AnonStorey1_t85FD14D746B05A6E73EDB25B7CCFEE542B08E6AF_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* U3COnCancelledHandlerU3Ec__AnonStorey2_tFB771BA61C4535C22FDD7571CB2B344E36051B9A_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* U3COnChildChangeHandlerU3Ec__AnonStorey0_tDD171971D07C89A61C52DCAEA952D60E9C3C99B9_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* U3COnChildRemovedHandlerU3Ec__AnonStorey1_t8D960BF23D5189AEDFE856329F5A308AAD97FCA1_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* U3COnValueChangedHandlerU3Ec__AnonStorey0_t6C09F7B305988C3A32EB8B3FBDDAAAC208BF4E0E_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* U3CWrapInternalDataSnapshotTaskU3Ec__AnonStorey0_tC297FE6E7D8CE2EA691D22F0AA947B7DDF040BAF_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* U3CWrapInternalDefaultTaskU3Ec__AnonStorey1_t0F8AF8F8E14950157BA1751EC5302C3A5FA58244_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* ValueChangedEventArgs_tCFDF49267E5DE9B5B6420FBF6DEDBCBB7F78025C_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Variant_tC9E895EAF1DFC875B36FD116E647B6CF93AC0068_il2cpp_TypeInfo_var;
@@ -654,6 +728,7 @@ IL2CPP_EXTERN_C String_t* _stringLiteral19F36D351EC83FFF1DD0BF540F6C887240DF749A
 IL2CPP_EXTERN_C String_t* _stringLiteral1E3DB61522C4E7AA1D5A216FFA2CA92BAFA2EBF1;
 IL2CPP_EXTERN_C String_t* _stringLiteral25A6C8E3033AB7B31F1A36176973EBF46D6AA102;
 IL2CPP_EXTERN_C String_t* _stringLiteral25E3F07BC8A8E84E64CBFD59A39E44732195DF1B;
+IL2CPP_EXTERN_C String_t* _stringLiteral32E8916355B734142247F16D33AC51F0ABA2C28F;
 IL2CPP_EXTERN_C String_t* _stringLiteral3510EE6CB670F44AE899467FD7C9F95DEEAD6A2C;
 IL2CPP_EXTERN_C String_t* _stringLiteral39CDEA6B946A8A860CA9A58EB2AEF44708FC2201;
 IL2CPP_EXTERN_C String_t* _stringLiteral3A25CDFF086AD2E7778FDE479EEAF3DE21276E5C;
@@ -666,6 +741,7 @@ IL2CPP_EXTERN_C String_t* _stringLiteral574D4F4FA47FACD0AB8D24AF1E018B029160B79D
 IL2CPP_EXTERN_C String_t* _stringLiteral5B52714C530B7F06A491E0453548C103378B3C0C;
 IL2CPP_EXTERN_C String_t* _stringLiteral62C3AC56F06281AA1091C7F369E54BD4F40ABCAD;
 IL2CPP_EXTERN_C String_t* _stringLiteral64D2CA5C491D2FD76E0C36ED2AFE1E4EF5CB4AC3;
+IL2CPP_EXTERN_C String_t* _stringLiteral73F1C03DBBA735443A0BAC5FB7786A2DD54ADF5D;
 IL2CPP_EXTERN_C String_t* _stringLiteral7E1C42D303CEBFBB8A6EE62A43AC623CFA8EF06A;
 IL2CPP_EXTERN_C String_t* _stringLiteral8225BFBF19631D0C7DACACD3525BFCCACD852480;
 IL2CPP_EXTERN_C String_t* _stringLiteral96BAF0A0FD737C639C25139F7FF80E71EF03CC92;
@@ -674,32 +750,47 @@ IL2CPP_EXTERN_C String_t* _stringLiteralA430994825FFBD84C878DC4A3DE93644DAB6DC50
 IL2CPP_EXTERN_C String_t* _stringLiteralAFBF46A4D1C5554966D208EBCB0AC7CF2297C3F4;
 IL2CPP_EXTERN_C String_t* _stringLiteralB3F14BF976EFD974E34846B742502C802FABAE9D;
 IL2CPP_EXTERN_C String_t* _stringLiteralB5E66B27E692259462C04D33AEF1271A6B5FC8D3;
+IL2CPP_EXTERN_C String_t* _stringLiteralBDC976839D65581464FE3F4DB84C2D27603F0F18;
 IL2CPP_EXTERN_C String_t* _stringLiteralC24BCEEB1EA72D694B1BED364734C5C838BE1FC9;
 IL2CPP_EXTERN_C String_t* _stringLiteralC7AFB5B2F4FF415E9A57A58EEFBA6C5E92E3529C;
 IL2CPP_EXTERN_C String_t* _stringLiteralCB9902E2A4DFEBC0D9FA90B929984CE8637D6BAE;
 IL2CPP_EXTERN_C String_t* _stringLiteralCB9DEC4BB422E4FB7D60AF8B79864395C4E9AF83;
+IL2CPP_EXTERN_C String_t* _stringLiteralCCE359C6B0ABE9D58CB588667F9A93BA52A1C294;
 IL2CPP_EXTERN_C String_t* _stringLiteralDBD8760F0E4E49A1C274D51CE66C3AF4D4F6DD1D;
 IL2CPP_EXTERN_C String_t* _stringLiteralDBF0B4029A0C9D8FAAC8C952057ED4B638E435A5;
+IL2CPP_EXTERN_C String_t* _stringLiteralE952D19344D880EF06EC8AACBF9B79603FCE8F3A;
 IL2CPP_EXTERN_C String_t* _stringLiteralF2EE2E00A733D8F7B0857F92D87975D56CEE7145;
 IL2CPP_EXTERN_C String_t* _stringLiteralFD3238FA21BFDF2546D17BB7E9E29EB72294946C;
+IL2CPP_EXTERN_C const RuntimeMethod* Action_1__ctor_m58C335670AC2A0F8330AF901C8A0C9981971A685_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Action_1__ctor_mFA74ADE24B5F0A9ECC18BC57D04B9C0B3EDD7E4C_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2_Remove_m1D2AF40B69ACF82943C614BB12EE07C7FAF0393F_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2_Remove_m3252CBDBF92D3408E081F662845DE0B41E437C4D_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2_Remove_mC4800DDEB2B34EB7E059CC1263FCFC0E65278884_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2_TryGetValue_m0CA3C595095035722115DE6CA7F448F2E4B9EE19_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2_TryGetValue_m5A49A6251995F0D50EE2D53D9BFC990EC9F2AB0F_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2_TryGetValue_mE19D1657AA32878CF901B95E4D43169AE38A570E_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2__ctor_m21DF5CF653BF8AEA149C21D6FAFF055A967C6FC3_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2__ctor_m59C07F6643E8DEBA6C9A301C0AE84791A7888A70_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2__ctor_mB40672A269C34DB22BA5BFAF2511631483E1690E_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2__ctor_mCD0C2F0325B7677B9BC340A60AA3FB9C7A88FF63_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2__ctor_mDB2D45DD861B8E39D37B45FED51B5A2C6EC667A7_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2__ctor_mE1EA1831B6EF3BA9C2F807622B58DA3A0605B912_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2_set_Item_m42DA01E2CDA9AE33FE52C36A7F4E5A77BD511E07_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2_set_Item_mDADD4AF2D09DB970C2DA40007E966A4C0C19521D_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* EventHandler_1_Invoke_m91AC45C7E239BBF1DEAF7D32C7E95B7966D44424_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* EventHandler_1_Invoke_mD9F0F6BC91CA464914467DE2F22466FAF7D61711_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* FirebaseDatabase_GetInstance_mB8BD61E43E0635E1C49FEF5E6776458B453E5891_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* FirebaseDatabase_GetInstance_mF0005360FD07073793D18180159FCAAAFE21C539_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* FirebaseDatabase_OnAppDisposed_m47C09B6E45483FFE71C9D0933E1F2B4829504359_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* Future_InternalDataSnapshot_GetResult_mB737568CE9D114E1F8464CE0F46AD7A3B0E273B3_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* Future_InternalDataSnapshot_SWIG_CompletionDispatcher_m7905C61D5D9AE818AA4AC3F0F838FA01B5E4D852_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* Future_InternalDataSnapshot_SWIG_FreeCompletionData_m3F18A53533DF61CC0DC043AEC2AEB91ECB7EDD00_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* Future_InternalDataSnapshot_SWIG_OnCompletion_m7B5EEB5EB2E01FF2DF8F69C3523DBCFC7179E319_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* Future_InternalDataSnapshot_ThrowIfDisposed_mD724684DB59E023BCDA95A70A67FF931536F16B3_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* InternalChildListener_OnCancelledHandler_m6027BABC8ED7A3782F0660E4D4BC1ACDBBFC19FF_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* InternalChildListener_OnChildChangeHandler_m111693C2C3696B07FE2D29391D27DEF39BCF5BB5_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* InternalChildListener_OnChildRemovedHandler_mC4C07D126798B369EF865A3E0E6CCE30900C032F_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* InternalDataSnapshot_exists_m800F91ECB309152731A8560A8E78876C8DC80B7F_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* InternalDataSnapshot_key_string_mA08D3ACDC44D92546C101D520B4204945D3C218E_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* InternalDataSnapshot_value_mFD409F71BE0E82EE0B1E7811A7C709CF5E198133_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* InternalDatabaseReference_Child_mD9B60C8BAA5925CBC5A4DFC730AEBB594DA14168_RuntimeMethod_var;
@@ -710,12 +801,14 @@ IL2CPP_EXTERN_C const RuntimeMethod* InternalFirebaseDatabase_GetReference_m1AF5
 IL2CPP_EXTERN_C const RuntimeMethod* InternalFirebaseDatabase_ReleaseReferenceInternal_m30CED62A62A60A82A8A6F9860843253067924623_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* InternalQuery_DestroyChildListener_m574B9F1F70D80C9104E164EE160233BBA6F3F958_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* InternalQuery_DestroyValueListener_m274A8010A85AD724836E9F5FE18AB1B8BDCF95C0_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* InternalQuery_GetValueAsync_m611875BC39C804373A70F5E501C80A5C7394DD48_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* InternalQuery_RegisterChildListenerCallbacks_m342FC1A852F73C6495982A6E25105C7D476179C2_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* InternalQuery_RegisterValueListenerCallbacks_mB06CDAA0D4A24EA071875E618C12ABAA1B21201B_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* InternalQuery_is_valid_m77F5C421E26AA0EB8CC6EB64293A7DFA0EF168DA_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* InternalValueListener_OnCancelledHandler_mB24789B71507858E38EB48965B0D9FBD031959F7_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* InternalValueListener_OnValueChangedHandler_mA40B20FA26915907919D53C45D5BF5395ACE2BDA_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Query_CheckTaskStatus_TisBoolean_t07D1E3F34E4813023D64F584DFF7B34C9D922F37_mBF95C0FEA8F946EFCAB506560647279DEFEAE91B_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* Query_CheckTaskStatus_TisDataSnapshot_t27BF9705C3D362AC0A6D18BE34169040F7F5911D_m0BD48C74FC4E2777FFE0F76E1A04664DFB242143_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Query__ctor_m552F3EFCA95A9C93A383A34876A17C3591230A36_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* SWIGExceptionHelper_SetPendingApplicationException_m0F996413862002E3DD7FDD548EA24FBA1FF5AB09_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* SWIGExceptionHelper_SetPendingArgumentException_m814FE6192698629E0DFBB16FEA3E3173833B47B3_RuntimeMethod_var;
@@ -733,14 +826,26 @@ IL2CPP_EXTERN_C const RuntimeMethod* SWIGExceptionHelper_SetPendingOverflowExcep
 IL2CPP_EXTERN_C const RuntimeMethod* SWIGExceptionHelper_SetPendingSystemException_mA373DD8147413E53F25953713F3785AFCA8D4CE3_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* SWIGPendingException_Set_mEB47FC268D105585A346BF7AD739894E30461177_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* SWIGStringHelper_CreateString_m1B4CB3A2C3DCEF73AF006FF16442D1EEFDDB6384_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* TaskCompletionSource_1_SetCanceled_mF936FEB70EF48BE9A856AD893D796F16CA38DD13_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* TaskCompletionSource_1_SetException_mEC703BD3E8DF60DEBAD638DD1D617657FD1D7A5F_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* TaskCompletionSource_1_SetResult_m40BDB5DEA558FEF78598FC3F4B0FCADB03B2F174_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* TaskCompletionSource_1_SetResult_m74C29E72B54DDDEE9833B780A78F1D4201BB2103_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* TaskCompletionSource_1_SetResult_mBC013C4BFE7F83CEB4DC24476C87B3F5073A00BE_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* TaskCompletionSource_1__ctor_m3751A7ECA2C4F3CB06550D41F2C80B426E860C26_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* TaskCompletionSource_1__ctor_mCDC4A69051FEB9C577554605EA9320AE9C7AF4DD_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* TaskCompletionSource_1__ctor_mF499A152BCAEA9DE368EDF914174B9BD5FBAD4D3_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* TaskCompletionSource_1_get_Task_m036CE247B543C1C3E90DE1A2369F8FA8A1D46192_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* TaskCompletionSource_1_get_Task_m2764F9E5D6DC04C4D667CA027C319F5E17CAC143_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* TaskCompletionSource_1_get_Task_mD0793F8F6461F1DC1A38ABEC59547B462F0AAA39_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* Task_1_ContinueWith_mC31F6F48C8E15755E811AFAB79C859ECCB787D0F_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* Task_1_get_Result_m238D408D4BE81829E0E4D5C073565EF0B62DA816_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* U3CGetTaskU3Ec__AnonStorey0_U3CU3Em__0_mFC6340F68B8E4E596967CB4A864D6C925D5F5655_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* U3COnCancelledHandlerU3Ec__AnonStorey1_U3CU3Em__0_mDE1B11AAEBA15DBB45A24DCB6D80A3F36CB51D81_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* U3COnCancelledHandlerU3Ec__AnonStorey2_U3CU3Em__0_mC2B193143B43BA821FF81A8AFDEAE4C94148690E_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* U3COnChildChangeHandlerU3Ec__AnonStorey0_U3CU3Em__0_m8D036E948FE5F0D8033360D715E7E2F3282DC29E_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* U3COnChildRemovedHandlerU3Ec__AnonStorey1_U3CU3Em__0_mAE7AAAFE60ACB5EB41753A9D7FD24987399C11FF_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* U3COnValueChangedHandlerU3Ec__AnonStorey0_U3CU3Em__0_mDB964A1EF1CA2AA7BA57124523322644BD33CFB4_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* U3CWrapInternalDataSnapshotTaskU3Ec__AnonStorey0_U3CU3Em__0_m22FFF028B3E9BB0B1DDCBD737A2EFEA9578B5DC0_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* U3CWrapInternalDefaultTaskU3Ec__AnonStorey1_U3CU3Em__0_m63B754C86A483639558EF7E00FEE1F287CF4D007_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Utilities_MakeVariant_mBDECFCA5CCFAF0CF50DDB1DBD34F926031A2CE4A_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeType* DatabaseInternalPINVOKE_t1D4393E46F390744D2215B5ABDEB6BF99328B932_0_0_0_var;
@@ -1001,6 +1106,120 @@ public:
 };
 
 
+// System.Collections.Generic.Dictionary`2<System.Int32,Firebase.Database.Internal.Future_InternalDataSnapshot/Action>
+struct  Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661  : public RuntimeObject
+{
+public:
+	// System.Int32[] System.Collections.Generic.Dictionary`2::buckets
+	Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32* ___buckets_0;
+	// System.Collections.Generic.Dictionary`2/Entry<TKey,TValue>[] System.Collections.Generic.Dictionary`2::entries
+	EntryU5BU5D_t8F7D64088845416B9D70EF89EFCA73CF7972BC35* ___entries_1;
+	// System.Int32 System.Collections.Generic.Dictionary`2::count
+	int32_t ___count_2;
+	// System.Int32 System.Collections.Generic.Dictionary`2::version
+	int32_t ___version_3;
+	// System.Int32 System.Collections.Generic.Dictionary`2::freeList
+	int32_t ___freeList_4;
+	// System.Int32 System.Collections.Generic.Dictionary`2::freeCount
+	int32_t ___freeCount_5;
+	// System.Collections.Generic.IEqualityComparer`1<TKey> System.Collections.Generic.Dictionary`2::comparer
+	RuntimeObject* ___comparer_6;
+	// System.Collections.Generic.Dictionary`2/KeyCollection<TKey,TValue> System.Collections.Generic.Dictionary`2::keys
+	KeyCollection_t8840529BDE55CE192C4363210E4F099FB337B2DA * ___keys_7;
+	// System.Collections.Generic.Dictionary`2/ValueCollection<TKey,TValue> System.Collections.Generic.Dictionary`2::values
+	ValueCollection_t9920295899C04624513998B1605017BDABA72056 * ___values_8;
+	// System.Object System.Collections.Generic.Dictionary`2::_syncRoot
+	RuntimeObject * ____syncRoot_9;
+
+public:
+	inline static int32_t get_offset_of_buckets_0() { return static_cast<int32_t>(offsetof(Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661, ___buckets_0)); }
+	inline Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32* get_buckets_0() const { return ___buckets_0; }
+	inline Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32** get_address_of_buckets_0() { return &___buckets_0; }
+	inline void set_buckets_0(Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32* value)
+	{
+		___buckets_0 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___buckets_0), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_entries_1() { return static_cast<int32_t>(offsetof(Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661, ___entries_1)); }
+	inline EntryU5BU5D_t8F7D64088845416B9D70EF89EFCA73CF7972BC35* get_entries_1() const { return ___entries_1; }
+	inline EntryU5BU5D_t8F7D64088845416B9D70EF89EFCA73CF7972BC35** get_address_of_entries_1() { return &___entries_1; }
+	inline void set_entries_1(EntryU5BU5D_t8F7D64088845416B9D70EF89EFCA73CF7972BC35* value)
+	{
+		___entries_1 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___entries_1), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_count_2() { return static_cast<int32_t>(offsetof(Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661, ___count_2)); }
+	inline int32_t get_count_2() const { return ___count_2; }
+	inline int32_t* get_address_of_count_2() { return &___count_2; }
+	inline void set_count_2(int32_t value)
+	{
+		___count_2 = value;
+	}
+
+	inline static int32_t get_offset_of_version_3() { return static_cast<int32_t>(offsetof(Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661, ___version_3)); }
+	inline int32_t get_version_3() const { return ___version_3; }
+	inline int32_t* get_address_of_version_3() { return &___version_3; }
+	inline void set_version_3(int32_t value)
+	{
+		___version_3 = value;
+	}
+
+	inline static int32_t get_offset_of_freeList_4() { return static_cast<int32_t>(offsetof(Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661, ___freeList_4)); }
+	inline int32_t get_freeList_4() const { return ___freeList_4; }
+	inline int32_t* get_address_of_freeList_4() { return &___freeList_4; }
+	inline void set_freeList_4(int32_t value)
+	{
+		___freeList_4 = value;
+	}
+
+	inline static int32_t get_offset_of_freeCount_5() { return static_cast<int32_t>(offsetof(Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661, ___freeCount_5)); }
+	inline int32_t get_freeCount_5() const { return ___freeCount_5; }
+	inline int32_t* get_address_of_freeCount_5() { return &___freeCount_5; }
+	inline void set_freeCount_5(int32_t value)
+	{
+		___freeCount_5 = value;
+	}
+
+	inline static int32_t get_offset_of_comparer_6() { return static_cast<int32_t>(offsetof(Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661, ___comparer_6)); }
+	inline RuntimeObject* get_comparer_6() const { return ___comparer_6; }
+	inline RuntimeObject** get_address_of_comparer_6() { return &___comparer_6; }
+	inline void set_comparer_6(RuntimeObject* value)
+	{
+		___comparer_6 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___comparer_6), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_keys_7() { return static_cast<int32_t>(offsetof(Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661, ___keys_7)); }
+	inline KeyCollection_t8840529BDE55CE192C4363210E4F099FB337B2DA * get_keys_7() const { return ___keys_7; }
+	inline KeyCollection_t8840529BDE55CE192C4363210E4F099FB337B2DA ** get_address_of_keys_7() { return &___keys_7; }
+	inline void set_keys_7(KeyCollection_t8840529BDE55CE192C4363210E4F099FB337B2DA * value)
+	{
+		___keys_7 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___keys_7), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_values_8() { return static_cast<int32_t>(offsetof(Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661, ___values_8)); }
+	inline ValueCollection_t9920295899C04624513998B1605017BDABA72056 * get_values_8() const { return ___values_8; }
+	inline ValueCollection_t9920295899C04624513998B1605017BDABA72056 ** get_address_of_values_8() { return &___values_8; }
+	inline void set_values_8(ValueCollection_t9920295899C04624513998B1605017BDABA72056 * value)
+	{
+		___values_8 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___values_8), (void*)value);
+	}
+
+	inline static int32_t get_offset_of__syncRoot_9() { return static_cast<int32_t>(offsetof(Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661, ____syncRoot_9)); }
+	inline RuntimeObject * get__syncRoot_9() const { return ____syncRoot_9; }
+	inline RuntimeObject ** get_address_of__syncRoot_9() { return &____syncRoot_9; }
+	inline void set__syncRoot_9(RuntimeObject * value)
+	{
+		____syncRoot_9 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&____syncRoot_9), (void*)value);
+	}
+};
+
+
 // System.Collections.Generic.Dictionary`2<System.String,Firebase.Database.FirebaseDatabase>
 struct  Dictionary_2_t45E1EFCD85CF4521B6551E53405DA603C66106F2  : public RuntimeObject
 {
@@ -1229,6 +1448,120 @@ public:
 };
 
 
+// System.Collections.Generic.Dictionary`2<System.String,System.Object>
+struct  Dictionary_2_t692011309BA94F599C6042A381FC9F8B3CB08399  : public RuntimeObject
+{
+public:
+	// System.Int32[] System.Collections.Generic.Dictionary`2::buckets
+	Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32* ___buckets_0;
+	// System.Collections.Generic.Dictionary`2/Entry<TKey,TValue>[] System.Collections.Generic.Dictionary`2::entries
+	EntryU5BU5D_tDCA1A62E50C5B5A40FD6F44107088AF42F5671D2* ___entries_1;
+	// System.Int32 System.Collections.Generic.Dictionary`2::count
+	int32_t ___count_2;
+	// System.Int32 System.Collections.Generic.Dictionary`2::version
+	int32_t ___version_3;
+	// System.Int32 System.Collections.Generic.Dictionary`2::freeList
+	int32_t ___freeList_4;
+	// System.Int32 System.Collections.Generic.Dictionary`2::freeCount
+	int32_t ___freeCount_5;
+	// System.Collections.Generic.IEqualityComparer`1<TKey> System.Collections.Generic.Dictionary`2::comparer
+	RuntimeObject* ___comparer_6;
+	// System.Collections.Generic.Dictionary`2/KeyCollection<TKey,TValue> System.Collections.Generic.Dictionary`2::keys
+	KeyCollection_t0043475CBB02FD67894529F3CAA818080A2F7A17 * ___keys_7;
+	// System.Collections.Generic.Dictionary`2/ValueCollection<TKey,TValue> System.Collections.Generic.Dictionary`2::values
+	ValueCollection_tB942A1033B750DCF04FE948413982D120FC69A4E * ___values_8;
+	// System.Object System.Collections.Generic.Dictionary`2::_syncRoot
+	RuntimeObject * ____syncRoot_9;
+
+public:
+	inline static int32_t get_offset_of_buckets_0() { return static_cast<int32_t>(offsetof(Dictionary_2_t692011309BA94F599C6042A381FC9F8B3CB08399, ___buckets_0)); }
+	inline Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32* get_buckets_0() const { return ___buckets_0; }
+	inline Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32** get_address_of_buckets_0() { return &___buckets_0; }
+	inline void set_buckets_0(Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32* value)
+	{
+		___buckets_0 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___buckets_0), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_entries_1() { return static_cast<int32_t>(offsetof(Dictionary_2_t692011309BA94F599C6042A381FC9F8B3CB08399, ___entries_1)); }
+	inline EntryU5BU5D_tDCA1A62E50C5B5A40FD6F44107088AF42F5671D2* get_entries_1() const { return ___entries_1; }
+	inline EntryU5BU5D_tDCA1A62E50C5B5A40FD6F44107088AF42F5671D2** get_address_of_entries_1() { return &___entries_1; }
+	inline void set_entries_1(EntryU5BU5D_tDCA1A62E50C5B5A40FD6F44107088AF42F5671D2* value)
+	{
+		___entries_1 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___entries_1), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_count_2() { return static_cast<int32_t>(offsetof(Dictionary_2_t692011309BA94F599C6042A381FC9F8B3CB08399, ___count_2)); }
+	inline int32_t get_count_2() const { return ___count_2; }
+	inline int32_t* get_address_of_count_2() { return &___count_2; }
+	inline void set_count_2(int32_t value)
+	{
+		___count_2 = value;
+	}
+
+	inline static int32_t get_offset_of_version_3() { return static_cast<int32_t>(offsetof(Dictionary_2_t692011309BA94F599C6042A381FC9F8B3CB08399, ___version_3)); }
+	inline int32_t get_version_3() const { return ___version_3; }
+	inline int32_t* get_address_of_version_3() { return &___version_3; }
+	inline void set_version_3(int32_t value)
+	{
+		___version_3 = value;
+	}
+
+	inline static int32_t get_offset_of_freeList_4() { return static_cast<int32_t>(offsetof(Dictionary_2_t692011309BA94F599C6042A381FC9F8B3CB08399, ___freeList_4)); }
+	inline int32_t get_freeList_4() const { return ___freeList_4; }
+	inline int32_t* get_address_of_freeList_4() { return &___freeList_4; }
+	inline void set_freeList_4(int32_t value)
+	{
+		___freeList_4 = value;
+	}
+
+	inline static int32_t get_offset_of_freeCount_5() { return static_cast<int32_t>(offsetof(Dictionary_2_t692011309BA94F599C6042A381FC9F8B3CB08399, ___freeCount_5)); }
+	inline int32_t get_freeCount_5() const { return ___freeCount_5; }
+	inline int32_t* get_address_of_freeCount_5() { return &___freeCount_5; }
+	inline void set_freeCount_5(int32_t value)
+	{
+		___freeCount_5 = value;
+	}
+
+	inline static int32_t get_offset_of_comparer_6() { return static_cast<int32_t>(offsetof(Dictionary_2_t692011309BA94F599C6042A381FC9F8B3CB08399, ___comparer_6)); }
+	inline RuntimeObject* get_comparer_6() const { return ___comparer_6; }
+	inline RuntimeObject** get_address_of_comparer_6() { return &___comparer_6; }
+	inline void set_comparer_6(RuntimeObject* value)
+	{
+		___comparer_6 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___comparer_6), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_keys_7() { return static_cast<int32_t>(offsetof(Dictionary_2_t692011309BA94F599C6042A381FC9F8B3CB08399, ___keys_7)); }
+	inline KeyCollection_t0043475CBB02FD67894529F3CAA818080A2F7A17 * get_keys_7() const { return ___keys_7; }
+	inline KeyCollection_t0043475CBB02FD67894529F3CAA818080A2F7A17 ** get_address_of_keys_7() { return &___keys_7; }
+	inline void set_keys_7(KeyCollection_t0043475CBB02FD67894529F3CAA818080A2F7A17 * value)
+	{
+		___keys_7 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___keys_7), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_values_8() { return static_cast<int32_t>(offsetof(Dictionary_2_t692011309BA94F599C6042A381FC9F8B3CB08399, ___values_8)); }
+	inline ValueCollection_tB942A1033B750DCF04FE948413982D120FC69A4E * get_values_8() const { return ___values_8; }
+	inline ValueCollection_tB942A1033B750DCF04FE948413982D120FC69A4E ** get_address_of_values_8() { return &___values_8; }
+	inline void set_values_8(ValueCollection_tB942A1033B750DCF04FE948413982D120FC69A4E * value)
+	{
+		___values_8 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___values_8), (void*)value);
+	}
+
+	inline static int32_t get_offset_of__syncRoot_9() { return static_cast<int32_t>(offsetof(Dictionary_2_t692011309BA94F599C6042A381FC9F8B3CB08399, ____syncRoot_9)); }
+	inline RuntimeObject * get__syncRoot_9() const { return ____syncRoot_9; }
+	inline RuntimeObject ** get_address_of__syncRoot_9() { return &____syncRoot_9; }
+	inline void set__syncRoot_9(RuntimeObject * value)
+	{
+		____syncRoot_9 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&____syncRoot_9), (void*)value);
+	}
+};
+
+
 // System.Threading.Tasks.TaskCompletionSource`1<System.Boolean>
 struct  TaskCompletionSource_1_t56125454B9277AE49801F3DF08F7774ED6B499F3  : public RuntimeObject
 {
@@ -1241,6 +1574,63 @@ public:
 	inline Task_1_t9C1FE9F18F52F3409B9E970FA38801A443AE7849 * get_m_task_0() const { return ___m_task_0; }
 	inline Task_1_t9C1FE9F18F52F3409B9E970FA38801A443AE7849 ** get_address_of_m_task_0() { return &___m_task_0; }
 	inline void set_m_task_0(Task_1_t9C1FE9F18F52F3409B9E970FA38801A443AE7849 * value)
+	{
+		___m_task_0 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_task_0), (void*)value);
+	}
+};
+
+
+// System.Threading.Tasks.TaskCompletionSource`1<Firebase.Database.DataSnapshot>
+struct  TaskCompletionSource_1_t0191AA91EA1ABB8621B9AE6BAF286EF65E50DB27  : public RuntimeObject
+{
+public:
+	// System.Threading.Tasks.Task`1<TResult> System.Threading.Tasks.TaskCompletionSource`1::m_task
+	Task_1_t931B58DD64B4EFD7FD4C3DD754009EEE56897087 * ___m_task_0;
+
+public:
+	inline static int32_t get_offset_of_m_task_0() { return static_cast<int32_t>(offsetof(TaskCompletionSource_1_t0191AA91EA1ABB8621B9AE6BAF286EF65E50DB27, ___m_task_0)); }
+	inline Task_1_t931B58DD64B4EFD7FD4C3DD754009EEE56897087 * get_m_task_0() const { return ___m_task_0; }
+	inline Task_1_t931B58DD64B4EFD7FD4C3DD754009EEE56897087 ** get_address_of_m_task_0() { return &___m_task_0; }
+	inline void set_m_task_0(Task_1_t931B58DD64B4EFD7FD4C3DD754009EEE56897087 * value)
+	{
+		___m_task_0 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_task_0), (void*)value);
+	}
+};
+
+
+// System.Threading.Tasks.TaskCompletionSource`1<Firebase.Database.Internal.InternalDataSnapshot>
+struct  TaskCompletionSource_1_t98B3237FC25BA25DAAC9E1ED72EA4265692F02CF  : public RuntimeObject
+{
+public:
+	// System.Threading.Tasks.Task`1<TResult> System.Threading.Tasks.TaskCompletionSource`1::m_task
+	Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB * ___m_task_0;
+
+public:
+	inline static int32_t get_offset_of_m_task_0() { return static_cast<int32_t>(offsetof(TaskCompletionSource_1_t98B3237FC25BA25DAAC9E1ED72EA4265692F02CF, ___m_task_0)); }
+	inline Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB * get_m_task_0() const { return ___m_task_0; }
+	inline Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB ** get_address_of_m_task_0() { return &___m_task_0; }
+	inline void set_m_task_0(Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB * value)
+	{
+		___m_task_0 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_task_0), (void*)value);
+	}
+};
+
+
+// System.Threading.Tasks.TaskCompletionSource`1<System.Object>
+struct  TaskCompletionSource_1_t5B48A13B0469AA5A5797B645926E284436099903  : public RuntimeObject
+{
+public:
+	// System.Threading.Tasks.Task`1<TResult> System.Threading.Tasks.TaskCompletionSource`1::m_task
+	Task_1_tC1805497876E88B78A2B0CB81C6409E0B381AC17 * ___m_task_0;
+
+public:
+	inline static int32_t get_offset_of_m_task_0() { return static_cast<int32_t>(offsetof(TaskCompletionSource_1_t5B48A13B0469AA5A5797B645926E284436099903, ___m_task_0)); }
+	inline Task_1_tC1805497876E88B78A2B0CB81C6409E0B381AC17 * get_m_task_0() const { return ___m_task_0; }
+	inline Task_1_tC1805497876E88B78A2B0CB81C6409E0B381AC17 ** get_address_of_m_task_0() { return &___m_task_0; }
+	inline void set_m_task_0(Task_1_tC1805497876E88B78A2B0CB81C6409E0B381AC17 * value)
 	{
 		___m_task_0 = value;
 		Il2CppCodeGenWriteBarrier((void**)(&___m_task_0), (void*)value);
@@ -1577,6 +1967,32 @@ public:
 };
 
 
+// Firebase.Database.ServerValue
+struct  ServerValue_t8C5228D66FF60BA65B8E17BDA2C3BDF49E63BE20  : public RuntimeObject
+{
+public:
+
+public:
+};
+
+struct ServerValue_t8C5228D66FF60BA65B8E17BDA2C3BDF49E63BE20_StaticFields
+{
+public:
+	// System.Object Firebase.Database.ServerValue::Timestamp
+	RuntimeObject * ___Timestamp_0;
+
+public:
+	inline static int32_t get_offset_of_Timestamp_0() { return static_cast<int32_t>(offsetof(ServerValue_t8C5228D66FF60BA65B8E17BDA2C3BDF49E63BE20_StaticFields, ___Timestamp_0)); }
+	inline RuntimeObject * get_Timestamp_0() const { return ___Timestamp_0; }
+	inline RuntimeObject ** get_address_of_Timestamp_0() { return &___Timestamp_0; }
+	inline void set_Timestamp_0(RuntimeObject * value)
+	{
+		___Timestamp_0 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___Timestamp_0), (void*)value);
+	}
+};
+
+
 // System.String
 struct  String_t  : public RuntimeObject
 {
@@ -1908,6 +2324,66 @@ public:
 	inline DatabaseReference_t77F184B86833D9A4C514C5EAD116D088F1BBEA9C * get_U24this_1() const { return ___U24this_1; }
 	inline DatabaseReference_t77F184B86833D9A4C514C5EAD116D088F1BBEA9C ** get_address_of_U24this_1() { return &___U24this_1; }
 	inline void set_U24this_1(DatabaseReference_t77F184B86833D9A4C514C5EAD116D088F1BBEA9C * value)
+	{
+		___U24this_1 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___U24this_1), (void*)value);
+	}
+};
+
+
+// Firebase.Database.Internal.Future_InternalDataSnapshot/<GetTask>c__AnonStorey0
+struct  U3CGetTaskU3Ec__AnonStorey0_t871680D4CE9F27571B0AD8F193FA1DBFDAB9093A  : public RuntimeObject
+{
+public:
+	// Firebase.Database.Internal.Future_InternalDataSnapshot Firebase.Database.Internal.Future_InternalDataSnapshot/<GetTask>c__AnonStorey0::fu
+	Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * ___fu_0;
+	// System.Threading.Tasks.TaskCompletionSource`1<Firebase.Database.Internal.InternalDataSnapshot> Firebase.Database.Internal.Future_InternalDataSnapshot/<GetTask>c__AnonStorey0::tcs
+	TaskCompletionSource_1_t98B3237FC25BA25DAAC9E1ED72EA4265692F02CF * ___tcs_1;
+
+public:
+	inline static int32_t get_offset_of_fu_0() { return static_cast<int32_t>(offsetof(U3CGetTaskU3Ec__AnonStorey0_t871680D4CE9F27571B0AD8F193FA1DBFDAB9093A, ___fu_0)); }
+	inline Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * get_fu_0() const { return ___fu_0; }
+	inline Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 ** get_address_of_fu_0() { return &___fu_0; }
+	inline void set_fu_0(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * value)
+	{
+		___fu_0 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___fu_0), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_tcs_1() { return static_cast<int32_t>(offsetof(U3CGetTaskU3Ec__AnonStorey0_t871680D4CE9F27571B0AD8F193FA1DBFDAB9093A, ___tcs_1)); }
+	inline TaskCompletionSource_1_t98B3237FC25BA25DAAC9E1ED72EA4265692F02CF * get_tcs_1() const { return ___tcs_1; }
+	inline TaskCompletionSource_1_t98B3237FC25BA25DAAC9E1ED72EA4265692F02CF ** get_address_of_tcs_1() { return &___tcs_1; }
+	inline void set_tcs_1(TaskCompletionSource_1_t98B3237FC25BA25DAAC9E1ED72EA4265692F02CF * value)
+	{
+		___tcs_1 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___tcs_1), (void*)value);
+	}
+};
+
+
+// Firebase.Database.Query/<WrapInternalDataSnapshotTask>c__AnonStorey0
+struct  U3CWrapInternalDataSnapshotTaskU3Ec__AnonStorey0_tC297FE6E7D8CE2EA691D22F0AA947B7DDF040BAF  : public RuntimeObject
+{
+public:
+	// System.Threading.Tasks.TaskCompletionSource`1<Firebase.Database.DataSnapshot> Firebase.Database.Query/<WrapInternalDataSnapshotTask>c__AnonStorey0::tcs
+	TaskCompletionSource_1_t0191AA91EA1ABB8621B9AE6BAF286EF65E50DB27 * ___tcs_0;
+	// Firebase.Database.Query Firebase.Database.Query/<WrapInternalDataSnapshotTask>c__AnonStorey0::U24this
+	Query_t040D26D9F80119DD12A4B48ABAD1830398144B2C * ___U24this_1;
+
+public:
+	inline static int32_t get_offset_of_tcs_0() { return static_cast<int32_t>(offsetof(U3CWrapInternalDataSnapshotTaskU3Ec__AnonStorey0_tC297FE6E7D8CE2EA691D22F0AA947B7DDF040BAF, ___tcs_0)); }
+	inline TaskCompletionSource_1_t0191AA91EA1ABB8621B9AE6BAF286EF65E50DB27 * get_tcs_0() const { return ___tcs_0; }
+	inline TaskCompletionSource_1_t0191AA91EA1ABB8621B9AE6BAF286EF65E50DB27 ** get_address_of_tcs_0() { return &___tcs_0; }
+	inline void set_tcs_0(TaskCompletionSource_1_t0191AA91EA1ABB8621B9AE6BAF286EF65E50DB27 * value)
+	{
+		___tcs_0 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___tcs_0), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_U24this_1() { return static_cast<int32_t>(offsetof(U3CWrapInternalDataSnapshotTaskU3Ec__AnonStorey0_tC297FE6E7D8CE2EA691D22F0AA947B7DDF040BAF, ___U24this_1)); }
+	inline Query_t040D26D9F80119DD12A4B48ABAD1830398144B2C * get_U24this_1() const { return ___U24this_1; }
+	inline Query_t040D26D9F80119DD12A4B48ABAD1830398144B2C ** get_address_of_U24this_1() { return &___U24this_1; }
+	inline void set_U24this_1(Query_t040D26D9F80119DD12A4B48ABAD1830398144B2C * value)
 	{
 		___U24this_1 = value;
 		Il2CppCodeGenWriteBarrier((void**)(&___U24this_1), (void*)value);
@@ -2596,6 +3072,24 @@ struct Exception_t_marshaled_com
 	Il2CppSafeArray/*NONE*/* ___native_trace_ips_15;
 };
 
+// Firebase.FutureStatus
+struct  FutureStatus_t8911DB3874A49AD6E15CB4AB118D20E27A659215 
+{
+public:
+	// System.Int32 Firebase.FutureStatus::value__
+	int32_t ___value___2;
+
+public:
+	inline static int32_t get_offset_of_value___2() { return static_cast<int32_t>(offsetof(FutureStatus_t8911DB3874A49AD6E15CB4AB118D20E27A659215, ___value___2)); }
+	inline int32_t get_value___2() const { return ___value___2; }
+	inline int32_t* get_address_of_value___2() { return &___value___2; }
+	inline void set_value___2(int32_t value)
+	{
+		___value___2 = value;
+	}
+};
+
+
 // System.Runtime.InteropServices.HandleRef
 struct  HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF 
 {
@@ -2874,6 +3368,24 @@ public:
 	{
 		___U3CU3Ef__mgU24cache1_9 = value;
 		Il2CppCodeGenWriteBarrier((void**)(&___U3CU3Ef__mgU24cache1_9), (void*)value);
+	}
+};
+
+
+// Firebase.LogLevel
+struct  LogLevel_t308AFEEB17156412A4E9F577B863B2B20533D200 
+{
+public:
+	// System.Int32 Firebase.LogLevel::value__
+	int32_t ___value___2;
+
+public:
+	inline static int32_t get_offset_of_value___2() { return static_cast<int32_t>(offsetof(LogLevel_t308AFEEB17156412A4E9F577B863B2B20533D200, ___value___2)); }
+	inline int32_t get_value___2() const { return ___value___2; }
+	inline int32_t* get_address_of_value___2() { return &___value___2; }
+	inline void set_value___2(int32_t value)
+	{
+		___value___2 = value;
 	}
 };
 
@@ -3274,6 +3786,147 @@ public:
 };
 
 
+// System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>
+struct  Task_1_t931B58DD64B4EFD7FD4C3DD754009EEE56897087  : public Task_t804B25CFE3FC13AAEE16C8FA3BF52513F2A8DB60
+{
+public:
+	// TResult System.Threading.Tasks.Task`1::m_result
+	DataSnapshot_t27BF9705C3D362AC0A6D18BE34169040F7F5911D * ___m_result_40;
+
+public:
+	inline static int32_t get_offset_of_m_result_40() { return static_cast<int32_t>(offsetof(Task_1_t931B58DD64B4EFD7FD4C3DD754009EEE56897087, ___m_result_40)); }
+	inline DataSnapshot_t27BF9705C3D362AC0A6D18BE34169040F7F5911D * get_m_result_40() const { return ___m_result_40; }
+	inline DataSnapshot_t27BF9705C3D362AC0A6D18BE34169040F7F5911D ** get_address_of_m_result_40() { return &___m_result_40; }
+	inline void set_m_result_40(DataSnapshot_t27BF9705C3D362AC0A6D18BE34169040F7F5911D * value)
+	{
+		___m_result_40 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_result_40), (void*)value);
+	}
+};
+
+struct Task_1_t931B58DD64B4EFD7FD4C3DD754009EEE56897087_StaticFields
+{
+public:
+	// System.Threading.Tasks.TaskFactory`1<TResult> System.Threading.Tasks.Task`1::s_Factory
+	TaskFactory_1_t24659E5AB2CA427FA53F1AAFB5668B0639ACBF05 * ___s_Factory_41;
+	// System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task>,System.Threading.Tasks.Task`1<TResult>> System.Threading.Tasks.Task`1::TaskWhenAnyCast
+	Func_2_t5339F454F4EAD362D78114465F3864611F5EF39B * ___TaskWhenAnyCast_42;
+
+public:
+	inline static int32_t get_offset_of_s_Factory_41() { return static_cast<int32_t>(offsetof(Task_1_t931B58DD64B4EFD7FD4C3DD754009EEE56897087_StaticFields, ___s_Factory_41)); }
+	inline TaskFactory_1_t24659E5AB2CA427FA53F1AAFB5668B0639ACBF05 * get_s_Factory_41() const { return ___s_Factory_41; }
+	inline TaskFactory_1_t24659E5AB2CA427FA53F1AAFB5668B0639ACBF05 ** get_address_of_s_Factory_41() { return &___s_Factory_41; }
+	inline void set_s_Factory_41(TaskFactory_1_t24659E5AB2CA427FA53F1AAFB5668B0639ACBF05 * value)
+	{
+		___s_Factory_41 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___s_Factory_41), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_TaskWhenAnyCast_42() { return static_cast<int32_t>(offsetof(Task_1_t931B58DD64B4EFD7FD4C3DD754009EEE56897087_StaticFields, ___TaskWhenAnyCast_42)); }
+	inline Func_2_t5339F454F4EAD362D78114465F3864611F5EF39B * get_TaskWhenAnyCast_42() const { return ___TaskWhenAnyCast_42; }
+	inline Func_2_t5339F454F4EAD362D78114465F3864611F5EF39B ** get_address_of_TaskWhenAnyCast_42() { return &___TaskWhenAnyCast_42; }
+	inline void set_TaskWhenAnyCast_42(Func_2_t5339F454F4EAD362D78114465F3864611F5EF39B * value)
+	{
+		___TaskWhenAnyCast_42 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___TaskWhenAnyCast_42), (void*)value);
+	}
+};
+
+
+// System.Threading.Tasks.Task`1<Firebase.Database.Internal.InternalDataSnapshot>
+struct  Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB  : public Task_t804B25CFE3FC13AAEE16C8FA3BF52513F2A8DB60
+{
+public:
+	// TResult System.Threading.Tasks.Task`1::m_result
+	InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A * ___m_result_40;
+
+public:
+	inline static int32_t get_offset_of_m_result_40() { return static_cast<int32_t>(offsetof(Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB, ___m_result_40)); }
+	inline InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A * get_m_result_40() const { return ___m_result_40; }
+	inline InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A ** get_address_of_m_result_40() { return &___m_result_40; }
+	inline void set_m_result_40(InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A * value)
+	{
+		___m_result_40 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_result_40), (void*)value);
+	}
+};
+
+struct Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB_StaticFields
+{
+public:
+	// System.Threading.Tasks.TaskFactory`1<TResult> System.Threading.Tasks.Task`1::s_Factory
+	TaskFactory_1_tA73E498CF30C0ED5BE1E5709F77D6C31DBD0FABC * ___s_Factory_41;
+	// System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task>,System.Threading.Tasks.Task`1<TResult>> System.Threading.Tasks.Task`1::TaskWhenAnyCast
+	Func_2_t2BB42BE7865F68814D217891C87A2C0A0F4A6D95 * ___TaskWhenAnyCast_42;
+
+public:
+	inline static int32_t get_offset_of_s_Factory_41() { return static_cast<int32_t>(offsetof(Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB_StaticFields, ___s_Factory_41)); }
+	inline TaskFactory_1_tA73E498CF30C0ED5BE1E5709F77D6C31DBD0FABC * get_s_Factory_41() const { return ___s_Factory_41; }
+	inline TaskFactory_1_tA73E498CF30C0ED5BE1E5709F77D6C31DBD0FABC ** get_address_of_s_Factory_41() { return &___s_Factory_41; }
+	inline void set_s_Factory_41(TaskFactory_1_tA73E498CF30C0ED5BE1E5709F77D6C31DBD0FABC * value)
+	{
+		___s_Factory_41 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___s_Factory_41), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_TaskWhenAnyCast_42() { return static_cast<int32_t>(offsetof(Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB_StaticFields, ___TaskWhenAnyCast_42)); }
+	inline Func_2_t2BB42BE7865F68814D217891C87A2C0A0F4A6D95 * get_TaskWhenAnyCast_42() const { return ___TaskWhenAnyCast_42; }
+	inline Func_2_t2BB42BE7865F68814D217891C87A2C0A0F4A6D95 ** get_address_of_TaskWhenAnyCast_42() { return &___TaskWhenAnyCast_42; }
+	inline void set_TaskWhenAnyCast_42(Func_2_t2BB42BE7865F68814D217891C87A2C0A0F4A6D95 * value)
+	{
+		___TaskWhenAnyCast_42 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___TaskWhenAnyCast_42), (void*)value);
+	}
+};
+
+
+// System.Threading.Tasks.Task`1<System.Object>
+struct  Task_1_tC1805497876E88B78A2B0CB81C6409E0B381AC17  : public Task_t804B25CFE3FC13AAEE16C8FA3BF52513F2A8DB60
+{
+public:
+	// TResult System.Threading.Tasks.Task`1::m_result
+	RuntimeObject * ___m_result_40;
+
+public:
+	inline static int32_t get_offset_of_m_result_40() { return static_cast<int32_t>(offsetof(Task_1_tC1805497876E88B78A2B0CB81C6409E0B381AC17, ___m_result_40)); }
+	inline RuntimeObject * get_m_result_40() const { return ___m_result_40; }
+	inline RuntimeObject ** get_address_of_m_result_40() { return &___m_result_40; }
+	inline void set_m_result_40(RuntimeObject * value)
+	{
+		___m_result_40 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_result_40), (void*)value);
+	}
+};
+
+struct Task_1_tC1805497876E88B78A2B0CB81C6409E0B381AC17_StaticFields
+{
+public:
+	// System.Threading.Tasks.TaskFactory`1<TResult> System.Threading.Tasks.Task`1::s_Factory
+	TaskFactory_1_t16A95DD17BBA3D00F0A85C5077BB248421EF3A55 * ___s_Factory_41;
+	// System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task>,System.Threading.Tasks.Task`1<TResult>> System.Threading.Tasks.Task`1::TaskWhenAnyCast
+	Func_2_t44F36790F9746FCE5ABFDE6205B6020B2578F6DD * ___TaskWhenAnyCast_42;
+
+public:
+	inline static int32_t get_offset_of_s_Factory_41() { return static_cast<int32_t>(offsetof(Task_1_tC1805497876E88B78A2B0CB81C6409E0B381AC17_StaticFields, ___s_Factory_41)); }
+	inline TaskFactory_1_t16A95DD17BBA3D00F0A85C5077BB248421EF3A55 * get_s_Factory_41() const { return ___s_Factory_41; }
+	inline TaskFactory_1_t16A95DD17BBA3D00F0A85C5077BB248421EF3A55 ** get_address_of_s_Factory_41() { return &___s_Factory_41; }
+	inline void set_s_Factory_41(TaskFactory_1_t16A95DD17BBA3D00F0A85C5077BB248421EF3A55 * value)
+	{
+		___s_Factory_41 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___s_Factory_41), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_TaskWhenAnyCast_42() { return static_cast<int32_t>(offsetof(Task_1_tC1805497876E88B78A2B0CB81C6409E0B381AC17_StaticFields, ___TaskWhenAnyCast_42)); }
+	inline Func_2_t44F36790F9746FCE5ABFDE6205B6020B2578F6DD * get_TaskWhenAnyCast_42() const { return ___TaskWhenAnyCast_42; }
+	inline Func_2_t44F36790F9746FCE5ABFDE6205B6020B2578F6DD ** get_address_of_TaskWhenAnyCast_42() { return &___TaskWhenAnyCast_42; }
+	inline void set_TaskWhenAnyCast_42(Func_2_t44F36790F9746FCE5ABFDE6205B6020B2578F6DD * value)
+	{
+		___TaskWhenAnyCast_42 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___TaskWhenAnyCast_42), (void*)value);
+	}
+};
+
+
 // System.ApplicationException
 struct  ApplicationException_t8D709C0445A040467C6A632AD7F742B25AB2A407  : public Exception_t
 {
@@ -3506,6 +4159,24 @@ public:
 	{
 		___U3CU3Ef__amU24cache4_20 = value;
 		Il2CppCodeGenWriteBarrier((void**)(&___U3CU3Ef__amU24cache4_20), (void*)value);
+	}
+};
+
+
+// Firebase.FirebaseException
+struct  FirebaseException_t80812F0C7BA9277B701A891E7575AC4DAEE1DA47  : public Exception_t
+{
+public:
+	// System.Int32 Firebase.FirebaseException::<ErrorCode>k__BackingField
+	int32_t ___U3CErrorCodeU3Ek__BackingField_17;
+
+public:
+	inline static int32_t get_offset_of_U3CErrorCodeU3Ek__BackingField_17() { return static_cast<int32_t>(offsetof(FirebaseException_t80812F0C7BA9277B701A891E7575AC4DAEE1DA47, ___U3CErrorCodeU3Ek__BackingField_17)); }
+	inline int32_t get_U3CErrorCodeU3Ek__BackingField_17() const { return ___U3CErrorCodeU3Ek__BackingField_17; }
+	inline int32_t* get_address_of_U3CErrorCodeU3Ek__BackingField_17() { return &___U3CErrorCodeU3Ek__BackingField_17; }
+	inline void set_U3CErrorCodeU3Ek__BackingField_17(int32_t value)
+	{
+		___U3CErrorCodeU3Ek__BackingField_17 = value;
 	}
 };
 
@@ -3920,6 +4591,15 @@ public:
 };
 
 
+// System.Action`1<System.Threading.Tasks.Task`1<Firebase.Database.Internal.InternalDataSnapshot>>
+struct  Action_1_t6173F3EA2E1988AF66B5B64F353DEBAFF3E8E6F6  : public MulticastDelegate_t
+{
+public:
+
+public:
+};
+
+
 // System.Action`1<System.Threading.Tasks.Task>
 struct  Action_1_t20BA0CE0E9D07FB477BD3515213CA9F8C35EF142  : public MulticastDelegate_t
 {
@@ -4080,6 +4760,84 @@ public:
 };
 
 
+// Firebase.Database.Internal.Future_InternalDataSnapshot
+struct  Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782  : public FutureBase_t8A0245B874D87A58E48E0C9F16C54FD8003534F4
+{
+public:
+	// System.Runtime.InteropServices.HandleRef Firebase.Database.Internal.Future_InternalDataSnapshot::swigCPtr
+	HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  ___swigCPtr_2;
+	// System.IntPtr Firebase.Database.Internal.Future_InternalDataSnapshot::callbackData
+	intptr_t ___callbackData_6;
+	// Firebase.Database.Internal.Future_InternalDataSnapshot/SWIG_CompletionDelegate Firebase.Database.Internal.Future_InternalDataSnapshot::SWIG_CompletionCB
+	SWIG_CompletionDelegate_tA8D1F511687314492DCF200EFA9141D61FE38AC1 * ___SWIG_CompletionCB_7;
+
+public:
+	inline static int32_t get_offset_of_swigCPtr_2() { return static_cast<int32_t>(offsetof(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782, ___swigCPtr_2)); }
+	inline HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  get_swigCPtr_2() const { return ___swigCPtr_2; }
+	inline HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF * get_address_of_swigCPtr_2() { return &___swigCPtr_2; }
+	inline void set_swigCPtr_2(HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  value)
+	{
+		___swigCPtr_2 = value;
+		Il2CppCodeGenWriteBarrier((void**)&(((&___swigCPtr_2))->___m_wrapper_0), (void*)NULL);
+	}
+
+	inline static int32_t get_offset_of_callbackData_6() { return static_cast<int32_t>(offsetof(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782, ___callbackData_6)); }
+	inline intptr_t get_callbackData_6() const { return ___callbackData_6; }
+	inline intptr_t* get_address_of_callbackData_6() { return &___callbackData_6; }
+	inline void set_callbackData_6(intptr_t value)
+	{
+		___callbackData_6 = value;
+	}
+
+	inline static int32_t get_offset_of_SWIG_CompletionCB_7() { return static_cast<int32_t>(offsetof(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782, ___SWIG_CompletionCB_7)); }
+	inline SWIG_CompletionDelegate_tA8D1F511687314492DCF200EFA9141D61FE38AC1 * get_SWIG_CompletionCB_7() const { return ___SWIG_CompletionCB_7; }
+	inline SWIG_CompletionDelegate_tA8D1F511687314492DCF200EFA9141D61FE38AC1 ** get_address_of_SWIG_CompletionCB_7() { return &___SWIG_CompletionCB_7; }
+	inline void set_SWIG_CompletionCB_7(SWIG_CompletionDelegate_tA8D1F511687314492DCF200EFA9141D61FE38AC1 * value)
+	{
+		___SWIG_CompletionCB_7 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___SWIG_CompletionCB_7), (void*)value);
+	}
+};
+
+struct Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_StaticFields
+{
+public:
+	// System.Collections.Generic.Dictionary`2<System.Int32,Firebase.Database.Internal.Future_InternalDataSnapshot/Action> Firebase.Database.Internal.Future_InternalDataSnapshot::Callbacks
+	Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661 * ___Callbacks_3;
+	// System.Int32 Firebase.Database.Internal.Future_InternalDataSnapshot::CallbackIndex
+	int32_t ___CallbackIndex_4;
+	// System.Object Firebase.Database.Internal.Future_InternalDataSnapshot::CallbackLock
+	RuntimeObject * ___CallbackLock_5;
+
+public:
+	inline static int32_t get_offset_of_Callbacks_3() { return static_cast<int32_t>(offsetof(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_StaticFields, ___Callbacks_3)); }
+	inline Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661 * get_Callbacks_3() const { return ___Callbacks_3; }
+	inline Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661 ** get_address_of_Callbacks_3() { return &___Callbacks_3; }
+	inline void set_Callbacks_3(Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661 * value)
+	{
+		___Callbacks_3 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___Callbacks_3), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_CallbackIndex_4() { return static_cast<int32_t>(offsetof(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_StaticFields, ___CallbackIndex_4)); }
+	inline int32_t get_CallbackIndex_4() const { return ___CallbackIndex_4; }
+	inline int32_t* get_address_of_CallbackIndex_4() { return &___CallbackIndex_4; }
+	inline void set_CallbackIndex_4(int32_t value)
+	{
+		___CallbackIndex_4 = value;
+	}
+
+	inline static int32_t get_offset_of_CallbackLock_5() { return static_cast<int32_t>(offsetof(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_StaticFields, ___CallbackLock_5)); }
+	inline RuntimeObject * get_CallbackLock_5() const { return ___CallbackLock_5; }
+	inline RuntimeObject ** get_address_of_CallbackLock_5() { return &___CallbackLock_5; }
+	inline void set_CallbackLock_5(RuntimeObject * value)
+	{
+		___CallbackLock_5 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___CallbackLock_5), (void*)value);
+	}
+};
+
+
 // System.IO.IOException
 struct  IOException_t09E5C01DA4748C36D703728C4668C5CDF3882EBA  : public SystemException_tC551B4D6EE3772B5F32C71EE8C719F4B43ECCC62
 {
@@ -4156,6 +4914,24 @@ public:
 
 // System.OutOfMemoryException
 struct  OutOfMemoryException_t2671AB315BD130A49A1592BAD0AEE9F2D37667AC  : public SystemException_tC551B4D6EE3772B5F32C71EE8C719F4B43ECCC62
+{
+public:
+
+public:
+};
+
+
+// Firebase.Database.Internal.Future_InternalDataSnapshot/Action
+struct  Action_t3C9E886ED952A5C1AC45907686BC24896CA35010  : public MulticastDelegate_t
+{
+public:
+
+public:
+};
+
+
+// Firebase.Database.Internal.Future_InternalDataSnapshot/SWIG_CompletionDelegate
+struct  SWIG_CompletionDelegate_tA8D1F511687314492DCF200EFA9141D61FE38AC1  : public MulticastDelegate_t
 {
 public:
 
@@ -4394,16 +5170,34 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Dictionary_2_TryGetValue_m048C13E0F44BDC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Dictionary_2_set_Item_mE6BF870B04922441F9F2760E782DEE6EE682615A_gshared (Dictionary_2_tBD1E3221EBD04CEBDA49B84779912E91F56B958D * __this, RuntimeObject * ___key0, RuntimeObject * ___value1, const RuntimeMethod* method);
 // System.Void System.Collections.Generic.Dictionary`2<System.Object,System.Object>::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Dictionary_2__ctor_m2C8EE5C13636D67F6C451C4935049F534AEC658F_gshared (Dictionary_2_tBD1E3221EBD04CEBDA49B84779912E91F56B958D * __this, const RuntimeMethod* method);
+// System.Void System.Threading.Tasks.TaskCompletionSource`1<System.Object>::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TaskCompletionSource_1__ctor_m93D38CA57B11BA7F5B3E7ED1E573E2F0249E44BB_gshared (TaskCompletionSource_1_t5B48A13B0469AA5A5797B645926E284436099903 * __this, const RuntimeMethod* method);
+// System.Void System.Threading.Tasks.TaskCompletionSource`1<System.Object>::SetException(System.Exception)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TaskCompletionSource_1_SetException_mDD594BEBBEE23B395C77001EE646A1E9F4C820BE_gshared (TaskCompletionSource_1_t5B48A13B0469AA5A5797B645926E284436099903 * __this, Exception_t * ___exception0, const RuntimeMethod* method);
+// System.Threading.Tasks.Task`1<!0> System.Threading.Tasks.TaskCompletionSource`1<System.Object>::get_Task()
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Task_1_tC1805497876E88B78A2B0CB81C6409E0B381AC17 * TaskCompletionSource_1_get_Task_m7F788C2231343328FBBCFE9EDA916E748F699618_gshared_inline (TaskCompletionSource_1_t5B48A13B0469AA5A5797B645926E284436099903 * __this, const RuntimeMethod* method);
+// System.Void System.Collections.Generic.Dictionary`2<System.Int32,System.Object>::set_Item(!0,!1)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Dictionary_2_set_Item_m71867F9FFBB49DE962FD0036368A0F6E87F30C90_gshared (Dictionary_2_tE1E5B6327FFA2C7AE34A69E0011815C914771C2F * __this, int32_t ___key0, RuntimeObject * ___value1, const RuntimeMethod* method);
 // System.Boolean System.Collections.Generic.Dictionary`2<System.Int32,System.Object>::TryGetValue(!0,!1&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Dictionary_2_TryGetValue_m0A88BBB063127AFAD853506A433ACB07D7AAD67E_gshared (Dictionary_2_tE1E5B6327FFA2C7AE34A69E0011815C914771C2F * __this, int32_t ___key0, RuntimeObject ** ___value1, const RuntimeMethod* method);
 // System.Boolean System.Collections.Generic.Dictionary`2<System.Int32,System.Object>::Remove(!0)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Dictionary_2_Remove_mAC77908EC28C242ACC8C3C4CDEA945E73B95CFA4_gshared (Dictionary_2_tE1E5B6327FFA2C7AE34A69E0011815C914771C2F * __this, int32_t ___key0, const RuntimeMethod* method);
+// System.Threading.Tasks.Task System.Threading.Tasks.Task`1<System.Object>::ContinueWith(System.Action`1<System.Threading.Tasks.Task`1<!0>>)
+IL2CPP_EXTERN_C IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR Task_t804B25CFE3FC13AAEE16C8FA3BF52513F2A8DB60 * Task_1_ContinueWith_mD0894365AE360E310C6E4D365ADBEEDCE18D6BF7_gshared (Task_1_tC1805497876E88B78A2B0CB81C6409E0B381AC17 * __this, Action_1_tFE20E1B68D8FC8F70518B6977AEA92C696288F1D * ___continuationAction0, const RuntimeMethod* method);
 // System.Boolean Firebase.Database.Query::CheckTaskStatus<System.Boolean>(System.Threading.Tasks.Task,System.Threading.Tasks.TaskCompletionSource`1<TResult>)
 IL2CPP_EXTERN_C IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR bool Query_CheckTaskStatus_TisBoolean_t07D1E3F34E4813023D64F584DFF7B34C9D922F37_mBF95C0FEA8F946EFCAB506560647279DEFEAE91B_gshared (Query_t040D26D9F80119DD12A4B48ABAD1830398144B2C * __this, Task_t804B25CFE3FC13AAEE16C8FA3BF52513F2A8DB60 * ___task0, TaskCompletionSource_1_t56125454B9277AE49801F3DF08F7774ED6B499F3 * ___tcs1, const RuntimeMethod* method);
 // System.Void System.Threading.Tasks.TaskCompletionSource`1<System.Boolean>::SetResult(!0)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TaskCompletionSource_1_SetResult_mBC013C4BFE7F83CEB4DC24476C87B3F5073A00BE_gshared (TaskCompletionSource_1_t56125454B9277AE49801F3DF08F7774ED6B499F3 * __this, bool ___result0, const RuntimeMethod* method);
+// System.Void System.Threading.Tasks.TaskCompletionSource`1<System.Object>::SetCanceled()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TaskCompletionSource_1_SetCanceled_m297148FA6868B7BC0B56FB1FD9C237C349AA57AA_gshared (TaskCompletionSource_1_t5B48A13B0469AA5A5797B645926E284436099903 * __this, const RuntimeMethod* method);
+// System.Void System.Threading.Tasks.TaskCompletionSource`1<System.Object>::SetResult(!0)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TaskCompletionSource_1_SetResult_m114264415DE45978C357F9A2A7A2E87D84B54443_gshared (TaskCompletionSource_1_t5B48A13B0469AA5A5797B645926E284436099903 * __this, RuntimeObject * ___result0, const RuntimeMethod* method);
 // System.Void System.EventHandler`1<System.Object>::Invoke(System.Object,!0)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EventHandler_1_Invoke_mEAFD7F9E52E7DF356F3C4F0262BCFBA7769C83C0_gshared (EventHandler_1_tFA1C30E54FA1061D79E711F65F9A174BFBD8CDCB * __this, RuntimeObject * ___sender0, RuntimeObject * ___e1, const RuntimeMethod* method);
+// System.Boolean Firebase.Database.Query::CheckTaskStatus<System.Object>(System.Threading.Tasks.Task,System.Threading.Tasks.TaskCompletionSource`1<TResult>)
+IL2CPP_EXTERN_C IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR bool Query_CheckTaskStatus_TisRuntimeObject_m2B988AFCC6557775F98CFA431250F60E0A47E458_gshared (Query_t040D26D9F80119DD12A4B48ABAD1830398144B2C * __this, Task_t804B25CFE3FC13AAEE16C8FA3BF52513F2A8DB60 * ___task0, TaskCompletionSource_1_t5B48A13B0469AA5A5797B645926E284436099903 * ___tcs1, const RuntimeMethod* method);
+// !0 System.Threading.Tasks.Task`1<System.Object>::get_Result()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject * Task_1_get_Result_m5A339E4CA9D86AC691E5754F29A452802A8DE548_gshared (Task_1_tC1805497876E88B78A2B0CB81C6409E0B381AC17 * __this, const RuntimeMethod* method);
 
 // System.Void System.EventArgs::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EventArgs__ctor_m5ECB9A8ED0A9E2DBB1ED999BAC1CB44F4354E571 (EventArgs_tBCAACA538A5195B6D6C8DFCC3524A2A4A67FD8BA * __this, const RuntimeMethod* method);
@@ -4417,6 +5211,8 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void ChildChangedEventArgs_set_Da
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Object__ctor_m88880E0413421D13FD95325EDCE231707CE1F405 (RuntimeObject * __this, const RuntimeMethod* method);
 // System.Void Firebase.Database.DataSnapshot::.ctor(Firebase.Database.Internal.InternalDataSnapshot,Firebase.Database.FirebaseDatabase)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DataSnapshot__ctor_mF3A4D367B1075E0508A08D8C42230DF1E8AEAAB2 (DataSnapshot_t27BF9705C3D362AC0A6D18BE34169040F7F5911D * __this, InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A * ___internalSnapshot0, FirebaseDatabase_tF1A65E0ED193AF145CFAFF4D2A13F851118CE470 * ___database1, const RuntimeMethod* method);
+// System.Boolean Firebase.Database.Internal.InternalDataSnapshot::exists()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool InternalDataSnapshot_exists_m800F91ECB309152731A8560A8E78876C8DC80B7F (InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A * __this, const RuntimeMethod* method);
 // System.Object Firebase.Database.DataSnapshot::GetValue(System.Boolean)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject * DataSnapshot_GetValue_m19EF009E5CD1AE6F6A9EBD6C5475682BEF7E950E (DataSnapshot_t27BF9705C3D362AC0A6D18BE34169040F7F5911D * __this, bool ___useExportFormat0, const RuntimeMethod* method);
 // System.String Firebase.Database.Internal.InternalDataSnapshot::key_string()
@@ -4425,6 +5221,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* InternalDataSnapshot_key_string_mA0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Variant_tC9E895EAF1DFC875B36FD116E647B6CF93AC0068 * InternalDataSnapshot_value_mFD409F71BE0E82EE0B1E7811A7C709CF5E198133 (InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A * __this, const RuntimeMethod* method);
 // System.Object Firebase.VariantExtension::ToObject(Firebase.Variant,Firebase.VariantExtension/KeyOptions)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject * VariantExtension_ToObject_m977B0559C06BBAC95FA4CDE4B9773A23FDA967C6 (Variant_tC9E895EAF1DFC875B36FD116E647B6CF93AC0068 * ___variant0, int32_t ___options1, const RuntimeMethod* method);
+// System.String Google.MiniJSON.Json::Serialize(System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* Json_Serialize_m0D81E6F96556FE0C07C4ED905AF1B5E59A15C171 (RuntimeObject * ___obj0, const RuntimeMethod* method);
 // System.String Firebase.Database.DataSnapshot::get_Key()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* DataSnapshot_get_Key_m5FE3B41597AB6C593B50F13F2EF059DAED8C3E74 (DataSnapshot_t27BF9705C3D362AC0A6D18BE34169040F7F5911D * __this, const RuntimeMethod* method);
 // System.Object Firebase.Database.DataSnapshot::get_Value()
@@ -4485,6 +5283,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Task_t804B25CFE3FC13AAEE16C8FA3BF52513F2A8DB6
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject * Json_Deserialize_m019A3EBF54AA28D1614816EC1DF11DE3AC773E99 (String_t* ___json0, const RuntimeMethod* method);
 // System.Threading.Tasks.Task Firebase.Database.DatabaseReference::SetValueAsync(System.Object)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Task_t804B25CFE3FC13AAEE16C8FA3BF52513F2A8DB60 * DatabaseReference_SetValueAsync_mD4504503AA31C8000522284B7F105154F845E043 (DatabaseReference_t77F184B86833D9A4C514C5EAD116D088F1BBEA9C * __this, RuntimeObject * ___value0, const RuntimeMethod* method);
+// System.Threading.Tasks.Task Firebase.Database.Internal.InternalDatabaseReference::UpdateChildrenAsync(Firebase.Variant)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Task_t804B25CFE3FC13AAEE16C8FA3BF52513F2A8DB60 * InternalDatabaseReference_UpdateChildrenAsync_m713955EE3097C84377EFE61A1AB8C1B68FDD6990 (InternalDatabaseReference_t377189DFC646DE6CD547BB5910CB7B7679C477B9 * __this, Variant_tC9E895EAF1DFC875B36FD116E647B6CF93AC0068 * ___values0, const RuntimeMethod* method);
 // System.String Firebase.Database.Internal.InternalDatabaseReference::url()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* InternalDatabaseReference_url_m75413615D60C2ED0D1EED5593DA41A98C7C02E46 (InternalDatabaseReference_t377189DFC646DE6CD547BB5910CB7B7679C477B9 * __this, const RuntimeMethod* method);
 // System.Boolean System.String::Equals(System.String)
@@ -4566,6 +5366,97 @@ inline void Dictionary_2__ctor_m59C07F6643E8DEBA6C9A301C0AE84791A7888A70 (Dictio
 {
 	((  void (*) (Dictionary_2_t45E1EFCD85CF4521B6551E53405DA603C66106F2 *, const RuntimeMethod*))Dictionary_2__ctor_m2C8EE5C13636D67F6C451C4935049F534AEC658F_gshared)(__this, method);
 }
+// System.Void Firebase.Database.Internal.Future_InternalDataSnapshot::SWIG_CompletionDispatcher(System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Future_InternalDataSnapshot_SWIG_CompletionDispatcher_m7905C61D5D9AE818AA4AC3F0F838FA01B5E4D852 (int32_t ___key0, const RuntimeMethod* method);
+// System.IntPtr Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_Future_InternalDataSnapshot_SWIGUpcast(System.IntPtr)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t DatabaseInternalPINVOKE_Firebase_Database_Future_InternalDataSnapshot_SWIGUpcast_m64BA929E9911EEC6F44B4F376FE790D36B275D2E (intptr_t ___jarg10, const RuntimeMethod* method);
+// System.Void Firebase.FutureBase::.ctor(System.IntPtr,System.Boolean)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void FutureBase__ctor_m69C88EC69B422C5752B2E249303D92F649B8C8AC (FutureBase_t8A0245B874D87A58E48E0C9F16C54FD8003534F4 * __this, intptr_t ___cPtr0, bool ___cMemoryOwn1, const RuntimeMethod* method);
+// System.Void System.Runtime.InteropServices.HandleRef::.ctor(System.Object,System.IntPtr)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void HandleRef__ctor_m32F577826A69BCA9CE2C57DA4E6A829B18A4C1A3 (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF * __this, RuntimeObject * ___wrapper0, intptr_t ___handle1, const RuntimeMethod* method);
+// System.Void Firebase.FutureBase::Finalize()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void FutureBase_Finalize_m02E7843DEC68FBDDCA2B009E905FE4657C2B04AC (FutureBase_t8A0245B874D87A58E48E0C9F16C54FD8003534F4 * __this, const RuntimeMethod* method);
+// System.IntPtr System.Runtime.InteropServices.HandleRef::get_Handle()
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t HandleRef_get_Handle_m0768FA4E8D38B46978DB96DAEDCD4947E5256ED5_inline (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF * __this, const RuntimeMethod* method);
+// System.Boolean System.IntPtr::op_Inequality(System.IntPtr,System.IntPtr)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool IntPtr_op_Inequality_m212AF0E66AA81FEDC982B1C8A44ADDA24B995EB8 (intptr_t ___value10, intptr_t ___value21, const RuntimeMethod* method);
+// System.Void Firebase.Database.Internal.Future_InternalDataSnapshot::SetCompletionData(System.IntPtr)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Future_InternalDataSnapshot_SetCompletionData_m1D3D08062F81C195B4298C7B980AA3EB166D5672 (Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * __this, intptr_t ___data0, const RuntimeMethod* method);
+// System.Void Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_delete_Future_InternalDataSnapshot(System.Runtime.InteropServices.HandleRef)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DatabaseInternalPINVOKE_Firebase_Database_delete_Future_InternalDataSnapshot_mCD15C4DF3700F6D147F3953AC09ABA42D643CC6A (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  ___jarg10, const RuntimeMethod* method);
+// System.Void Firebase.FutureBase::Dispose()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void FutureBase_Dispose_m2C0FDC1F8EF2499A1E52D6CFEA94348388784BDB (FutureBase_t8A0245B874D87A58E48E0C9F16C54FD8003534F4 * __this, const RuntimeMethod* method);
+// System.Void Firebase.Database.Internal.Future_InternalDataSnapshot/<GetTask>c__AnonStorey0::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CGetTaskU3Ec__AnonStorey0__ctor_mA788F542E33A4820FB5D5940955D9516D0C51D39 (U3CGetTaskU3Ec__AnonStorey0_t871680D4CE9F27571B0AD8F193FA1DBFDAB9093A * __this, const RuntimeMethod* method);
+// System.Void System.Threading.Tasks.TaskCompletionSource`1<Firebase.Database.Internal.InternalDataSnapshot>::.ctor()
+inline void TaskCompletionSource_1__ctor_m3751A7ECA2C4F3CB06550D41F2C80B426E860C26 (TaskCompletionSource_1_t98B3237FC25BA25DAAC9E1ED72EA4265692F02CF * __this, const RuntimeMethod* method)
+{
+	((  void (*) (TaskCompletionSource_1_t98B3237FC25BA25DAAC9E1ED72EA4265692F02CF *, const RuntimeMethod*))TaskCompletionSource_1__ctor_m93D38CA57B11BA7F5B3E7ED1E573E2F0249E44BB_gshared)(__this, method);
+}
+// Firebase.FutureStatus Firebase.FutureBase::status()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t FutureBase_status_m478C1E6AF62FB15C218A7C422CF5DC8CA1486CAA (FutureBase_t8A0245B874D87A58E48E0C9F16C54FD8003534F4 * __this, const RuntimeMethod* method);
+// System.Void Firebase.FirebaseException::.ctor(System.Int32,System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void FirebaseException__ctor_mCB919E722DF4F366C4E0D9278716CBED5DD8907C (FirebaseException_t80812F0C7BA9277B701A891E7575AC4DAEE1DA47 * __this, int32_t ___errorCode0, String_t* ___message1, const RuntimeMethod* method);
+// System.Void System.Threading.Tasks.TaskCompletionSource`1<Firebase.Database.Internal.InternalDataSnapshot>::SetException(System.Exception)
+inline void TaskCompletionSource_1_SetException_mEC703BD3E8DF60DEBAD638DD1D617657FD1D7A5F (TaskCompletionSource_1_t98B3237FC25BA25DAAC9E1ED72EA4265692F02CF * __this, Exception_t * ___exception0, const RuntimeMethod* method)
+{
+	((  void (*) (TaskCompletionSource_1_t98B3237FC25BA25DAAC9E1ED72EA4265692F02CF *, Exception_t *, const RuntimeMethod*))TaskCompletionSource_1_SetException_mDD594BEBBEE23B395C77001EE646A1E9F4C820BE_gshared)(__this, ___exception0, method);
+}
+// System.Threading.Tasks.Task`1<!0> System.Threading.Tasks.TaskCompletionSource`1<Firebase.Database.Internal.InternalDataSnapshot>::get_Task()
+inline Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB * TaskCompletionSource_1_get_Task_m036CE247B543C1C3E90DE1A2369F8FA8A1D46192_inline (TaskCompletionSource_1_t98B3237FC25BA25DAAC9E1ED72EA4265692F02CF * __this, const RuntimeMethod* method)
+{
+	return ((  Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB * (*) (TaskCompletionSource_1_t98B3237FC25BA25DAAC9E1ED72EA4265692F02CF *, const RuntimeMethod*))TaskCompletionSource_1_get_Task_m7F788C2231343328FBBCFE9EDA916E748F699618_gshared_inline)(__this, method);
+}
+// System.Void Firebase.Database.Internal.Future_InternalDataSnapshot/Action::.ctor(System.Object,System.IntPtr)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Action__ctor_mD4D4FE593498B18687FE8C1591C34F77F325A11A (Action_t3C9E886ED952A5C1AC45907686BC24896CA35010 * __this, RuntimeObject * ___object0, intptr_t ___method1, const RuntimeMethod* method);
+// System.Void Firebase.Database.Internal.Future_InternalDataSnapshot::SetOnCompletionCallback(Firebase.Database.Internal.Future_InternalDataSnapshot/Action)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Future_InternalDataSnapshot_SetOnCompletionCallback_m388C32DC2FD7271395EC78E82CB4BDF60F08B570 (Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * __this, Action_t3C9E886ED952A5C1AC45907686BC24896CA35010 * ___userCompletionCallback0, const RuntimeMethod* method);
+// System.Boolean System.IntPtr::op_Equality(System.IntPtr,System.IntPtr)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool IntPtr_op_Equality_mD94F3FE43A65684EFF984A7B95E70D2520C0AC73 (intptr_t ___value10, intptr_t ___value21, const RuntimeMethod* method);
+// System.Void System.ArgumentNullException::.ctor(System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ArgumentNullException__ctor_m81AB157B93BFE2FBFDB08B88F84B444293042F97 (ArgumentNullException_tFB5C4621957BC53A7D1B4FDD5C38B4D6E15DB8FB * __this, String_t* ___paramName0, const RuntimeMethod* method);
+// System.Void Firebase.Database.Internal.Future_InternalDataSnapshot::ThrowIfDisposed()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Future_InternalDataSnapshot_ThrowIfDisposed_mD724684DB59E023BCDA95A70A67FF931536F16B3 (Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * __this, const RuntimeMethod* method);
+// System.Void Firebase.Database.Internal.Future_InternalDataSnapshot/SWIG_CompletionDelegate::.ctor(System.Object,System.IntPtr)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SWIG_CompletionDelegate__ctor_mE0AC37E93A8DA64EBA7614EFDF0EC8177BD1EE64 (SWIG_CompletionDelegate_tA8D1F511687314492DCF200EFA9141D61FE38AC1 * __this, RuntimeObject * ___object0, intptr_t ___method1, const RuntimeMethod* method);
+// System.Void System.Collections.Generic.Dictionary`2<System.Int32,Firebase.Database.Internal.Future_InternalDataSnapshot/Action>::.ctor()
+inline void Dictionary_2__ctor_mDB2D45DD861B8E39D37B45FED51B5A2C6EC667A7 (Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661 * __this, const RuntimeMethod* method)
+{
+	((  void (*) (Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661 *, const RuntimeMethod*))Dictionary_2__ctor_mE7F9D51201F5A72BF4995CA0F3F0E866DB21E638_gshared)(__this, method);
+}
+// System.Void System.Collections.Generic.Dictionary`2<System.Int32,Firebase.Database.Internal.Future_InternalDataSnapshot/Action>::set_Item(!0,!1)
+inline void Dictionary_2_set_Item_mDADD4AF2D09DB970C2DA40007E966A4C0C19521D (Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661 * __this, int32_t ___key0, Action_t3C9E886ED952A5C1AC45907686BC24896CA35010 * ___value1, const RuntimeMethod* method)
+{
+	((  void (*) (Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661 *, int32_t, Action_t3C9E886ED952A5C1AC45907686BC24896CA35010 *, const RuntimeMethod*))Dictionary_2_set_Item_m71867F9FFBB49DE962FD0036368A0F6E87F30C90_gshared)(__this, ___key0, ___value1, method);
+}
+// System.IntPtr Firebase.Database.Internal.Future_InternalDataSnapshot::SWIG_OnCompletion(Firebase.Database.Internal.Future_InternalDataSnapshot/SWIG_CompletionDelegate,System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t Future_InternalDataSnapshot_SWIG_OnCompletion_m7B5EEB5EB2E01FF2DF8F69C3523DBCFC7179E319 (Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * __this, SWIG_CompletionDelegate_tA8D1F511687314492DCF200EFA9141D61FE38AC1 * ___cs_callback0, int32_t ___cs_key1, const RuntimeMethod* method);
+// System.Void Firebase.Database.Internal.Future_InternalDataSnapshot::SWIG_FreeCompletionData(System.IntPtr)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Future_InternalDataSnapshot_SWIG_FreeCompletionData_m3F18A53533DF61CC0DC043AEC2AEB91ECB7EDD00 (Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * __this, intptr_t ___data0, const RuntimeMethod* method);
+// System.Boolean System.Collections.Generic.Dictionary`2<System.Int32,Firebase.Database.Internal.Future_InternalDataSnapshot/Action>::TryGetValue(!0,!1&)
+inline bool Dictionary_2_TryGetValue_m5A49A6251995F0D50EE2D53D9BFC990EC9F2AB0F (Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661 * __this, int32_t ___key0, Action_t3C9E886ED952A5C1AC45907686BC24896CA35010 ** ___value1, const RuntimeMethod* method)
+{
+	return ((  bool (*) (Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661 *, int32_t, Action_t3C9E886ED952A5C1AC45907686BC24896CA35010 **, const RuntimeMethod*))Dictionary_2_TryGetValue_m0A88BBB063127AFAD853506A433ACB07D7AAD67E_gshared)(__this, ___key0, ___value1, method);
+}
+// System.Boolean System.Collections.Generic.Dictionary`2<System.Int32,Firebase.Database.Internal.Future_InternalDataSnapshot/Action>::Remove(!0)
+inline bool Dictionary_2_Remove_m3252CBDBF92D3408E081F662845DE0B41E437C4D (Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661 * __this, int32_t ___key0, const RuntimeMethod* method)
+{
+	return ((  bool (*) (Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661 *, int32_t, const RuntimeMethod*))Dictionary_2_Remove_mAC77908EC28C242ACC8C3C4CDEA945E73B95CFA4_gshared)(__this, ___key0, method);
+}
+// System.Void Firebase.Database.Internal.Future_InternalDataSnapshot/Action::Invoke()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Action_Invoke_m1BF962C259EF45F747580BC1ACB7139C30D3D809 (Action_t3C9E886ED952A5C1AC45907686BC24896CA35010 * __this, const RuntimeMethod* method);
+// System.IntPtr Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_Future_InternalDataSnapshot_SWIG_OnCompletion(System.Runtime.InteropServices.HandleRef,Firebase.Database.Internal.Future_InternalDataSnapshot/SWIG_CompletionDelegate,System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t DatabaseInternalPINVOKE_Firebase_Database_Future_InternalDataSnapshot_SWIG_OnCompletion_m9A84CA46732DEAEBEBF6F788A095A0DDFA310FF3 (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  ___jarg10, SWIG_CompletionDelegate_tA8D1F511687314492DCF200EFA9141D61FE38AC1 * ___jarg21, int32_t ___jarg32, const RuntimeMethod* method);
+// System.Boolean Firebase.AppUtilPINVOKE/SWIGPendingException::get_Pending()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool SWIGPendingException_get_Pending_m57F7C179B5EFB37003896A5F25F4FBED7DA3D2AD (const RuntimeMethod* method);
+// System.Exception Firebase.AppUtilPINVOKE/SWIGPendingException::Retrieve()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Exception_t * SWIGPendingException_Retrieve_m62D9AC53AD2901040C0DF7F7800858C07617B6CD (const RuntimeMethod* method);
+// System.Void Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_Future_InternalDataSnapshot_SWIG_FreeCompletionData(System.Runtime.InteropServices.HandleRef,System.IntPtr)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DatabaseInternalPINVOKE_Firebase_Database_Future_InternalDataSnapshot_SWIG_FreeCompletionData_m3201D5745B28C1D9BF8B25A5A8F94098E2F08778 (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  ___jarg10, intptr_t ___jarg21, const RuntimeMethod* method);
+// System.IntPtr Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_Future_InternalDataSnapshot_GetResult(System.Runtime.InteropServices.HandleRef)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t DatabaseInternalPINVOKE_Firebase_Database_Future_InternalDataSnapshot_GetResult_mBD295645420E54C1EFBC1D04AA7823171CF07DB8 (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  ___jarg10, const RuntimeMethod* method);
+// System.Void Firebase.Database.Internal.InternalDataSnapshot::.ctor(System.IntPtr,System.Boolean)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void InternalDataSnapshot__ctor_mC8A7803BFA8D85177E7EFD11ABA7652B82842DAF (InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A * __this, intptr_t ___cPtr0, bool ___cMemoryOwn1, const RuntimeMethod* method);
 // System.Void Firebase.Database.Internal.InternalChildListener::OnChildChangeHandler(System.Int32,Firebase.Database.Internal.ChildChangeType,System.IntPtr,System.String)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void InternalChildListener_OnChildChangeHandler_m111693C2C3696B07FE2D29391D27DEF39BCF5BB5 (int32_t ___callbackId0, int32_t ___changeType1, intptr_t ___snapshot2, String_t* ___previousChildName3, const RuntimeMethod* method);
 // System.Void Firebase.Database.Internal.InternalChildListener::OnChildRemovedHandler(System.Int32,System.IntPtr)
@@ -4594,22 +5485,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ExceptionAggregator_Wrap_m24EBDCC97F8D88
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3COnChildRemovedHandlerU3Ec__AnonStorey1__ctor_m7E6AE23F4E493961862651CCCDD4F7D8BC58E493 (U3COnChildRemovedHandlerU3Ec__AnonStorey1_t8D960BF23D5189AEDFE856329F5A308AAD97FCA1 * __this, const RuntimeMethod* method);
 // System.Void Firebase.Database.Internal.InternalChildListener/<OnCancelledHandler>c__AnonStorey2::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3COnCancelledHandlerU3Ec__AnonStorey2__ctor_mFFE132800267C1A72DFBDC65B4F1F1E10FBEABE0 (U3COnCancelledHandlerU3Ec__AnonStorey2_tFB771BA61C4535C22FDD7571CB2B344E36051B9A * __this, const RuntimeMethod* method);
-// System.Boolean System.IntPtr::op_Inequality(System.IntPtr,System.IntPtr)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool IntPtr_op_Inequality_m212AF0E66AA81FEDC982B1C8A44ADDA24B995EB8 (intptr_t ___value10, intptr_t ___value21, const RuntimeMethod* method);
 // System.Void Firebase.Database.Internal.InternalQuery::DestroyChildListener(System.IntPtr)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void InternalQuery_DestroyChildListener_m574B9F1F70D80C9104E164EE160233BBA6F3F958 (intptr_t ___listener0, const RuntimeMethod* method);
-// System.Void System.Runtime.InteropServices.HandleRef::.ctor(System.Object,System.IntPtr)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void HandleRef__ctor_m32F577826A69BCA9CE2C57DA4E6A829B18A4C1A3 (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF * __this, RuntimeObject * ___wrapper0, intptr_t ___handle1, const RuntimeMethod* method);
-// System.IntPtr System.Runtime.InteropServices.HandleRef::get_Handle()
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t HandleRef_get_Handle_m0768FA4E8D38B46978DB96DAEDCD4947E5256ED5_inline (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF * __this, const RuntimeMethod* method);
 // System.Void Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_delete_InternalDataSnapshot(System.Runtime.InteropServices.HandleRef)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DatabaseInternalPINVOKE_Firebase_Database_delete_InternalDataSnapshot_mD65E290C301E8AD2554F55A6890835A72451A52F (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  ___jarg10, const RuntimeMethod* method);
+// System.Boolean Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_InternalDataSnapshot_exists(System.Runtime.InteropServices.HandleRef)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool DatabaseInternalPINVOKE_Firebase_Database_InternalDataSnapshot_exists_m1370C59AB4C3BAC879AA168273F3B5FA287ADB10 (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  ___jarg10, const RuntimeMethod* method);
 // System.String Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_InternalDataSnapshot_key_string(System.Runtime.InteropServices.HandleRef)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* DatabaseInternalPINVOKE_Firebase_Database_InternalDataSnapshot_key_string_mB03F74C67FE8CFC0291AC4D0CCCB4829153575CC (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  ___jarg10, const RuntimeMethod* method);
-// System.Boolean Firebase.AppUtilPINVOKE/SWIGPendingException::get_Pending()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool SWIGPendingException_get_Pending_m57F7C179B5EFB37003896A5F25F4FBED7DA3D2AD (const RuntimeMethod* method);
-// System.Exception Firebase.AppUtilPINVOKE/SWIGPendingException::Retrieve()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Exception_t * SWIGPendingException_Retrieve_m62D9AC53AD2901040C0DF7F7800858C07617B6CD (const RuntimeMethod* method);
 // System.IntPtr Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_InternalDataSnapshot_value(System.Runtime.InteropServices.HandleRef)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t DatabaseInternalPINVOKE_Firebase_Database_InternalDataSnapshot_value_m878DD5FF4C57B86B116F1922BAD9BE19CD302B78 (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  ___jarg10, const RuntimeMethod* method);
 // System.Void Firebase.Variant::.ctor(System.IntPtr,System.Boolean)
@@ -4638,6 +5521,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t DatabaseInternalPINVOKE_Firebase_Dat
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void FutureVoid__ctor_m1360132BEDC4A7668F93C0D1EB79CE3E28E94597 (FutureVoid_t04BD035498A9875EA1D6F629741C9D1ED31EFE29 * __this, intptr_t ___cPtr0, bool ___cMemoryOwn1, const RuntimeMethod* method);
 // System.Threading.Tasks.Task Firebase.FutureVoid::GetTask(Firebase.FutureVoid)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Task_t804B25CFE3FC13AAEE16C8FA3BF52513F2A8DB60 * FutureVoid_GetTask_m99313F8ED4D21B3440FA37F24EDE6206F6B0E3BF (FutureVoid_t04BD035498A9875EA1D6F629741C9D1ED31EFE29 * ___fu0, const RuntimeMethod* method);
+// System.IntPtr Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_InternalDatabaseReference_UpdateChildren(System.Runtime.InteropServices.HandleRef,System.Runtime.InteropServices.HandleRef)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t DatabaseInternalPINVOKE_Firebase_Database_InternalDatabaseReference_UpdateChildren_m8A133335D5A2E2AEFF44B28CD5478B1747DDC2A6 (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  ___jarg10, HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  ___jarg21, const RuntimeMethod* method);
 // System.String Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_InternalDatabaseReference_url(System.Runtime.InteropServices.HandleRef)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* DatabaseInternalPINVOKE_Firebase_Database_InternalDatabaseReference_url_mEF41BCB9921F0B6BF032A47FFB5D9FADC3E14BD9 (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  ___jarg10, const RuntimeMethod* method);
 // System.Void Firebase.Database.Internal.InternalFirebaseDatabase::ReleaseReferenceInternal(Firebase.Database.Internal.InternalFirebaseDatabase)
@@ -4648,8 +5533,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t DatabaseInternalPINVOKE_Firebase_Dat
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  FirebaseApp_getCPtr_mB9BA3F66814A2FC1CCF1355B112F2D1DD4E72E86 (FirebaseApp_t3592A6306730FCDF285B555F3B4A83F56B9C093D * ___obj0, const RuntimeMethod* method);
 // System.IntPtr Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_InternalFirebaseDatabase_GetInstanceInternal(System.Runtime.InteropServices.HandleRef,System.String,System.Int32&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t DatabaseInternalPINVOKE_Firebase_Database_InternalFirebaseDatabase_GetInstanceInternal_mD59392C0A9FC28291377D8A56213F6A8237B9A2F (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  ___jarg10, String_t* ___jarg21, int32_t* ___jarg32, const RuntimeMethod* method);
-// System.Boolean System.IntPtr::op_Equality(System.IntPtr,System.IntPtr)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool IntPtr_op_Equality_mD94F3FE43A65684EFF984A7B95E70D2520C0AC73 (intptr_t ___value10, intptr_t ___value21, const RuntimeMethod* method);
 // System.Void Firebase.Database.Internal.InternalFirebaseDatabase::.ctor(System.IntPtr,System.Boolean)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void InternalFirebaseDatabase__ctor_m4254206AB58573A28C3FE1E3D1FE1C7D95E8BD93 (InternalFirebaseDatabase_t4C3834289FA32AADAAC3C0B5124E5E8E119DA690 * __this, intptr_t ___cPtr0, bool ___cMemoryOwn1, const RuntimeMethod* method);
 // System.Runtime.InteropServices.HandleRef Firebase.Database.Internal.InternalFirebaseDatabase::getCPtr(Firebase.Database.Internal.InternalFirebaseDatabase)
@@ -4675,6 +5558,12 @@ inline void Dictionary_2__ctor_m21DF5CF653BF8AEA149C21D6FAFF055A967C6FC3 (Dictio
 }
 // System.Void Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_delete_InternalQuery(System.Runtime.InteropServices.HandleRef)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DatabaseInternalPINVOKE_Firebase_Database_delete_InternalQuery_m4730478C2C75CF942C7063B23B14F4EDA8DA7066 (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  ___jarg10, const RuntimeMethod* method);
+// System.IntPtr Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_InternalQuery_GetValue(System.Runtime.InteropServices.HandleRef)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t DatabaseInternalPINVOKE_Firebase_Database_InternalQuery_GetValue_mAF4A5B79FC653747C6CFED886056551259EBDD0C (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  ___jarg10, const RuntimeMethod* method);
+// System.Void Firebase.Database.Internal.Future_InternalDataSnapshot::.ctor(System.IntPtr,System.Boolean)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Future_InternalDataSnapshot__ctor_mBD0542E2976FE5CE03F92C53F981AD18511E0B11 (Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * __this, intptr_t ___cPtr0, bool ___cMemoryOwn1, const RuntimeMethod* method);
+// System.Threading.Tasks.Task`1<Firebase.Database.Internal.InternalDataSnapshot> Firebase.Database.Internal.Future_InternalDataSnapshot::GetTask(Firebase.Database.Internal.Future_InternalDataSnapshot)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB * Future_InternalDataSnapshot_GetTask_mA849249BF0D4F49613ED11751B8B7E0281E4C380 (Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * ___fu0, const RuntimeMethod* method);
 // System.Boolean Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_InternalQuery_is_valid(System.Runtime.InteropServices.HandleRef)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool DatabaseInternalPINVOKE_Firebase_Database_InternalQuery_is_valid_mDDAEBCC7568D01D1D1AD9ACE99F511305B1E30FF (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  ___jarg10, const RuntimeMethod* method);
 // System.Void Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_InternalQuery_DestroyValueListener(System.IntPtr)
@@ -4705,6 +5594,39 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ArgumentException__ctor_m2D35EAD113C2ADC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void InternalValueListener__ctor_m33BF6880327D5F9AFA1A432DE72323D38730FAC7 (InternalValueListener_tB6B7AAE3D24C0231A1E226CC18AB178237E33312 * __this, InternalQuery_tA0F264A7A6B3D704A15AD3CFCD8EEE8E546DE199 * ___internalQuery0, FirebaseDatabase_tF1A65E0ED193AF145CFAFF4D2A13F851118CE470 * ___database1, const RuntimeMethod* method);
 // System.Void Firebase.Database.Internal.InternalChildListener::.ctor(Firebase.Database.Internal.InternalQuery,Firebase.Database.FirebaseDatabase)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void InternalChildListener__ctor_m694203006FE0205106688331909EB8E290733831 (InternalChildListener_tC011D6B03432167133E2D36BE06B0AC956CCCA3D * __this, InternalQuery_tA0F264A7A6B3D704A15AD3CFCD8EEE8E546DE199 * ___internalQuery0, FirebaseDatabase_tF1A65E0ED193AF145CFAFF4D2A13F851118CE470 * ___database1, const RuntimeMethod* method);
+// System.Void Firebase.Database.Query/<WrapInternalDataSnapshotTask>c__AnonStorey0::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CWrapInternalDataSnapshotTaskU3Ec__AnonStorey0__ctor_m5BA902CFC5CFE89B09B422D5F4A967CBA50CDE05 (U3CWrapInternalDataSnapshotTaskU3Ec__AnonStorey0_tC297FE6E7D8CE2EA691D22F0AA947B7DDF040BAF * __this, const RuntimeMethod* method);
+// System.Void System.Threading.Tasks.TaskCompletionSource`1<Firebase.Database.DataSnapshot>::.ctor()
+inline void TaskCompletionSource_1__ctor_mF499A152BCAEA9DE368EDF914174B9BD5FBAD4D3 (TaskCompletionSource_1_t0191AA91EA1ABB8621B9AE6BAF286EF65E50DB27 * __this, const RuntimeMethod* method)
+{
+	((  void (*) (TaskCompletionSource_1_t0191AA91EA1ABB8621B9AE6BAF286EF65E50DB27 *, const RuntimeMethod*))TaskCompletionSource_1__ctor_m93D38CA57B11BA7F5B3E7ED1E573E2F0249E44BB_gshared)(__this, method);
+}
+// System.Void System.Action`1<System.Threading.Tasks.Task`1<Firebase.Database.Internal.InternalDataSnapshot>>::.ctor(System.Object,System.IntPtr)
+inline void Action_1__ctor_m58C335670AC2A0F8330AF901C8A0C9981971A685 (Action_1_t6173F3EA2E1988AF66B5B64F353DEBAFF3E8E6F6 * __this, RuntimeObject * ___object0, intptr_t ___method1, const RuntimeMethod* method)
+{
+	((  void (*) (Action_1_t6173F3EA2E1988AF66B5B64F353DEBAFF3E8E6F6 *, RuntimeObject *, intptr_t, const RuntimeMethod*))Action_1__ctor_mA671E933C9D3DAE4E3F71D34FDDA971739618158_gshared)(__this, ___object0, ___method1, method);
+}
+// System.Threading.Tasks.Task System.Threading.Tasks.Task`1<Firebase.Database.Internal.InternalDataSnapshot>::ContinueWith(System.Action`1<System.Threading.Tasks.Task`1<!0>>)
+inline Task_t804B25CFE3FC13AAEE16C8FA3BF52513F2A8DB60 * Task_1_ContinueWith_mC31F6F48C8E15755E811AFAB79C859ECCB787D0F (Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB * __this, Action_1_t6173F3EA2E1988AF66B5B64F353DEBAFF3E8E6F6 * ___continuationAction0, const RuntimeMethod* method)
+{
+	return ((  Task_t804B25CFE3FC13AAEE16C8FA3BF52513F2A8DB60 * (*) (Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB *, Action_1_t6173F3EA2E1988AF66B5B64F353DEBAFF3E8E6F6 *, const RuntimeMethod*))Task_1_ContinueWith_mD0894365AE360E310C6E4D365ADBEEDCE18D6BF7_gshared)(__this, ___continuationAction0, method);
+}
+// System.Threading.Tasks.Task`1<!0> System.Threading.Tasks.TaskCompletionSource`1<Firebase.Database.DataSnapshot>::get_Task()
+inline Task_1_t931B58DD64B4EFD7FD4C3DD754009EEE56897087 * TaskCompletionSource_1_get_Task_m2764F9E5D6DC04C4D667CA027C319F5E17CAC143_inline (TaskCompletionSource_1_t0191AA91EA1ABB8621B9AE6BAF286EF65E50DB27 * __this, const RuntimeMethod* method)
+{
+	return ((  Task_1_t931B58DD64B4EFD7FD4C3DD754009EEE56897087 * (*) (TaskCompletionSource_1_t0191AA91EA1ABB8621B9AE6BAF286EF65E50DB27 *, const RuntimeMethod*))TaskCompletionSource_1_get_Task_m7F788C2231343328FBBCFE9EDA916E748F699618_gshared_inline)(__this, method);
+}
+// System.Threading.Tasks.Task`1<Firebase.Database.Internal.InternalDataSnapshot> Firebase.Database.Internal.InternalQuery::GetValueAsync()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB * InternalQuery_GetValueAsync_m611875BC39C804373A70F5E501C80A5C7394DD48 (InternalQuery_tA0F264A7A6B3D704A15AD3CFCD8EEE8E546DE199 * __this, const RuntimeMethod* method);
+// System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot> Firebase.Database.Query::WrapInternalDataSnapshotTask(System.Threading.Tasks.Task`1<Firebase.Database.Internal.InternalDataSnapshot>)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Task_1_t931B58DD64B4EFD7FD4C3DD754009EEE56897087 * Query_WrapInternalDataSnapshotTask_mD66B30C95FF21216495D9F24C95C388DDE50DD83 (Query_t040D26D9F80119DD12A4B48ABAD1830398144B2C * __this, Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB * ___it0, const RuntimeMethod* method);
+// System.Void System.Collections.Generic.Dictionary`2<System.String,System.Object>::.ctor()
+inline void Dictionary_2__ctor_mCD0C2F0325B7677B9BC340A60AA3FB9C7A88FF63 (Dictionary_2_t692011309BA94F599C6042A381FC9F8B3CB08399 * __this, const RuntimeMethod* method)
+{
+	((  void (*) (Dictionary_2_t692011309BA94F599C6042A381FC9F8B3CB08399 *, const RuntimeMethod*))Dictionary_2__ctor_m2C8EE5C13636D67F6C451C4935049F534AEC658F_gshared)(__this, method);
+}
+// System.Collections.Generic.IDictionary`2<System.String,System.Object> Firebase.Database.ServerValue::CreateServerValuePlaceholder(System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ServerValue_CreateServerValuePlaceholder_mCEB6DF5EF52BE283D16F7279EE9A4C0031B2021F (String_t* ___key0, const RuntimeMethod* method);
 // Firebase.Variant Firebase.Variant::FromObject(System.Object)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Variant_tC9E895EAF1DFC875B36FD116E647B6CF93AC0068 * Variant_FromObject_mE58A1F66819C8CD004C2BF52AFE4F19985597EF7 (RuntimeObject * ___o0, const RuntimeMethod* method);
 // System.String System.String::Concat(System.Object,System.Object)
@@ -4803,6 +5725,26 @@ inline void TaskCompletionSource_1_SetResult_mBC013C4BFE7F83CEB4DC24476C87B3F507
 {
 	((  void (*) (TaskCompletionSource_1_t56125454B9277AE49801F3DF08F7774ED6B499F3 *, bool, const RuntimeMethod*))TaskCompletionSource_1_SetResult_mBC013C4BFE7F83CEB4DC24476C87B3F5073A00BE_gshared)(__this, ___result0, method);
 }
+// System.Void System.Threading.Tasks.TaskCompletionSource`1<Firebase.Database.Internal.InternalDataSnapshot>::SetCanceled()
+inline void TaskCompletionSource_1_SetCanceled_mF936FEB70EF48BE9A856AD893D796F16CA38DD13 (TaskCompletionSource_1_t98B3237FC25BA25DAAC9E1ED72EA4265692F02CF * __this, const RuntimeMethod* method)
+{
+	((  void (*) (TaskCompletionSource_1_t98B3237FC25BA25DAAC9E1ED72EA4265692F02CF *, const RuntimeMethod*))TaskCompletionSource_1_SetCanceled_m297148FA6868B7BC0B56FB1FD9C237C349AA57AA_gshared)(__this, method);
+}
+// System.Int32 Firebase.FutureBase::error()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t FutureBase_error_mBA8200B272D3DB91D1EE78ECE0A10AAB84771C03 (FutureBase_t8A0245B874D87A58E48E0C9F16C54FD8003534F4 * __this, const RuntimeMethod* method);
+// System.String Firebase.FutureBase::error_message()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* FutureBase_error_message_m6E9B30EF5EC5EE999B91077E60E3B96978DE4774 (FutureBase_t8A0245B874D87A58E48E0C9F16C54FD8003534F4 * __this, const RuntimeMethod* method);
+// Firebase.Database.Internal.InternalDataSnapshot Firebase.Database.Internal.Future_InternalDataSnapshot::GetResult()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A * Future_InternalDataSnapshot_GetResult_mB737568CE9D114E1F8464CE0F46AD7A3B0E273B3 (Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * __this, const RuntimeMethod* method);
+// System.Void System.Threading.Tasks.TaskCompletionSource`1<Firebase.Database.Internal.InternalDataSnapshot>::SetResult(!0)
+inline void TaskCompletionSource_1_SetResult_m40BDB5DEA558FEF78598FC3F4B0FCADB03B2F174 (TaskCompletionSource_1_t98B3237FC25BA25DAAC9E1ED72EA4265692F02CF * __this, InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A * ___result0, const RuntimeMethod* method)
+{
+	((  void (*) (TaskCompletionSource_1_t98B3237FC25BA25DAAC9E1ED72EA4265692F02CF *, InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A *, const RuntimeMethod*))TaskCompletionSource_1_SetResult_m114264415DE45978C357F9A2A7A2E87D84B54443_gshared)(__this, ___result0, method);
+}
+// System.String System.String::Format(System.String,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* String_Format_mB3D38E5238C3164DB4D7D29339D9E225A4496D17 (String_t* ___format0, RuntimeObject * ___arg01, const RuntimeMethod* method);
+// System.Void Firebase.LogUtil::LogMessage(Firebase.LogLevel,System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LogUtil_LogMessage_mC36C5CCA27AFA6A1773D0A993DAC4A0C609F6C8B (int32_t ___logLevel0, String_t* ___message1, const RuntimeMethod* method);
 // System.Boolean Firebase.Database.Internal.InternalChildListener::TryGetListener(System.Int32,Firebase.Database.Internal.InternalChildListener&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool InternalChildListener_TryGetListener_m41E36427FAA5985CB8FF0F6BEADB1A1146E85A18 (int32_t ___callbackId0, InternalChildListener_tC011D6B03432167133E2D36BE06B0AC956CCCA3D ** ___childListener1, const RuntimeMethod* method);
 // Firebase.Database.DatabaseError Firebase.Database.DatabaseError::FromError(Firebase.Database.Internal.Error,System.String)
@@ -4814,8 +5756,6 @@ inline void EventHandler_1_Invoke_m91AC45C7E239BBF1DEAF7D32C7E95B7966D44424 (Eve
 {
 	((  void (*) (EventHandler_1_t93916DA5095F1484760C21BA33B40280D4C7F698 *, RuntimeObject *, ChildChangedEventArgs_t09802594379425BAB88FE6946A7812EE887147BA *, const RuntimeMethod*))EventHandler_1_Invoke_mEAFD7F9E52E7DF356F3C4F0262BCFBA7769C83C0_gshared)(__this, ___sender0, ___e1, method);
 }
-// System.Void Firebase.Database.Internal.InternalDataSnapshot::.ctor(System.IntPtr,System.Boolean)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void InternalDataSnapshot__ctor_mC8A7803BFA8D85177E7EFD11ABA7652B82842DAF (InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A * __this, intptr_t ___cPtr0, bool ___cMemoryOwn1, const RuntimeMethod* method);
 // Firebase.Database.DataSnapshot Firebase.Database.DataSnapshot::CreateSnapshot(Firebase.Database.Internal.InternalDataSnapshot,Firebase.Database.FirebaseDatabase)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR DataSnapshot_t27BF9705C3D362AC0A6D18BE34169040F7F5911D * DataSnapshot_CreateSnapshot_m95E10FC734582079840902AA6B7734600FFD88E2 (InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A * ___internalSnapshot0, FirebaseDatabase_tF1A65E0ED193AF145CFAFF4D2A13F851118CE470 * ___database1, const RuntimeMethod* method);
 // System.Void Firebase.Database.ChildChangedEventArgs::.ctor(Firebase.Database.DataSnapshot,System.String)
@@ -4831,13 +5771,34 @@ inline void EventHandler_1_Invoke_mD9F0F6BC91CA464914467DE2F22466FAF7D61711 (Eve
 }
 // System.Void Firebase.Database.ValueChangedEventArgs::.ctor(Firebase.Database.DataSnapshot)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ValueChangedEventArgs__ctor_m379BA084F6E53F5B2DD49386D43DF6AF94CACF81 (ValueChangedEventArgs_tCFDF49267E5DE9B5B6420FBF6DEDBCBB7F78025C * __this, DataSnapshot_t27BF9705C3D362AC0A6D18BE34169040F7F5911D * ___snapshot0, const RuntimeMethod* method);
+// System.Boolean Firebase.Database.Query::CheckTaskStatus<Firebase.Database.DataSnapshot>(System.Threading.Tasks.Task,System.Threading.Tasks.TaskCompletionSource`1<TResult>)
+inline bool Query_CheckTaskStatus_TisDataSnapshot_t27BF9705C3D362AC0A6D18BE34169040F7F5911D_m0BD48C74FC4E2777FFE0F76E1A04664DFB242143 (Query_t040D26D9F80119DD12A4B48ABAD1830398144B2C * __this, Task_t804B25CFE3FC13AAEE16C8FA3BF52513F2A8DB60 * ___task0, TaskCompletionSource_1_t0191AA91EA1ABB8621B9AE6BAF286EF65E50DB27 * ___tcs1, const RuntimeMethod* method)
+{
+	return ((  bool (*) (Query_t040D26D9F80119DD12A4B48ABAD1830398144B2C *, Task_t804B25CFE3FC13AAEE16C8FA3BF52513F2A8DB60 *, TaskCompletionSource_1_t0191AA91EA1ABB8621B9AE6BAF286EF65E50DB27 *, const RuntimeMethod*))Query_CheckTaskStatus_TisRuntimeObject_m2B988AFCC6557775F98CFA431250F60E0A47E458_gshared)(__this, ___task0, ___tcs1, method);
+}
+// !0 System.Threading.Tasks.Task`1<Firebase.Database.Internal.InternalDataSnapshot>::get_Result()
+inline InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A * Task_1_get_Result_m238D408D4BE81829E0E4D5C073565EF0B62DA816 (Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB * __this, const RuntimeMethod* method)
+{
+	return ((  InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A * (*) (Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB *, const RuntimeMethod*))Task_1_get_Result_m5A339E4CA9D86AC691E5754F29A452802A8DE548_gshared)(__this, method);
+}
+// System.Void System.Threading.Tasks.TaskCompletionSource`1<Firebase.Database.DataSnapshot>::SetResult(!0)
+inline void TaskCompletionSource_1_SetResult_m74C29E72B54DDDEE9833B780A78F1D4201BB2103 (TaskCompletionSource_1_t0191AA91EA1ABB8621B9AE6BAF286EF65E50DB27 * __this, DataSnapshot_t27BF9705C3D362AC0A6D18BE34169040F7F5911D * ___result0, const RuntimeMethod* method)
+{
+	((  void (*) (TaskCompletionSource_1_t0191AA91EA1ABB8621B9AE6BAF286EF65E50DB27 *, DataSnapshot_t27BF9705C3D362AC0A6D18BE34169040F7F5911D *, const RuntimeMethod*))TaskCompletionSource_1_SetResult_m114264415DE45978C357F9A2A7A2E87D84B54443_gshared)(__this, ___result0, method);
+}
+IL2CPP_EXTERN_C intptr_t DEFAULT_CALL Firebase_Database_Future_InternalDataSnapshot_SWIG_OnCompletion(void*, Il2CppMethodPointer, int32_t);
+IL2CPP_EXTERN_C void DEFAULT_CALL Firebase_Database_Future_InternalDataSnapshot_SWIG_FreeCompletionData(void*, intptr_t);
+IL2CPP_EXTERN_C intptr_t DEFAULT_CALL Firebase_Database_Future_InternalDataSnapshot_GetResult(void*);
+IL2CPP_EXTERN_C void DEFAULT_CALL Firebase_Database_delete_Future_InternalDataSnapshot(void*);
 IL2CPP_EXTERN_C intptr_t DEFAULT_CALL Firebase_Database_InternalFirebaseDatabase_GetReference__SWIG_0(void*);
 IL2CPP_EXTERN_C intptr_t DEFAULT_CALL Firebase_Database_InternalFirebaseDatabase_GetInstanceInternal(void*, char*, int32_t*);
 IL2CPP_EXTERN_C void DEFAULT_CALL Firebase_Database_InternalFirebaseDatabase_ReleaseReferenceInternal(void*);
 IL2CPP_EXTERN_C void DEFAULT_CALL Firebase_Database_delete_InternalDataSnapshot(void*);
+IL2CPP_EXTERN_C int32_t DEFAULT_CALL Firebase_Database_InternalDataSnapshot_exists(void*);
 IL2CPP_EXTERN_C char* DEFAULT_CALL Firebase_Database_InternalDataSnapshot_key_string(void*);
 IL2CPP_EXTERN_C intptr_t DEFAULT_CALL Firebase_Database_InternalDataSnapshot_value(void*);
 IL2CPP_EXTERN_C void DEFAULT_CALL Firebase_Database_delete_InternalQuery(void*);
+IL2CPP_EXTERN_C intptr_t DEFAULT_CALL Firebase_Database_InternalQuery_GetValue(void*);
 IL2CPP_EXTERN_C int32_t DEFAULT_CALL Firebase_Database_InternalQuery_is_valid(void*);
 IL2CPP_EXTERN_C void DEFAULT_CALL Firebase_Database_InternalQuery_DestroyValueListener(intptr_t);
 IL2CPP_EXTERN_C void DEFAULT_CALL Firebase_Database_InternalQuery_RegisterValueListenerCallbacks(Il2CppMethodPointer, Il2CppMethodPointer);
@@ -4847,7 +5808,9 @@ IL2CPP_EXTERN_C void DEFAULT_CALL Firebase_Database_delete_InternalDatabaseRefer
 IL2CPP_EXTERN_C int32_t DEFAULT_CALL Firebase_Database_InternalDatabaseReference_is_valid(void*);
 IL2CPP_EXTERN_C intptr_t DEFAULT_CALL Firebase_Database_InternalDatabaseReference_Child__SWIG_0(void*, char*);
 IL2CPP_EXTERN_C intptr_t DEFAULT_CALL Firebase_Database_InternalDatabaseReference_SetValue(void*, void*);
+IL2CPP_EXTERN_C intptr_t DEFAULT_CALL Firebase_Database_InternalDatabaseReference_UpdateChildren(void*, void*);
 IL2CPP_EXTERN_C char* DEFAULT_CALL Firebase_Database_InternalDatabaseReference_url(void*);
+IL2CPP_EXTERN_C intptr_t DEFAULT_CALL Firebase_Database_Future_InternalDataSnapshot_SWIGUpcast(intptr_t);
 IL2CPP_EXTERN_C intptr_t DEFAULT_CALL Firebase_Database_InternalDatabaseReference_SWIGUpcast(intptr_t);
 IL2CPP_EXTERN_C void DEFAULT_CALL SWIGRegisterExceptionCallbacks_DatabaseInternal(Il2CppMethodPointer, Il2CppMethodPointer, Il2CppMethodPointer, Il2CppMethodPointer, Il2CppMethodPointer, Il2CppMethodPointer, Il2CppMethodPointer, Il2CppMethodPointer, Il2CppMethodPointer, Il2CppMethodPointer, Il2CppMethodPointer);
 IL2CPP_EXTERN_C void DEFAULT_CALL SWIGRegisterExceptionCallbacksArgument_DatabaseInternal(Il2CppMethodPointer, Il2CppMethodPointer, Il2CppMethodPointer);
@@ -4973,6 +5936,17 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR DataSnapshot_t27BF9705C3D362AC0A6D18BE3416904
 		return L_2;
 	}
 }
+// System.Boolean Firebase.Database.DataSnapshot::get_Exists()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool DataSnapshot_get_Exists_m495BD4E0E07A6AD88698FC0F18C24DC0D3066A1A (DataSnapshot_t27BF9705C3D362AC0A6D18BE34169040F7F5911D * __this, const RuntimeMethod* method)
+{
+	{
+		InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A * L_0 = __this->get_internalSnapshot_0();
+		NullCheck(L_0);
+		bool L_1;
+		L_1 = InternalDataSnapshot_exists_m800F91ECB309152731A8560A8E78876C8DC80B7F(L_0, /*hidden argument*/NULL);
+		return L_1;
+	}
+}
 // System.Object Firebase.Database.DataSnapshot::get_Value()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject * DataSnapshot_get_Value_mD2CC38B1B1053529402B7BCAB2129C80D63E9821 (DataSnapshot_t27BF9705C3D362AC0A6D18BE34169040F7F5911D * __this, const RuntimeMethod* method)
 {
@@ -4991,6 +5965,36 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* DataSnapshot_get_Key_m5FE3B41597AB6
 		String_t* L_1;
 		L_1 = InternalDataSnapshot_key_string_mA08D3ACDC44D92546C101D520B4204945D3C218E(L_0, /*hidden argument*/NULL);
 		return L_1;
+	}
+}
+// System.String Firebase.Database.DataSnapshot::GetRawJsonValue()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* DataSnapshot_GetRawJsonValue_m8CD0807B8860C1FDB937F7759D42D031672AEF3D (DataSnapshot_t27BF9705C3D362AC0A6D18BE34169040F7F5911D * __this, const RuntimeMethod* method)
+{
+	{
+		InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A * L_0 = __this->get_internalSnapshot_0();
+		NullCheck(L_0);
+		bool L_1;
+		L_1 = InternalDataSnapshot_exists_m800F91ECB309152731A8560A8E78876C8DC80B7F(L_0, /*hidden argument*/NULL);
+		if (L_1)
+		{
+			goto IL_0012;
+		}
+	}
+	{
+		return (String_t*)NULL;
+	}
+
+IL_0012:
+	{
+		InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A * L_2 = __this->get_internalSnapshot_0();
+		NullCheck(L_2);
+		Variant_tC9E895EAF1DFC875B36FD116E647B6CF93AC0068 * L_3;
+		L_3 = InternalDataSnapshot_value_mFD409F71BE0E82EE0B1E7811A7C709CF5E198133(L_2, /*hidden argument*/NULL);
+		RuntimeObject * L_4;
+		L_4 = VariantExtension_ToObject_m977B0559C06BBAC95FA4CDE4B9773A23FDA967C6(L_3, 1, /*hidden argument*/NULL);
+		String_t* L_5;
+		L_5 = Json_Serialize_m0D81E6F96556FE0C07C4ED905AF1B5E59A15C171(L_4, /*hidden argument*/NULL);
+		return L_5;
 	}
 }
 // System.Object Firebase.Database.DataSnapshot::GetValue(System.Boolean)
@@ -5542,6 +6546,64 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DatabaseInternalPINVOKE__cctor_m2D506701
 		return;
 	}
 }
+// System.IntPtr Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_Future_InternalDataSnapshot_SWIG_OnCompletion(System.Runtime.InteropServices.HandleRef,Firebase.Database.Internal.Future_InternalDataSnapshot/SWIG_CompletionDelegate,System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t DatabaseInternalPINVOKE_Firebase_Database_Future_InternalDataSnapshot_SWIG_OnCompletion_m9A84CA46732DEAEBEBF6F788A095A0DDFA310FF3 (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  ___jarg10, SWIG_CompletionDelegate_tA8D1F511687314492DCF200EFA9141D61FE38AC1 * ___jarg21, int32_t ___jarg32, const RuntimeMethod* method)
+{
+	typedef intptr_t (DEFAULT_CALL *PInvokeFunc) (void*, Il2CppMethodPointer, int32_t);
+
+	// Marshaling of parameter '___jarg10' to native representation
+	void* ____jarg10_marshaled = NULL;
+	____jarg10_marshaled = (void*)___jarg10.get_m_handle_1();
+
+	// Marshaling of parameter '___jarg21' to native representation
+	Il2CppMethodPointer ____jarg21_marshaled = NULL;
+	____jarg21_marshaled = il2cpp_codegen_marshal_delegate(reinterpret_cast<MulticastDelegate_t*>(___jarg21));
+
+	// Native function invocation
+	intptr_t returnValue = reinterpret_cast<PInvokeFunc>(Firebase_Database_Future_InternalDataSnapshot_SWIG_OnCompletion)(____jarg10_marshaled, ____jarg21_marshaled, ___jarg32);
+
+	return returnValue;
+}
+// System.Void Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_Future_InternalDataSnapshot_SWIG_FreeCompletionData(System.Runtime.InteropServices.HandleRef,System.IntPtr)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DatabaseInternalPINVOKE_Firebase_Database_Future_InternalDataSnapshot_SWIG_FreeCompletionData_m3201D5745B28C1D9BF8B25A5A8F94098E2F08778 (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  ___jarg10, intptr_t ___jarg21, const RuntimeMethod* method)
+{
+	typedef void (DEFAULT_CALL *PInvokeFunc) (void*, intptr_t);
+
+	// Marshaling of parameter '___jarg10' to native representation
+	void* ____jarg10_marshaled = NULL;
+	____jarg10_marshaled = (void*)___jarg10.get_m_handle_1();
+
+	// Native function invocation
+	reinterpret_cast<PInvokeFunc>(Firebase_Database_Future_InternalDataSnapshot_SWIG_FreeCompletionData)(____jarg10_marshaled, ___jarg21);
+
+}
+// System.IntPtr Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_Future_InternalDataSnapshot_GetResult(System.Runtime.InteropServices.HandleRef)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t DatabaseInternalPINVOKE_Firebase_Database_Future_InternalDataSnapshot_GetResult_mBD295645420E54C1EFBC1D04AA7823171CF07DB8 (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  ___jarg10, const RuntimeMethod* method)
+{
+	typedef intptr_t (DEFAULT_CALL *PInvokeFunc) (void*);
+
+	// Marshaling of parameter '___jarg10' to native representation
+	void* ____jarg10_marshaled = NULL;
+	____jarg10_marshaled = (void*)___jarg10.get_m_handle_1();
+
+	// Native function invocation
+	intptr_t returnValue = reinterpret_cast<PInvokeFunc>(Firebase_Database_Future_InternalDataSnapshot_GetResult)(____jarg10_marshaled);
+
+	return returnValue;
+}
+// System.Void Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_delete_Future_InternalDataSnapshot(System.Runtime.InteropServices.HandleRef)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DatabaseInternalPINVOKE_Firebase_Database_delete_Future_InternalDataSnapshot_mCD15C4DF3700F6D147F3953AC09ABA42D643CC6A (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  ___jarg10, const RuntimeMethod* method)
+{
+	typedef void (DEFAULT_CALL *PInvokeFunc) (void*);
+
+	// Marshaling of parameter '___jarg10' to native representation
+	void* ____jarg10_marshaled = NULL;
+	____jarg10_marshaled = (void*)___jarg10.get_m_handle_1();
+
+	// Native function invocation
+	reinterpret_cast<PInvokeFunc>(Firebase_Database_delete_Future_InternalDataSnapshot)(____jarg10_marshaled);
+
+}
 // System.IntPtr Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_InternalFirebaseDatabase_GetReference__SWIG_0(System.Runtime.InteropServices.HandleRef)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t DatabaseInternalPINVOKE_Firebase_Database_InternalFirebaseDatabase_GetReference__SWIG_0_mC828792DE38FF094DF8EBFB3893970B750A116A3 (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  ___jarg10, const RuntimeMethod* method)
 {
@@ -5604,6 +6666,20 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DatabaseInternalPINVOKE_Firebase_Databas
 	reinterpret_cast<PInvokeFunc>(Firebase_Database_delete_InternalDataSnapshot)(____jarg10_marshaled);
 
 }
+// System.Boolean Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_InternalDataSnapshot_exists(System.Runtime.InteropServices.HandleRef)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool DatabaseInternalPINVOKE_Firebase_Database_InternalDataSnapshot_exists_m1370C59AB4C3BAC879AA168273F3B5FA287ADB10 (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  ___jarg10, const RuntimeMethod* method)
+{
+	typedef int32_t (DEFAULT_CALL *PInvokeFunc) (void*);
+
+	// Marshaling of parameter '___jarg10' to native representation
+	void* ____jarg10_marshaled = NULL;
+	____jarg10_marshaled = (void*)___jarg10.get_m_handle_1();
+
+	// Native function invocation
+	int32_t returnValue = reinterpret_cast<PInvokeFunc>(Firebase_Database_InternalDataSnapshot_exists)(____jarg10_marshaled);
+
+	return static_cast<bool>(returnValue);
+}
 // System.String Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_InternalDataSnapshot_key_string(System.Runtime.InteropServices.HandleRef)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* DatabaseInternalPINVOKE_Firebase_Database_InternalDataSnapshot_key_string_mB03F74C67FE8CFC0291AC4D0CCCB4829153575CC (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  ___jarg10, const RuntimeMethod* method)
 {
@@ -5652,6 +6728,20 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DatabaseInternalPINVOKE_Firebase_Databas
 	// Native function invocation
 	reinterpret_cast<PInvokeFunc>(Firebase_Database_delete_InternalQuery)(____jarg10_marshaled);
 
+}
+// System.IntPtr Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_InternalQuery_GetValue(System.Runtime.InteropServices.HandleRef)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t DatabaseInternalPINVOKE_Firebase_Database_InternalQuery_GetValue_mAF4A5B79FC653747C6CFED886056551259EBDD0C (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  ___jarg10, const RuntimeMethod* method)
+{
+	typedef intptr_t (DEFAULT_CALL *PInvokeFunc) (void*);
+
+	// Marshaling of parameter '___jarg10' to native representation
+	void* ____jarg10_marshaled = NULL;
+	____jarg10_marshaled = (void*)___jarg10.get_m_handle_1();
+
+	// Native function invocation
+	intptr_t returnValue = reinterpret_cast<PInvokeFunc>(Firebase_Database_InternalQuery_GetValue)(____jarg10_marshaled);
+
+	return returnValue;
 }
 // System.Boolean Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_InternalQuery_is_valid(System.Runtime.InteropServices.HandleRef)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool DatabaseInternalPINVOKE_Firebase_Database_InternalQuery_is_valid_mDDAEBCC7568D01D1D1AD9ACE99F511305B1E30FF (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  ___jarg10, const RuntimeMethod* method)
@@ -5790,6 +6880,24 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t DatabaseInternalPINVOKE_Firebase_Dat
 
 	return returnValue;
 }
+// System.IntPtr Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_InternalDatabaseReference_UpdateChildren(System.Runtime.InteropServices.HandleRef,System.Runtime.InteropServices.HandleRef)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t DatabaseInternalPINVOKE_Firebase_Database_InternalDatabaseReference_UpdateChildren_m8A133335D5A2E2AEFF44B28CD5478B1747DDC2A6 (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  ___jarg10, HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  ___jarg21, const RuntimeMethod* method)
+{
+	typedef intptr_t (DEFAULT_CALL *PInvokeFunc) (void*, void*);
+
+	// Marshaling of parameter '___jarg10' to native representation
+	void* ____jarg10_marshaled = NULL;
+	____jarg10_marshaled = (void*)___jarg10.get_m_handle_1();
+
+	// Marshaling of parameter '___jarg21' to native representation
+	void* ____jarg21_marshaled = NULL;
+	____jarg21_marshaled = (void*)___jarg21.get_m_handle_1();
+
+	// Native function invocation
+	intptr_t returnValue = reinterpret_cast<PInvokeFunc>(Firebase_Database_InternalDatabaseReference_UpdateChildren)(____jarg10_marshaled, ____jarg21_marshaled);
+
+	return returnValue;
+}
 // System.String Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_InternalDatabaseReference_url(System.Runtime.InteropServices.HandleRef)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* DatabaseInternalPINVOKE_Firebase_Database_InternalDatabaseReference_url_mEF41BCB9921F0B6BF032A47FFB5D9FADC3E14BD9 (HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  ___jarg10, const RuntimeMethod* method)
 {
@@ -5811,6 +6919,16 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* DatabaseInternalPINVOKE_Firebase_Da
 	returnValue = NULL;
 
 	return _returnValue_unmarshaled;
+}
+// System.IntPtr Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_Future_InternalDataSnapshot_SWIGUpcast(System.IntPtr)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t DatabaseInternalPINVOKE_Firebase_Database_Future_InternalDataSnapshot_SWIGUpcast_m64BA929E9911EEC6F44B4F376FE790D36B275D2E (intptr_t ___jarg10, const RuntimeMethod* method)
+{
+	typedef intptr_t (DEFAULT_CALL *PInvokeFunc) (intptr_t);
+
+	// Native function invocation
+	intptr_t returnValue = reinterpret_cast<PInvokeFunc>(Firebase_Database_Future_InternalDataSnapshot_SWIGUpcast)(___jarg10);
+
+	return returnValue;
 }
 // System.IntPtr Firebase.Database.Internal.DatabaseInternalPINVOKE::Firebase_Database_InternalDatabaseReference_SWIGUpcast(System.IntPtr)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t DatabaseInternalPINVOKE_Firebase_Database_InternalDatabaseReference_SWIGUpcast_mF28EA341999CF2EA228D5E67B312AB5BBC04A7B9 (intptr_t ___jarg10, const RuntimeMethod* method)
@@ -5909,6 +7027,20 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Task_t804B25CFE3FC13AAEE16C8FA3BF52513F2A8DB6
 		Task_t804B25CFE3FC13AAEE16C8FA3BF52513F2A8DB60 * L_2;
 		L_2 = DatabaseReference_SetValueAsync_mD4504503AA31C8000522284B7F105154F845E043(__this, L_1, /*hidden argument*/NULL);
 		return L_2;
+	}
+}
+// System.Threading.Tasks.Task Firebase.Database.DatabaseReference::UpdateChildrenAsync(System.Collections.Generic.IDictionary`2<System.String,System.Object>)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Task_t804B25CFE3FC13AAEE16C8FA3BF52513F2A8DB60 * DatabaseReference_UpdateChildrenAsync_m5CA523C2DD41A73D91BA27D10E8B4962D3058925 (DatabaseReference_t77F184B86833D9A4C514C5EAD116D088F1BBEA9C * __this, RuntimeObject* ___update0, const RuntimeMethod* method)
+{
+	{
+		InternalDatabaseReference_t377189DFC646DE6CD547BB5910CB7B7679C477B9 * L_0 = __this->get_internalReference_4();
+		RuntimeObject* L_1 = ___update0;
+		Variant_tC9E895EAF1DFC875B36FD116E647B6CF93AC0068 * L_2;
+		L_2 = Utilities_MakeVariant_mBDECFCA5CCFAF0CF50DDB1DBD34F926031A2CE4A(L_1, /*hidden argument*/NULL);
+		NullCheck(L_0);
+		Task_t804B25CFE3FC13AAEE16C8FA3BF52513F2A8DB60 * L_3;
+		L_3 = InternalDatabaseReference_UpdateChildrenAsync_m713955EE3097C84377EFE61A1AB8C1B68FDD6990(L_0, L_2, /*hidden argument*/NULL);
+		return L_3;
 	}
 }
 // System.String Firebase.Database.DatabaseReference::ToString()
@@ -6481,6 +7613,650 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void FirebaseDatabase__cctor_m7CA2F9F63C990AB
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
+extern "C" void DEFAULT_CALL ReversePInvokeWrapper_Future_InternalDataSnapshot_SWIG_CompletionDispatcher_m7905C61D5D9AE818AA4AC3F0F838FA01B5E4D852(int32_t ___key0)
+{
+	il2cpp::vm::ScopedThreadAttacher _vmThreadHelper;
+
+	// Managed method invocation
+	Future_InternalDataSnapshot_SWIG_CompletionDispatcher_m7905C61D5D9AE818AA4AC3F0F838FA01B5E4D852(___key0, NULL);
+
+}
+// System.Void Firebase.Database.Internal.Future_InternalDataSnapshot::.ctor(System.IntPtr,System.Boolean)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Future_InternalDataSnapshot__ctor_mBD0542E2976FE5CE03F92C53F981AD18511E0B11 (Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * __this, intptr_t ___cPtr0, bool ___cMemoryOwn1, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&DatabaseInternalPINVOKE_t1D4393E46F390744D2215B5ABDEB6BF99328B932_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&IntPtr_t_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		__this->set_callbackData_6((intptr_t)(0));
+		intptr_t L_0 = ___cPtr0;
+		IL2CPP_RUNTIME_CLASS_INIT(DatabaseInternalPINVOKE_t1D4393E46F390744D2215B5ABDEB6BF99328B932_il2cpp_TypeInfo_var);
+		intptr_t L_1;
+		L_1 = DatabaseInternalPINVOKE_Firebase_Database_Future_InternalDataSnapshot_SWIGUpcast_m64BA929E9911EEC6F44B4F376FE790D36B275D2E((intptr_t)L_0, /*hidden argument*/NULL);
+		bool L_2 = ___cMemoryOwn1;
+		FutureBase__ctor_m69C88EC69B422C5752B2E249303D92F649B8C8AC(__this, (intptr_t)L_1, L_2, /*hidden argument*/NULL);
+		intptr_t L_3 = ___cPtr0;
+		HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  L_4;
+		memset((&L_4), 0, sizeof(L_4));
+		HandleRef__ctor_m32F577826A69BCA9CE2C57DA4E6A829B18A4C1A3((&L_4), __this, (intptr_t)L_3, /*hidden argument*/NULL);
+		__this->set_swigCPtr_2(L_4);
+		return;
+	}
+}
+// System.Void Firebase.Database.Internal.Future_InternalDataSnapshot::Finalize()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Future_InternalDataSnapshot_Finalize_mB7553CEE6FED6B3854801DE96B5F09EC78946A59 (Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * __this, const RuntimeMethod* method)
+{
+	Exception_t * __last_unhandled_exception = 0;
+	NO_UNUSED_WARNING (__last_unhandled_exception);
+	Exception_t * __exception_local = 0;
+	NO_UNUSED_WARNING (__exception_local);
+	void* __leave_targets_storage = alloca(sizeof(int32_t) * 1);
+	il2cpp::utils::LeaveTargetStack __leave_targets(__leave_targets_storage);
+	NO_UNUSED_WARNING (__leave_targets);
+
+IL_0000:
+	try
+	{ // begin try (depth: 1)
+		VirtActionInvoker0::Invoke(5 /* System.Void Firebase.FutureBase::Dispose() */, __this);
+		IL2CPP_LEAVE(0x12, FINALLY_000b);
+	} // end try (depth: 1)
+	catch(Il2CppExceptionWrapper& e)
+	{
+		__last_unhandled_exception = (Exception_t *)e.ex;
+		goto FINALLY_000b;
+	}
+
+FINALLY_000b:
+	{ // begin finally (depth: 1)
+		FutureBase_Finalize_m02E7843DEC68FBDDCA2B009E905FE4657C2B04AC(__this, /*hidden argument*/NULL);
+		IL2CPP_END_FINALLY(11)
+	} // end finally (depth: 1)
+	IL2CPP_CLEANUP(11)
+	{
+		IL2CPP_RETHROW_IF_UNHANDLED(Exception_t *)
+		IL2CPP_JUMP_TBL(0x12, IL_0012)
+	}
+
+IL_0012:
+	{
+		return;
+	}
+}
+// System.Void Firebase.Database.Internal.Future_InternalDataSnapshot::Dispose()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Future_InternalDataSnapshot_Dispose_m97702F3298F6866ACDB4DAF947376F3FE80FE261 (Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * __this, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&DatabaseInternalPINVOKE_t1D4393E46F390744D2215B5ABDEB6BF99328B932_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&FirebaseApp_t3592A6306730FCDF285B555F3B4A83F56B9C093D_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GC_tD6F0377620BF01385965FD29272CF088A4309C0D_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&IntPtr_t_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	RuntimeObject * V_0 = NULL;
+	Exception_t * __last_unhandled_exception = 0;
+	NO_UNUSED_WARNING (__last_unhandled_exception);
+	Exception_t * __exception_local = 0;
+	NO_UNUSED_WARNING (__exception_local);
+	void* __leave_targets_storage = alloca(sizeof(int32_t) * 1);
+	il2cpp::utils::LeaveTargetStack __leave_targets(__leave_targets_storage);
+	NO_UNUSED_WARNING (__leave_targets);
+	{
+		IL2CPP_RUNTIME_CLASS_INIT(FirebaseApp_t3592A6306730FCDF285B555F3B4A83F56B9C093D_il2cpp_TypeInfo_var);
+		RuntimeObject * L_0 = ((FirebaseApp_t3592A6306730FCDF285B555F3B4A83F56B9C093D_StaticFields*)il2cpp_codegen_static_fields_for(FirebaseApp_t3592A6306730FCDF285B555F3B4A83F56B9C093D_il2cpp_TypeInfo_var))->get_disposeLock_2();
+		V_0 = L_0;
+		RuntimeObject * L_1 = V_0;
+		Monitor_Enter_m3AEE1F76020B92B6C2742BCD05706DC5FD6F9CB2(L_1, /*hidden argument*/NULL);
+	}
+
+IL_000c:
+	try
+	{ // begin try (depth: 1)
+		{
+			HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF * L_2 = __this->get_address_of_swigCPtr_2();
+			intptr_t L_3;
+			L_3 = HandleRef_get_Handle_m0768FA4E8D38B46978DB96DAEDCD4947E5256ED5_inline((HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF *)L_2, /*hidden argument*/NULL);
+			bool L_4;
+			L_4 = IntPtr_op_Inequality_m212AF0E66AA81FEDC982B1C8A44ADDA24B995EB8((intptr_t)L_3, (intptr_t)(0), /*hidden argument*/NULL);
+			if (!L_4)
+			{
+				goto IL_005f;
+			}
+		}
+
+IL_0026:
+		{
+			Future_InternalDataSnapshot_SetCompletionData_m1D3D08062F81C195B4298C7B980AA3EB166D5672(__this, (intptr_t)(0), /*hidden argument*/NULL);
+			bool L_5 = ((FutureBase_t8A0245B874D87A58E48E0C9F16C54FD8003534F4 *)__this)->get_swigCMemOwn_1();
+			if (!L_5)
+			{
+				goto IL_004e;
+			}
+		}
+
+IL_003c:
+		{
+			((FutureBase_t8A0245B874D87A58E48E0C9F16C54FD8003534F4 *)__this)->set_swigCMemOwn_1((bool)0);
+			HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  L_6 = __this->get_swigCPtr_2();
+			IL2CPP_RUNTIME_CLASS_INIT(DatabaseInternalPINVOKE_t1D4393E46F390744D2215B5ABDEB6BF99328B932_il2cpp_TypeInfo_var);
+			DatabaseInternalPINVOKE_Firebase_Database_delete_Future_InternalDataSnapshot_mCD15C4DF3700F6D147F3953AC09ABA42D643CC6A(L_6, /*hidden argument*/NULL);
+		}
+
+IL_004e:
+		{
+			HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  L_7;
+			memset((&L_7), 0, sizeof(L_7));
+			HandleRef__ctor_m32F577826A69BCA9CE2C57DA4E6A829B18A4C1A3((&L_7), NULL, (intptr_t)(0), /*hidden argument*/NULL);
+			__this->set_swigCPtr_2(L_7);
+		}
+
+IL_005f:
+		{
+			IL2CPP_RUNTIME_CLASS_INIT(GC_tD6F0377620BF01385965FD29272CF088A4309C0D_il2cpp_TypeInfo_var);
+			GC_SuppressFinalize_mEE880E988C6AF32AA2F67F2D62715281EAA41555(__this, /*hidden argument*/NULL);
+			FutureBase_Dispose_m2C0FDC1F8EF2499A1E52D6CFEA94348388784BDB(__this, /*hidden argument*/NULL);
+			IL2CPP_LEAVE(0x77, FINALLY_0070);
+		}
+	} // end try (depth: 1)
+	catch(Il2CppExceptionWrapper& e)
+	{
+		__last_unhandled_exception = (Exception_t *)e.ex;
+		goto FINALLY_0070;
+	}
+
+FINALLY_0070:
+	{ // begin finally (depth: 1)
+		RuntimeObject * L_8 = V_0;
+		Monitor_Exit_mA776B403DA88AC77CDEEF67AB9F0D0E77ABD254A(L_8, /*hidden argument*/NULL);
+		IL2CPP_END_FINALLY(112)
+	} // end finally (depth: 1)
+	IL2CPP_CLEANUP(112)
+	{
+		IL2CPP_RETHROW_IF_UNHANDLED(Exception_t *)
+		IL2CPP_JUMP_TBL(0x77, IL_0077)
+	}
+
+IL_0077:
+	{
+		return;
+	}
+}
+// System.Threading.Tasks.Task`1<Firebase.Database.Internal.InternalDataSnapshot> Firebase.Database.Internal.Future_InternalDataSnapshot::GetTask(Firebase.Database.Internal.Future_InternalDataSnapshot)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB * Future_InternalDataSnapshot_GetTask_mA849249BF0D4F49613ED11751B8B7E0281E4C380 (Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * ___fu0, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Action_t3C9E886ED952A5C1AC45907686BC24896CA35010_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&FirebaseException_t80812F0C7BA9277B701A891E7575AC4DAEE1DA47_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&TaskCompletionSource_1_SetException_mEC703BD3E8DF60DEBAD638DD1D617657FD1D7A5F_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&TaskCompletionSource_1__ctor_m3751A7ECA2C4F3CB06550D41F2C80B426E860C26_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&TaskCompletionSource_1_get_Task_m036CE247B543C1C3E90DE1A2369F8FA8A1D46192_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&TaskCompletionSource_1_t98B3237FC25BA25DAAC9E1ED72EA4265692F02CF_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&U3CGetTaskU3Ec__AnonStorey0_U3CU3Em__0_mFC6340F68B8E4E596967CB4A864D6C925D5F5655_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&U3CGetTaskU3Ec__AnonStorey0_t871680D4CE9F27571B0AD8F193FA1DBFDAB9093A_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralBDC976839D65581464FE3F4DB84C2D27603F0F18);
+		s_Il2CppMethodInitialized = true;
+	}
+	U3CGetTaskU3Ec__AnonStorey0_t871680D4CE9F27571B0AD8F193FA1DBFDAB9093A * V_0 = NULL;
+	{
+		U3CGetTaskU3Ec__AnonStorey0_t871680D4CE9F27571B0AD8F193FA1DBFDAB9093A * L_0 = (U3CGetTaskU3Ec__AnonStorey0_t871680D4CE9F27571B0AD8F193FA1DBFDAB9093A *)il2cpp_codegen_object_new(U3CGetTaskU3Ec__AnonStorey0_t871680D4CE9F27571B0AD8F193FA1DBFDAB9093A_il2cpp_TypeInfo_var);
+		U3CGetTaskU3Ec__AnonStorey0__ctor_mA788F542E33A4820FB5D5940955D9516D0C51D39(L_0, /*hidden argument*/NULL);
+		V_0 = L_0;
+		U3CGetTaskU3Ec__AnonStorey0_t871680D4CE9F27571B0AD8F193FA1DBFDAB9093A * L_1 = V_0;
+		Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * L_2 = ___fu0;
+		NullCheck(L_1);
+		L_1->set_fu_0(L_2);
+		U3CGetTaskU3Ec__AnonStorey0_t871680D4CE9F27571B0AD8F193FA1DBFDAB9093A * L_3 = V_0;
+		TaskCompletionSource_1_t98B3237FC25BA25DAAC9E1ED72EA4265692F02CF * L_4 = (TaskCompletionSource_1_t98B3237FC25BA25DAAC9E1ED72EA4265692F02CF *)il2cpp_codegen_object_new(TaskCompletionSource_1_t98B3237FC25BA25DAAC9E1ED72EA4265692F02CF_il2cpp_TypeInfo_var);
+		TaskCompletionSource_1__ctor_m3751A7ECA2C4F3CB06550D41F2C80B426E860C26(L_4, /*hidden argument*/TaskCompletionSource_1__ctor_m3751A7ECA2C4F3CB06550D41F2C80B426E860C26_RuntimeMethod_var);
+		NullCheck(L_3);
+		L_3->set_tcs_1(L_4);
+		U3CGetTaskU3Ec__AnonStorey0_t871680D4CE9F27571B0AD8F193FA1DBFDAB9093A * L_5 = V_0;
+		NullCheck(L_5);
+		Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * L_6 = L_5->get_fu_0();
+		NullCheck(L_6);
+		int32_t L_7;
+		L_7 = FutureBase_status_m478C1E6AF62FB15C218A7C422CF5DC8CA1486CAA(L_6, /*hidden argument*/NULL);
+		if ((!(((uint32_t)L_7) == ((uint32_t)2))))
+		{
+			goto IL_004b;
+		}
+	}
+	{
+		U3CGetTaskU3Ec__AnonStorey0_t871680D4CE9F27571B0AD8F193FA1DBFDAB9093A * L_8 = V_0;
+		NullCheck(L_8);
+		TaskCompletionSource_1_t98B3237FC25BA25DAAC9E1ED72EA4265692F02CF * L_9 = L_8->get_tcs_1();
+		FirebaseException_t80812F0C7BA9277B701A891E7575AC4DAEE1DA47 * L_10 = (FirebaseException_t80812F0C7BA9277B701A891E7575AC4DAEE1DA47 *)il2cpp_codegen_object_new(FirebaseException_t80812F0C7BA9277B701A891E7575AC4DAEE1DA47_il2cpp_TypeInfo_var);
+		FirebaseException__ctor_mCB919E722DF4F366C4E0D9278716CBED5DD8907C(L_10, 0, _stringLiteralBDC976839D65581464FE3F4DB84C2D27603F0F18, /*hidden argument*/NULL);
+		NullCheck(L_9);
+		TaskCompletionSource_1_SetException_mEC703BD3E8DF60DEBAD638DD1D617657FD1D7A5F(L_9, L_10, /*hidden argument*/TaskCompletionSource_1_SetException_mEC703BD3E8DF60DEBAD638DD1D617657FD1D7A5F_RuntimeMethod_var);
+		U3CGetTaskU3Ec__AnonStorey0_t871680D4CE9F27571B0AD8F193FA1DBFDAB9093A * L_11 = V_0;
+		NullCheck(L_11);
+		TaskCompletionSource_1_t98B3237FC25BA25DAAC9E1ED72EA4265692F02CF * L_12 = L_11->get_tcs_1();
+		NullCheck(L_12);
+		Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB * L_13;
+		L_13 = TaskCompletionSource_1_get_Task_m036CE247B543C1C3E90DE1A2369F8FA8A1D46192_inline(L_12, /*hidden argument*/TaskCompletionSource_1_get_Task_m036CE247B543C1C3E90DE1A2369F8FA8A1D46192_RuntimeMethod_var);
+		return L_13;
+	}
+
+IL_004b:
+	{
+		U3CGetTaskU3Ec__AnonStorey0_t871680D4CE9F27571B0AD8F193FA1DBFDAB9093A * L_14 = V_0;
+		NullCheck(L_14);
+		Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * L_15 = L_14->get_fu_0();
+		U3CGetTaskU3Ec__AnonStorey0_t871680D4CE9F27571B0AD8F193FA1DBFDAB9093A * L_16 = V_0;
+		Action_t3C9E886ED952A5C1AC45907686BC24896CA35010 * L_17 = (Action_t3C9E886ED952A5C1AC45907686BC24896CA35010 *)il2cpp_codegen_object_new(Action_t3C9E886ED952A5C1AC45907686BC24896CA35010_il2cpp_TypeInfo_var);
+		Action__ctor_mD4D4FE593498B18687FE8C1591C34F77F325A11A(L_17, L_16, (intptr_t)((intptr_t)U3CGetTaskU3Ec__AnonStorey0_U3CU3Em__0_mFC6340F68B8E4E596967CB4A864D6C925D5F5655_RuntimeMethod_var), /*hidden argument*/NULL);
+		NullCheck(L_15);
+		Future_InternalDataSnapshot_SetOnCompletionCallback_m388C32DC2FD7271395EC78E82CB4BDF60F08B570(L_15, L_17, /*hidden argument*/NULL);
+		U3CGetTaskU3Ec__AnonStorey0_t871680D4CE9F27571B0AD8F193FA1DBFDAB9093A * L_18 = V_0;
+		NullCheck(L_18);
+		TaskCompletionSource_1_t98B3237FC25BA25DAAC9E1ED72EA4265692F02CF * L_19 = L_18->get_tcs_1();
+		NullCheck(L_19);
+		Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB * L_20;
+		L_20 = TaskCompletionSource_1_get_Task_m036CE247B543C1C3E90DE1A2369F8FA8A1D46192_inline(L_19, /*hidden argument*/TaskCompletionSource_1_get_Task_m036CE247B543C1C3E90DE1A2369F8FA8A1D46192_RuntimeMethod_var);
+		return L_20;
+	}
+}
+// System.Void Firebase.Database.Internal.Future_InternalDataSnapshot::ThrowIfDisposed()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Future_InternalDataSnapshot_ThrowIfDisposed_mD724684DB59E023BCDA95A70A67FF931536F16B3 (Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * __this, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&IntPtr_t_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF * L_0 = __this->get_address_of_swigCPtr_2();
+		intptr_t L_1;
+		L_1 = HandleRef_get_Handle_m0768FA4E8D38B46978DB96DAEDCD4947E5256ED5_inline((HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF *)L_0, /*hidden argument*/NULL);
+		bool L_2;
+		L_2 = IntPtr_op_Equality_mD94F3FE43A65684EFF984A7B95E70D2520C0AC73((intptr_t)L_1, (intptr_t)(0), /*hidden argument*/NULL);
+		if (!L_2)
+		{
+			goto IL_0025;
+		}
+	}
+	{
+		ArgumentNullException_tFB5C4621957BC53A7D1B4FDD5C38B4D6E15DB8FB * L_3 = (ArgumentNullException_tFB5C4621957BC53A7D1B4FDD5C38B4D6E15DB8FB *)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ArgumentNullException_tFB5C4621957BC53A7D1B4FDD5C38B4D6E15DB8FB_il2cpp_TypeInfo_var)));
+		ArgumentNullException__ctor_m81AB157B93BFE2FBFDB08B88F84B444293042F97(L_3, ((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteralE952D19344D880EF06EC8AACBF9B79603FCE8F3A)), /*hidden argument*/NULL);
+		IL2CPP_RAISE_MANAGED_EXCEPTION(L_3, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&Future_InternalDataSnapshot_ThrowIfDisposed_mD724684DB59E023BCDA95A70A67FF931536F16B3_RuntimeMethod_var)));
+	}
+
+IL_0025:
+	{
+		return;
+	}
+}
+// System.Void Firebase.Database.Internal.Future_InternalDataSnapshot::SetOnCompletionCallback(Firebase.Database.Internal.Future_InternalDataSnapshot/Action)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Future_InternalDataSnapshot_SetOnCompletionCallback_m388C32DC2FD7271395EC78E82CB4BDF60F08B570 (Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * __this, Action_t3C9E886ED952A5C1AC45907686BC24896CA35010 * ___userCompletionCallback0, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Dictionary_2__ctor_mDB2D45DD861B8E39D37B45FED51B5A2C6EC667A7_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Dictionary_2_set_Item_mDADD4AF2D09DB970C2DA40007E966A4C0C19521D_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Future_InternalDataSnapshot_SWIG_CompletionDispatcher_m7905C61D5D9AE818AA4AC3F0F838FA01B5E4D852_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&SWIG_CompletionDelegate_tA8D1F511687314492DCF200EFA9141D61FE38AC1_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	int32_t V_0 = 0;
+	RuntimeObject * V_1 = NULL;
+	Exception_t * __last_unhandled_exception = 0;
+	NO_UNUSED_WARNING (__last_unhandled_exception);
+	Exception_t * __exception_local = 0;
+	NO_UNUSED_WARNING (__exception_local);
+	void* __leave_targets_storage = alloca(sizeof(int32_t) * 1);
+	il2cpp::utils::LeaveTargetStack __leave_targets(__leave_targets_storage);
+	NO_UNUSED_WARNING (__leave_targets);
+	{
+		Future_InternalDataSnapshot_ThrowIfDisposed_mD724684DB59E023BCDA95A70A67FF931536F16B3(__this, /*hidden argument*/NULL);
+		SWIG_CompletionDelegate_tA8D1F511687314492DCF200EFA9141D61FE38AC1 * L_0 = __this->get_SWIG_CompletionCB_7();
+		if (L_0)
+		{
+			goto IL_0023;
+		}
+	}
+	{
+		SWIG_CompletionDelegate_tA8D1F511687314492DCF200EFA9141D61FE38AC1 * L_1 = (SWIG_CompletionDelegate_tA8D1F511687314492DCF200EFA9141D61FE38AC1 *)il2cpp_codegen_object_new(SWIG_CompletionDelegate_tA8D1F511687314492DCF200EFA9141D61FE38AC1_il2cpp_TypeInfo_var);
+		SWIG_CompletionDelegate__ctor_mE0AC37E93A8DA64EBA7614EFDF0EC8177BD1EE64(L_1, NULL, (intptr_t)((intptr_t)Future_InternalDataSnapshot_SWIG_CompletionDispatcher_m7905C61D5D9AE818AA4AC3F0F838FA01B5E4D852_RuntimeMethod_var), /*hidden argument*/NULL);
+		__this->set_SWIG_CompletionCB_7(L_1);
+	}
+
+IL_0023:
+	{
+		IL2CPP_RUNTIME_CLASS_INIT(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_il2cpp_TypeInfo_var);
+		RuntimeObject * L_2 = ((Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_StaticFields*)il2cpp_codegen_static_fields_for(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_il2cpp_TypeInfo_var))->get_CallbackLock_5();
+		V_1 = L_2;
+		RuntimeObject * L_3 = V_1;
+		Monitor_Enter_m3AEE1F76020B92B6C2742BCD05706DC5FD6F9CB2(L_3, /*hidden argument*/NULL);
+	}
+
+IL_002f:
+	try
+	{ // begin try (depth: 1)
+		{
+			IL2CPP_RUNTIME_CLASS_INIT(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_il2cpp_TypeInfo_var);
+			Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661 * L_4 = ((Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_StaticFields*)il2cpp_codegen_static_fields_for(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_il2cpp_TypeInfo_var))->get_Callbacks_3();
+			if (L_4)
+			{
+				goto IL_0043;
+			}
+		}
+
+IL_0039:
+		{
+			Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661 * L_5 = (Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661 *)il2cpp_codegen_object_new(Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661_il2cpp_TypeInfo_var);
+			Dictionary_2__ctor_mDB2D45DD861B8E39D37B45FED51B5A2C6EC667A7(L_5, /*hidden argument*/Dictionary_2__ctor_mDB2D45DD861B8E39D37B45FED51B5A2C6EC667A7_RuntimeMethod_var);
+			IL2CPP_RUNTIME_CLASS_INIT(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_il2cpp_TypeInfo_var);
+			((Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_StaticFields*)il2cpp_codegen_static_fields_for(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_il2cpp_TypeInfo_var))->set_Callbacks_3(L_5);
+		}
+
+IL_0043:
+		{
+			IL2CPP_RUNTIME_CLASS_INIT(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_il2cpp_TypeInfo_var);
+			int32_t L_6 = ((Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_StaticFields*)il2cpp_codegen_static_fields_for(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_il2cpp_TypeInfo_var))->get_CallbackIndex_4();
+			int32_t L_7 = ((int32_t)il2cpp_codegen_add((int32_t)L_6, (int32_t)1));
+			((Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_StaticFields*)il2cpp_codegen_static_fields_for(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_il2cpp_TypeInfo_var))->set_CallbackIndex_4(L_7);
+			V_0 = L_7;
+			Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661 * L_8 = ((Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_StaticFields*)il2cpp_codegen_static_fields_for(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_il2cpp_TypeInfo_var))->get_Callbacks_3();
+			int32_t L_9 = V_0;
+			Action_t3C9E886ED952A5C1AC45907686BC24896CA35010 * L_10 = ___userCompletionCallback0;
+			NullCheck(L_8);
+			Dictionary_2_set_Item_mDADD4AF2D09DB970C2DA40007E966A4C0C19521D(L_8, L_9, L_10, /*hidden argument*/Dictionary_2_set_Item_mDADD4AF2D09DB970C2DA40007E966A4C0C19521D_RuntimeMethod_var);
+			IL2CPP_LEAVE(0x69, FINALLY_0062);
+		}
+	} // end try (depth: 1)
+	catch(Il2CppExceptionWrapper& e)
+	{
+		__last_unhandled_exception = (Exception_t *)e.ex;
+		goto FINALLY_0062;
+	}
+
+FINALLY_0062:
+	{ // begin finally (depth: 1)
+		RuntimeObject * L_11 = V_1;
+		Monitor_Exit_mA776B403DA88AC77CDEEF67AB9F0D0E77ABD254A(L_11, /*hidden argument*/NULL);
+		IL2CPP_END_FINALLY(98)
+	} // end finally (depth: 1)
+	IL2CPP_CLEANUP(98)
+	{
+		IL2CPP_RETHROW_IF_UNHANDLED(Exception_t *)
+		IL2CPP_JUMP_TBL(0x69, IL_0069)
+	}
+
+IL_0069:
+	{
+		SWIG_CompletionDelegate_tA8D1F511687314492DCF200EFA9141D61FE38AC1 * L_12 = __this->get_SWIG_CompletionCB_7();
+		int32_t L_13 = V_0;
+		intptr_t L_14;
+		L_14 = Future_InternalDataSnapshot_SWIG_OnCompletion_m7B5EEB5EB2E01FF2DF8F69C3523DBCFC7179E319(__this, L_12, L_13, /*hidden argument*/NULL);
+		Future_InternalDataSnapshot_SetCompletionData_m1D3D08062F81C195B4298C7B980AA3EB166D5672(__this, (intptr_t)L_14, /*hidden argument*/NULL);
+		return;
+	}
+}
+// System.Void Firebase.Database.Internal.Future_InternalDataSnapshot::SetCompletionData(System.IntPtr)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Future_InternalDataSnapshot_SetCompletionData_m1D3D08062F81C195B4298C7B980AA3EB166D5672 (Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * __this, intptr_t ___data0, const RuntimeMethod* method)
+{
+	{
+		Future_InternalDataSnapshot_ThrowIfDisposed_mD724684DB59E023BCDA95A70A67FF931536F16B3(__this, /*hidden argument*/NULL);
+		intptr_t L_0 = __this->get_callbackData_6();
+		Future_InternalDataSnapshot_SWIG_FreeCompletionData_m3F18A53533DF61CC0DC043AEC2AEB91ECB7EDD00(__this, (intptr_t)L_0, /*hidden argument*/NULL);
+		intptr_t L_1 = ___data0;
+		__this->set_callbackData_6((intptr_t)L_1);
+		return;
+	}
+}
+// System.Void Firebase.Database.Internal.Future_InternalDataSnapshot::SWIG_CompletionDispatcher(System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Future_InternalDataSnapshot_SWIG_CompletionDispatcher_m7905C61D5D9AE818AA4AC3F0F838FA01B5E4D852 (int32_t ___key0, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Dictionary_2_Remove_m3252CBDBF92D3408E081F662845DE0B41E437C4D_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Dictionary_2_TryGetValue_m5A49A6251995F0D50EE2D53D9BFC990EC9F2AB0F_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	Action_t3C9E886ED952A5C1AC45907686BC24896CA35010 * V_0 = NULL;
+	RuntimeObject * V_1 = NULL;
+	Exception_t * __last_unhandled_exception = 0;
+	NO_UNUSED_WARNING (__last_unhandled_exception);
+	Exception_t * __exception_local = 0;
+	NO_UNUSED_WARNING (__exception_local);
+	void* __leave_targets_storage = alloca(sizeof(int32_t) * 1);
+	il2cpp::utils::LeaveTargetStack __leave_targets(__leave_targets_storage);
+	NO_UNUSED_WARNING (__leave_targets);
+	{
+		V_0 = (Action_t3C9E886ED952A5C1AC45907686BC24896CA35010 *)NULL;
+		IL2CPP_RUNTIME_CLASS_INIT(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_il2cpp_TypeInfo_var);
+		RuntimeObject * L_0 = ((Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_StaticFields*)il2cpp_codegen_static_fields_for(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_il2cpp_TypeInfo_var))->get_CallbackLock_5();
+		V_1 = L_0;
+		RuntimeObject * L_1 = V_1;
+		Monitor_Enter_m3AEE1F76020B92B6C2742BCD05706DC5FD6F9CB2(L_1, /*hidden argument*/NULL);
+	}
+
+IL_000e:
+	try
+	{ // begin try (depth: 1)
+		{
+			IL2CPP_RUNTIME_CLASS_INIT(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_il2cpp_TypeInfo_var);
+			Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661 * L_2 = ((Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_StaticFields*)il2cpp_codegen_static_fields_for(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_il2cpp_TypeInfo_var))->get_Callbacks_3();
+			if (!L_2)
+			{
+				goto IL_0036;
+			}
+		}
+
+IL_0018:
+		{
+			IL2CPP_RUNTIME_CLASS_INIT(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_il2cpp_TypeInfo_var);
+			Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661 * L_3 = ((Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_StaticFields*)il2cpp_codegen_static_fields_for(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_il2cpp_TypeInfo_var))->get_Callbacks_3();
+			int32_t L_4 = ___key0;
+			NullCheck(L_3);
+			bool L_5;
+			L_5 = Dictionary_2_TryGetValue_m5A49A6251995F0D50EE2D53D9BFC990EC9F2AB0F(L_3, L_4, (Action_t3C9E886ED952A5C1AC45907686BC24896CA35010 **)(&V_0), /*hidden argument*/Dictionary_2_TryGetValue_m5A49A6251995F0D50EE2D53D9BFC990EC9F2AB0F_RuntimeMethod_var);
+			if (!L_5)
+			{
+				goto IL_0036;
+			}
+		}
+
+IL_002a:
+		{
+			IL2CPP_RUNTIME_CLASS_INIT(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_il2cpp_TypeInfo_var);
+			Dictionary_2_t77E31D5C0EC46C490C8C6CA3ED81BCB3DE810661 * L_6 = ((Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_StaticFields*)il2cpp_codegen_static_fields_for(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_il2cpp_TypeInfo_var))->get_Callbacks_3();
+			int32_t L_7 = ___key0;
+			NullCheck(L_6);
+			bool L_8;
+			L_8 = Dictionary_2_Remove_m3252CBDBF92D3408E081F662845DE0B41E437C4D(L_6, L_7, /*hidden argument*/Dictionary_2_Remove_m3252CBDBF92D3408E081F662845DE0B41E437C4D_RuntimeMethod_var);
+		}
+
+IL_0036:
+		{
+			IL2CPP_LEAVE(0x42, FINALLY_003b);
+		}
+	} // end try (depth: 1)
+	catch(Il2CppExceptionWrapper& e)
+	{
+		__last_unhandled_exception = (Exception_t *)e.ex;
+		goto FINALLY_003b;
+	}
+
+FINALLY_003b:
+	{ // begin finally (depth: 1)
+		RuntimeObject * L_9 = V_1;
+		Monitor_Exit_mA776B403DA88AC77CDEEF67AB9F0D0E77ABD254A(L_9, /*hidden argument*/NULL);
+		IL2CPP_END_FINALLY(59)
+	} // end finally (depth: 1)
+	IL2CPP_CLEANUP(59)
+	{
+		IL2CPP_RETHROW_IF_UNHANDLED(Exception_t *)
+		IL2CPP_JUMP_TBL(0x42, IL_0042)
+	}
+
+IL_0042:
+	{
+		Action_t3C9E886ED952A5C1AC45907686BC24896CA35010 * L_10 = V_0;
+		if (!L_10)
+		{
+			goto IL_004e;
+		}
+	}
+	{
+		Action_t3C9E886ED952A5C1AC45907686BC24896CA35010 * L_11 = V_0;
+		NullCheck(L_11);
+		Action_Invoke_m1BF962C259EF45F747580BC1ACB7139C30D3D809(L_11, /*hidden argument*/NULL);
+	}
+
+IL_004e:
+	{
+		return;
+	}
+}
+// System.IntPtr Firebase.Database.Internal.Future_InternalDataSnapshot::SWIG_OnCompletion(Firebase.Database.Internal.Future_InternalDataSnapshot/SWIG_CompletionDelegate,System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t Future_InternalDataSnapshot_SWIG_OnCompletion_m7B5EEB5EB2E01FF2DF8F69C3523DBCFC7179E319 (Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * __this, SWIG_CompletionDelegate_tA8D1F511687314492DCF200EFA9141D61FE38AC1 * ___cs_callback0, int32_t ___cs_key1, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&DatabaseInternalPINVOKE_t1D4393E46F390744D2215B5ABDEB6BF99328B932_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	intptr_t V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	{
+		HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  L_0 = __this->get_swigCPtr_2();
+		SWIG_CompletionDelegate_tA8D1F511687314492DCF200EFA9141D61FE38AC1 * L_1 = ___cs_callback0;
+		int32_t L_2 = ___cs_key1;
+		IL2CPP_RUNTIME_CLASS_INIT(DatabaseInternalPINVOKE_t1D4393E46F390744D2215B5ABDEB6BF99328B932_il2cpp_TypeInfo_var);
+		intptr_t L_3;
+		L_3 = DatabaseInternalPINVOKE_Firebase_Database_Future_InternalDataSnapshot_SWIG_OnCompletion_m9A84CA46732DEAEBEBF6F788A095A0DDFA310FF3(L_0, L_1, L_2, /*hidden argument*/NULL);
+		V_0 = (intptr_t)L_3;
+		bool L_4;
+		L_4 = SWIGPendingException_get_Pending_m57F7C179B5EFB37003896A5F25F4FBED7DA3D2AD(/*hidden argument*/NULL);
+		if (!L_4)
+		{
+			goto IL_001e;
+		}
+	}
+	{
+		Exception_t * L_5;
+		L_5 = SWIGPendingException_Retrieve_m62D9AC53AD2901040C0DF7F7800858C07617B6CD(/*hidden argument*/NULL);
+		IL2CPP_RAISE_MANAGED_EXCEPTION(L_5, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&Future_InternalDataSnapshot_SWIG_OnCompletion_m7B5EEB5EB2E01FF2DF8F69C3523DBCFC7179E319_RuntimeMethod_var)));
+	}
+
+IL_001e:
+	{
+		intptr_t L_6 = V_0;
+		return (intptr_t)L_6;
+	}
+}
+// System.Void Firebase.Database.Internal.Future_InternalDataSnapshot::SWIG_FreeCompletionData(System.IntPtr)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Future_InternalDataSnapshot_SWIG_FreeCompletionData_m3F18A53533DF61CC0DC043AEC2AEB91ECB7EDD00 (Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * __this, intptr_t ___data0, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&DatabaseInternalPINVOKE_t1D4393E46F390744D2215B5ABDEB6BF99328B932_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  L_0 = __this->get_swigCPtr_2();
+		intptr_t L_1 = ___data0;
+		IL2CPP_RUNTIME_CLASS_INIT(DatabaseInternalPINVOKE_t1D4393E46F390744D2215B5ABDEB6BF99328B932_il2cpp_TypeInfo_var);
+		DatabaseInternalPINVOKE_Firebase_Database_Future_InternalDataSnapshot_SWIG_FreeCompletionData_m3201D5745B28C1D9BF8B25A5A8F94098E2F08778(L_0, (intptr_t)L_1, /*hidden argument*/NULL);
+		bool L_2;
+		L_2 = SWIGPendingException_get_Pending_m57F7C179B5EFB37003896A5F25F4FBED7DA3D2AD(/*hidden argument*/NULL);
+		if (!L_2)
+		{
+			goto IL_001c;
+		}
+	}
+	{
+		Exception_t * L_3;
+		L_3 = SWIGPendingException_Retrieve_m62D9AC53AD2901040C0DF7F7800858C07617B6CD(/*hidden argument*/NULL);
+		IL2CPP_RAISE_MANAGED_EXCEPTION(L_3, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&Future_InternalDataSnapshot_SWIG_FreeCompletionData_m3F18A53533DF61CC0DC043AEC2AEB91ECB7EDD00_RuntimeMethod_var)));
+	}
+
+IL_001c:
+	{
+		return;
+	}
+}
+// Firebase.Database.Internal.InternalDataSnapshot Firebase.Database.Internal.Future_InternalDataSnapshot::GetResult()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A * Future_InternalDataSnapshot_GetResult_mB737568CE9D114E1F8464CE0F46AD7A3B0E273B3 (Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * __this, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&DatabaseInternalPINVOKE_t1D4393E46F390744D2215B5ABDEB6BF99328B932_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A * V_0 = NULL;
+	{
+		HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  L_0 = __this->get_swigCPtr_2();
+		IL2CPP_RUNTIME_CLASS_INIT(DatabaseInternalPINVOKE_t1D4393E46F390744D2215B5ABDEB6BF99328B932_il2cpp_TypeInfo_var);
+		intptr_t L_1;
+		L_1 = DatabaseInternalPINVOKE_Firebase_Database_Future_InternalDataSnapshot_GetResult_mBD295645420E54C1EFBC1D04AA7823171CF07DB8(L_0, /*hidden argument*/NULL);
+		InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A * L_2 = (InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A *)il2cpp_codegen_object_new(InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A_il2cpp_TypeInfo_var);
+		InternalDataSnapshot__ctor_mC8A7803BFA8D85177E7EFD11ABA7652B82842DAF(L_2, (intptr_t)L_1, (bool)1, /*hidden argument*/NULL);
+		V_0 = L_2;
+		bool L_3;
+		L_3 = SWIGPendingException_get_Pending_m57F7C179B5EFB37003896A5F25F4FBED7DA3D2AD(/*hidden argument*/NULL);
+		if (!L_3)
+		{
+			goto IL_0022;
+		}
+	}
+	{
+		Exception_t * L_4;
+		L_4 = SWIGPendingException_Retrieve_m62D9AC53AD2901040C0DF7F7800858C07617B6CD(/*hidden argument*/NULL);
+		IL2CPP_RAISE_MANAGED_EXCEPTION(L_4, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&Future_InternalDataSnapshot_GetResult_mB737568CE9D114E1F8464CE0F46AD7A3B0E273B3_RuntimeMethod_var)));
+	}
+
+IL_0022:
+	{
+		InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A * L_5 = V_0;
+		return L_5;
+	}
+}
+// System.Void Firebase.Database.Internal.Future_InternalDataSnapshot::.cctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Future_InternalDataSnapshot__cctor_m51EAEA60B47247E5F619D654C80AEC67C7B79ACD (const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&RuntimeObject_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		((Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_StaticFields*)il2cpp_codegen_static_fields_for(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_il2cpp_TypeInfo_var))->set_CallbackIndex_4(0);
+		RuntimeObject * L_0 = (RuntimeObject *)il2cpp_codegen_object_new(RuntimeObject_il2cpp_TypeInfo_var);
+		Object__ctor_m88880E0413421D13FD95325EDCE231707CE1F405(L_0, /*hidden argument*/NULL);
+		((Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_StaticFields*)il2cpp_codegen_static_fields_for(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_il2cpp_TypeInfo_var))->set_CallbackLock_5(L_0);
+		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
 extern "C" void DEFAULT_CALL ReversePInvokeWrapper_InternalChildListener_OnChildChangeHandler_m111693C2C3696B07FE2D29391D27DEF39BCF5BB5(int32_t ___callbackId0, int32_t ___changeType1, intptr_t ___snapshot2, char* ___previousChildName3)
 {
 	il2cpp::vm::ScopedThreadAttacher _vmThreadHelper;
@@ -6952,6 +8728,41 @@ IL_0066:
 		return;
 	}
 }
+// System.Boolean Firebase.Database.Internal.InternalDataSnapshot::exists()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool InternalDataSnapshot_exists_m800F91ECB309152731A8560A8E78876C8DC80B7F (InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A * __this, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&DatabaseInternalPINVOKE_t1D4393E46F390744D2215B5ABDEB6BF99328B932_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	bool V_0 = false;
+	{
+		HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  L_0 = __this->get_swigCPtr_0();
+		IL2CPP_RUNTIME_CLASS_INIT(DatabaseInternalPINVOKE_t1D4393E46F390744D2215B5ABDEB6BF99328B932_il2cpp_TypeInfo_var);
+		bool L_1;
+		L_1 = DatabaseInternalPINVOKE_Firebase_Database_InternalDataSnapshot_exists_m1370C59AB4C3BAC879AA168273F3B5FA287ADB10(L_0, /*hidden argument*/NULL);
+		V_0 = L_1;
+		bool L_2;
+		L_2 = SWIGPendingException_get_Pending_m57F7C179B5EFB37003896A5F25F4FBED7DA3D2AD(/*hidden argument*/NULL);
+		if (!L_2)
+		{
+			goto IL_001c;
+		}
+	}
+	{
+		Exception_t * L_3;
+		L_3 = SWIGPendingException_Retrieve_m62D9AC53AD2901040C0DF7F7800858C07617B6CD(/*hidden argument*/NULL);
+		IL2CPP_RAISE_MANAGED_EXCEPTION(L_3, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&InternalDataSnapshot_exists_m800F91ECB309152731A8560A8E78876C8DC80B7F_RuntimeMethod_var)));
+	}
+
+IL_001c:
+	{
+		bool L_4 = V_0;
+		return L_4;
+	}
+}
 // System.String Firebase.Database.Internal.InternalDataSnapshot::key_string()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* InternalDataSnapshot_key_string_mA08D3ACDC44D92546C101D520B4204945D3C218E (InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A * __this, const RuntimeMethod* method)
 {
@@ -7288,6 +9099,35 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Task_t804B25CFE3FC13AAEE16C8FA3BF52513F2A8DB6
 		IL2CPP_RUNTIME_CLASS_INIT(DatabaseInternalPINVOKE_t1D4393E46F390744D2215B5ABDEB6BF99328B932_il2cpp_TypeInfo_var);
 		intptr_t L_3;
 		L_3 = DatabaseInternalPINVOKE_Firebase_Database_InternalDatabaseReference_SetValue_mE54F7C8A3E254F581BD069B51A17836D1970DB27(L_0, L_2, /*hidden argument*/NULL);
+		FutureVoid_t04BD035498A9875EA1D6F629741C9D1ED31EFE29 * L_4 = (FutureVoid_t04BD035498A9875EA1D6F629741C9D1ED31EFE29 *)il2cpp_codegen_object_new(FutureVoid_t04BD035498A9875EA1D6F629741C9D1ED31EFE29_il2cpp_TypeInfo_var);
+		FutureVoid__ctor_m1360132BEDC4A7668F93C0D1EB79CE3E28E94597(L_4, (intptr_t)L_3, (bool)1, /*hidden argument*/NULL);
+		IL2CPP_RUNTIME_CLASS_INIT(FutureVoid_t04BD035498A9875EA1D6F629741C9D1ED31EFE29_il2cpp_TypeInfo_var);
+		Task_t804B25CFE3FC13AAEE16C8FA3BF52513F2A8DB60 * L_5;
+		L_5 = FutureVoid_GetTask_m99313F8ED4D21B3440FA37F24EDE6206F6B0E3BF(L_4, /*hidden argument*/NULL);
+		V_0 = L_5;
+		Task_t804B25CFE3FC13AAEE16C8FA3BF52513F2A8DB60 * L_6 = V_0;
+		return L_6;
+	}
+}
+// System.Threading.Tasks.Task Firebase.Database.Internal.InternalDatabaseReference::UpdateChildrenAsync(Firebase.Variant)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Task_t804B25CFE3FC13AAEE16C8FA3BF52513F2A8DB60 * InternalDatabaseReference_UpdateChildrenAsync_m713955EE3097C84377EFE61A1AB8C1B68FDD6990 (InternalDatabaseReference_t377189DFC646DE6CD547BB5910CB7B7679C477B9 * __this, Variant_tC9E895EAF1DFC875B36FD116E647B6CF93AC0068 * ___values0, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&DatabaseInternalPINVOKE_t1D4393E46F390744D2215B5ABDEB6BF99328B932_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&FutureVoid_t04BD035498A9875EA1D6F629741C9D1ED31EFE29_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	Task_t804B25CFE3FC13AAEE16C8FA3BF52513F2A8DB60 * V_0 = NULL;
+	{
+		HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  L_0 = __this->get_swigCPtr_2();
+		Variant_tC9E895EAF1DFC875B36FD116E647B6CF93AC0068 * L_1 = ___values0;
+		HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  L_2;
+		L_2 = Variant_getCPtr_m54D63420C815303499DE5265A30EEE92981C55B3(L_1, /*hidden argument*/NULL);
+		IL2CPP_RUNTIME_CLASS_INIT(DatabaseInternalPINVOKE_t1D4393E46F390744D2215B5ABDEB6BF99328B932_il2cpp_TypeInfo_var);
+		intptr_t L_3;
+		L_3 = DatabaseInternalPINVOKE_Firebase_Database_InternalDatabaseReference_UpdateChildren_m8A133335D5A2E2AEFF44B28CD5478B1747DDC2A6(L_0, L_2, /*hidden argument*/NULL);
 		FutureVoid_t04BD035498A9875EA1D6F629741C9D1ED31EFE29 * L_4 = (FutureVoid_t04BD035498A9875EA1D6F629741C9D1ED31EFE29 *)il2cpp_codegen_object_new(FutureVoid_t04BD035498A9875EA1D6F629741C9D1ED31EFE29_il2cpp_TypeInfo_var);
 		FutureVoid__ctor_m1360132BEDC4A7668F93C0D1EB79CE3E28E94597(L_4, (intptr_t)L_3, (bool)1, /*hidden argument*/NULL);
 		IL2CPP_RUNTIME_CLASS_INIT(FutureVoid_t04BD035498A9875EA1D6F629741C9D1ED31EFE29_il2cpp_TypeInfo_var);
@@ -8096,6 +9936,48 @@ IL_0066:
 		return;
 	}
 }
+// System.Threading.Tasks.Task`1<Firebase.Database.Internal.InternalDataSnapshot> Firebase.Database.Internal.InternalQuery::GetValueAsync()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB * InternalQuery_GetValueAsync_m611875BC39C804373A70F5E501C80A5C7394DD48 (InternalQuery_tA0F264A7A6B3D704A15AD3CFCD8EEE8E546DE199 * __this, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&DatabaseInternalPINVOKE_t1D4393E46F390744D2215B5ABDEB6BF99328B932_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	intptr_t V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	{
+		HandleRef_t1DB3576C2CC9E4AD072DF40863E6F352BE12BACF  L_0 = __this->get_swigCPtr_0();
+		IL2CPP_RUNTIME_CLASS_INIT(DatabaseInternalPINVOKE_t1D4393E46F390744D2215B5ABDEB6BF99328B932_il2cpp_TypeInfo_var);
+		intptr_t L_1;
+		L_1 = DatabaseInternalPINVOKE_Firebase_Database_InternalQuery_GetValue_mAF4A5B79FC653747C6CFED886056551259EBDD0C(L_0, /*hidden argument*/NULL);
+		V_0 = (intptr_t)L_1;
+		bool L_2;
+		L_2 = SWIGPendingException_get_Pending_m57F7C179B5EFB37003896A5F25F4FBED7DA3D2AD(/*hidden argument*/NULL);
+		if (!L_2)
+		{
+			goto IL_001c;
+		}
+	}
+	{
+		Exception_t * L_3;
+		L_3 = SWIGPendingException_Retrieve_m62D9AC53AD2901040C0DF7F7800858C07617B6CD(/*hidden argument*/NULL);
+		IL2CPP_RAISE_MANAGED_EXCEPTION(L_3, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&InternalQuery_GetValueAsync_m611875BC39C804373A70F5E501C80A5C7394DD48_RuntimeMethod_var)));
+	}
+
+IL_001c:
+	{
+		intptr_t L_4 = V_0;
+		Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * L_5 = (Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 *)il2cpp_codegen_object_new(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_il2cpp_TypeInfo_var);
+		Future_InternalDataSnapshot__ctor_mBD0542E2976FE5CE03F92C53F981AD18511E0B11(L_5, (intptr_t)L_4, (bool)1, /*hidden argument*/NULL);
+		IL2CPP_RUNTIME_CLASS_INIT(Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782_il2cpp_TypeInfo_var);
+		Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB * L_6;
+		L_6 = Future_InternalDataSnapshot_GetTask_mA849249BF0D4F49613ED11751B8B7E0281E4C380(L_5, /*hidden argument*/NULL);
+		return L_6;
+	}
+}
 // System.Boolean Firebase.Database.Internal.InternalQuery::is_valid()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool InternalQuery_is_valid_m77F5C421E26AA0EB8CC6EB64293A7DFA0EF168DA (InternalQuery_tA0F264A7A6B3D704A15AD3CFCD8EEE8E546DE199 * __this, const RuntimeMethod* method)
 {
@@ -8550,6 +10432,114 @@ IL_001c:
 		InternalChildListener_tC011D6B03432167133E2D36BE06B0AC956CCCA3D * L_10 = (InternalChildListener_tC011D6B03432167133E2D36BE06B0AC956CCCA3D *)il2cpp_codegen_object_new(InternalChildListener_tC011D6B03432167133E2D36BE06B0AC956CCCA3D_il2cpp_TypeInfo_var);
 		InternalChildListener__ctor_m694203006FE0205106688331909EB8E290733831(L_10, L_8, L_9, /*hidden argument*/NULL);
 		__this->set_childListener_3(L_10);
+		return;
+	}
+}
+// System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot> Firebase.Database.Query::WrapInternalDataSnapshotTask(System.Threading.Tasks.Task`1<Firebase.Database.Internal.InternalDataSnapshot>)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Task_1_t931B58DD64B4EFD7FD4C3DD754009EEE56897087 * Query_WrapInternalDataSnapshotTask_mD66B30C95FF21216495D9F24C95C388DDE50DD83 (Query_t040D26D9F80119DD12A4B48ABAD1830398144B2C * __this, Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB * ___it0, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Action_1__ctor_m58C335670AC2A0F8330AF901C8A0C9981971A685_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Action_1_t6173F3EA2E1988AF66B5B64F353DEBAFF3E8E6F6_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&TaskCompletionSource_1__ctor_mF499A152BCAEA9DE368EDF914174B9BD5FBAD4D3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&TaskCompletionSource_1_get_Task_m2764F9E5D6DC04C4D667CA027C319F5E17CAC143_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&TaskCompletionSource_1_t0191AA91EA1ABB8621B9AE6BAF286EF65E50DB27_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Task_1_ContinueWith_mC31F6F48C8E15755E811AFAB79C859ECCB787D0F_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&U3CWrapInternalDataSnapshotTaskU3Ec__AnonStorey0_U3CU3Em__0_m22FFF028B3E9BB0B1DDCBD737A2EFEA9578B5DC0_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&U3CWrapInternalDataSnapshotTaskU3Ec__AnonStorey0_tC297FE6E7D8CE2EA691D22F0AA947B7DDF040BAF_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	U3CWrapInternalDataSnapshotTaskU3Ec__AnonStorey0_tC297FE6E7D8CE2EA691D22F0AA947B7DDF040BAF * V_0 = NULL;
+	{
+		U3CWrapInternalDataSnapshotTaskU3Ec__AnonStorey0_tC297FE6E7D8CE2EA691D22F0AA947B7DDF040BAF * L_0 = (U3CWrapInternalDataSnapshotTaskU3Ec__AnonStorey0_tC297FE6E7D8CE2EA691D22F0AA947B7DDF040BAF *)il2cpp_codegen_object_new(U3CWrapInternalDataSnapshotTaskU3Ec__AnonStorey0_tC297FE6E7D8CE2EA691D22F0AA947B7DDF040BAF_il2cpp_TypeInfo_var);
+		U3CWrapInternalDataSnapshotTaskU3Ec__AnonStorey0__ctor_m5BA902CFC5CFE89B09B422D5F4A967CBA50CDE05(L_0, /*hidden argument*/NULL);
+		V_0 = L_0;
+		U3CWrapInternalDataSnapshotTaskU3Ec__AnonStorey0_tC297FE6E7D8CE2EA691D22F0AA947B7DDF040BAF * L_1 = V_0;
+		NullCheck(L_1);
+		L_1->set_U24this_1(__this);
+		U3CWrapInternalDataSnapshotTaskU3Ec__AnonStorey0_tC297FE6E7D8CE2EA691D22F0AA947B7DDF040BAF * L_2 = V_0;
+		TaskCompletionSource_1_t0191AA91EA1ABB8621B9AE6BAF286EF65E50DB27 * L_3 = (TaskCompletionSource_1_t0191AA91EA1ABB8621B9AE6BAF286EF65E50DB27 *)il2cpp_codegen_object_new(TaskCompletionSource_1_t0191AA91EA1ABB8621B9AE6BAF286EF65E50DB27_il2cpp_TypeInfo_var);
+		TaskCompletionSource_1__ctor_mF499A152BCAEA9DE368EDF914174B9BD5FBAD4D3(L_3, /*hidden argument*/TaskCompletionSource_1__ctor_mF499A152BCAEA9DE368EDF914174B9BD5FBAD4D3_RuntimeMethod_var);
+		NullCheck(L_2);
+		L_2->set_tcs_0(L_3);
+		Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB * L_4 = ___it0;
+		U3CWrapInternalDataSnapshotTaskU3Ec__AnonStorey0_tC297FE6E7D8CE2EA691D22F0AA947B7DDF040BAF * L_5 = V_0;
+		Action_1_t6173F3EA2E1988AF66B5B64F353DEBAFF3E8E6F6 * L_6 = (Action_1_t6173F3EA2E1988AF66B5B64F353DEBAFF3E8E6F6 *)il2cpp_codegen_object_new(Action_1_t6173F3EA2E1988AF66B5B64F353DEBAFF3E8E6F6_il2cpp_TypeInfo_var);
+		Action_1__ctor_m58C335670AC2A0F8330AF901C8A0C9981971A685(L_6, L_5, (intptr_t)((intptr_t)U3CWrapInternalDataSnapshotTaskU3Ec__AnonStorey0_U3CU3Em__0_m22FFF028B3E9BB0B1DDCBD737A2EFEA9578B5DC0_RuntimeMethod_var), /*hidden argument*/Action_1__ctor_m58C335670AC2A0F8330AF901C8A0C9981971A685_RuntimeMethod_var);
+		NullCheck(L_4);
+		Task_t804B25CFE3FC13AAEE16C8FA3BF52513F2A8DB60 * L_7;
+		L_7 = Task_1_ContinueWith_mC31F6F48C8E15755E811AFAB79C859ECCB787D0F(L_4, L_6, /*hidden argument*/Task_1_ContinueWith_mC31F6F48C8E15755E811AFAB79C859ECCB787D0F_RuntimeMethod_var);
+		U3CWrapInternalDataSnapshotTaskU3Ec__AnonStorey0_tC297FE6E7D8CE2EA691D22F0AA947B7DDF040BAF * L_8 = V_0;
+		NullCheck(L_8);
+		TaskCompletionSource_1_t0191AA91EA1ABB8621B9AE6BAF286EF65E50DB27 * L_9 = L_8->get_tcs_0();
+		NullCheck(L_9);
+		Task_1_t931B58DD64B4EFD7FD4C3DD754009EEE56897087 * L_10;
+		L_10 = TaskCompletionSource_1_get_Task_m2764F9E5D6DC04C4D667CA027C319F5E17CAC143_inline(L_9, /*hidden argument*/TaskCompletionSource_1_get_Task_m2764F9E5D6DC04C4D667CA027C319F5E17CAC143_RuntimeMethod_var);
+		return L_10;
+	}
+}
+// System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot> Firebase.Database.Query::GetValueAsync()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Task_1_t931B58DD64B4EFD7FD4C3DD754009EEE56897087 * Query_GetValueAsync_m1DE61C007517461EE4E0789CE6A480570B1564C8 (Query_t040D26D9F80119DD12A4B48ABAD1830398144B2C * __this, const RuntimeMethod* method)
+{
+	{
+		InternalQuery_tA0F264A7A6B3D704A15AD3CFCD8EEE8E546DE199 * L_0 = __this->get_internalQuery_0();
+		NullCheck(L_0);
+		Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB * L_1;
+		L_1 = InternalQuery_GetValueAsync_m611875BC39C804373A70F5E501C80A5C7394DD48(L_0, /*hidden argument*/NULL);
+		Task_1_t931B58DD64B4EFD7FD4C3DD754009EEE56897087 * L_2;
+		L_2 = Query_WrapInternalDataSnapshotTask_mD66B30C95FF21216495D9F24C95C388DDE50DD83(__this, L_1, /*hidden argument*/NULL);
+		return L_2;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// System.Collections.Generic.IDictionary`2<System.String,System.Object> Firebase.Database.ServerValue::CreateServerValuePlaceholder(System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ServerValue_CreateServerValuePlaceholder_mCEB6DF5EF52BE283D16F7279EE9A4C0031B2021F (String_t* ___key0, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Dictionary_2__ctor_mCD0C2F0325B7677B9BC340A60AA3FB9C7A88FF63_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Dictionary_2_t692011309BA94F599C6042A381FC9F8B3CB08399_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&IDictionary_2_tED3FAE588A6FD3ED0A4589C52122AB8F53D8A3B8_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral73F1C03DBBA735443A0BAC5FB7786A2DD54ADF5D);
+		s_Il2CppMethodInitialized = true;
+	}
+	RuntimeObject* V_0 = NULL;
+	{
+		Dictionary_2_t692011309BA94F599C6042A381FC9F8B3CB08399 * L_0 = (Dictionary_2_t692011309BA94F599C6042A381FC9F8B3CB08399 *)il2cpp_codegen_object_new(Dictionary_2_t692011309BA94F599C6042A381FC9F8B3CB08399_il2cpp_TypeInfo_var);
+		Dictionary_2__ctor_mCD0C2F0325B7677B9BC340A60AA3FB9C7A88FF63(L_0, /*hidden argument*/Dictionary_2__ctor_mCD0C2F0325B7677B9BC340A60AA3FB9C7A88FF63_RuntimeMethod_var);
+		V_0 = (RuntimeObject*)L_0;
+		RuntimeObject* L_1 = V_0;
+		String_t* L_2 = ___key0;
+		NullCheck(L_1);
+		InterfaceActionInvoker2< String_t*, RuntimeObject * >::Invoke(1 /* System.Void System.Collections.Generic.IDictionary`2<System.String,System.Object>::set_Item(!0,!1) */, IDictionary_2_tED3FAE588A6FD3ED0A4589C52122AB8F53D8A3B8_il2cpp_TypeInfo_var, L_1, _stringLiteral73F1C03DBBA735443A0BAC5FB7786A2DD54ADF5D, L_2);
+		RuntimeObject* L_3 = V_0;
+		return L_3;
+	}
+}
+// System.Void Firebase.Database.ServerValue::.cctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ServerValue__cctor_m932F53114EF2331886F2B5B60D7092AD3093C503 (const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ServerValue_t8C5228D66FF60BA65B8E17BDA2C3BDF49E63BE20_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralCCE359C6B0ABE9D58CB588667F9A93BA52A1C294);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		RuntimeObject* L_0;
+		L_0 = ServerValue_CreateServerValuePlaceholder_mCEB6DF5EF52BE283D16F7279EE9A4C0031B2021F(_stringLiteralCCE359C6B0ABE9D58CB588667F9A93BA52A1C294, /*hidden argument*/NULL);
+		((ServerValue_t8C5228D66FF60BA65B8E17BDA2C3BDF49E63BE20_StaticFields*)il2cpp_codegen_static_fields_for(ServerValue_t8C5228D66FF60BA65B8E17BDA2C3BDF49E63BE20_il2cpp_TypeInfo_var))->set_Timestamp_0(L_0);
 		return;
 	}
 }
@@ -9640,6 +11630,359 @@ IL_0023:
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
+// System.Void Firebase.Database.Internal.Future_InternalDataSnapshot/<GetTask>c__AnonStorey0::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CGetTaskU3Ec__AnonStorey0__ctor_mA788F542E33A4820FB5D5940955D9516D0C51D39 (U3CGetTaskU3Ec__AnonStorey0_t871680D4CE9F27571B0AD8F193FA1DBFDAB9093A * __this, const RuntimeMethod* method)
+{
+	{
+		Object__ctor_m88880E0413421D13FD95325EDCE231707CE1F405(__this, /*hidden argument*/NULL);
+		return;
+	}
+}
+// System.Void Firebase.Database.Internal.Future_InternalDataSnapshot/<GetTask>c__AnonStorey0::<>m__0()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CGetTaskU3Ec__AnonStorey0_U3CU3Em__0_mFC6340F68B8E4E596967CB4A864D6C925D5F5655 (U3CGetTaskU3Ec__AnonStorey0_t871680D4CE9F27571B0AD8F193FA1DBFDAB9093A * __this, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&FirebaseException_t80812F0C7BA9277B701A891E7575AC4DAEE1DA47_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&TaskCompletionSource_1_SetCanceled_mF936FEB70EF48BE9A856AD893D796F16CA38DD13_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&TaskCompletionSource_1_SetException_mEC703BD3E8DF60DEBAD638DD1D617657FD1D7A5F_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&TaskCompletionSource_1_SetResult_m40BDB5DEA558FEF78598FC3F4B0FCADB03B2F174_RuntimeMethod_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	int32_t V_0 = 0;
+	Exception_t * V_1 = NULL;
+	Exception_t * __last_unhandled_exception = 0;
+	NO_UNUSED_WARNING (__last_unhandled_exception);
+	Exception_t * __exception_local = 0;
+	NO_UNUSED_WARNING (__exception_local);
+	void* __leave_targets_storage = alloca(sizeof(int32_t) * 2);
+	il2cpp::utils::LeaveTargetStack __leave_targets(__leave_targets_storage);
+	NO_UNUSED_WARNING (__leave_targets);
+
+IL_0000:
+	try
+	{ // begin try (depth: 1)
+		{
+			Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * L_0 = __this->get_fu_0();
+			NullCheck(L_0);
+			int32_t L_1;
+			L_1 = FutureBase_status_m478C1E6AF62FB15C218A7C422CF5DC8CA1486CAA(L_0, /*hidden argument*/NULL);
+			if ((!(((uint32_t)L_1) == ((uint32_t)2))))
+			{
+				goto IL_0021;
+			}
+		}
+
+IL_0011:
+		{
+			TaskCompletionSource_1_t98B3237FC25BA25DAAC9E1ED72EA4265692F02CF * L_2 = __this->get_tcs_1();
+			NullCheck(L_2);
+			TaskCompletionSource_1_SetCanceled_mF936FEB70EF48BE9A856AD893D796F16CA38DD13(L_2, /*hidden argument*/TaskCompletionSource_1_SetCanceled_mF936FEB70EF48BE9A856AD893D796F16CA38DD13_RuntimeMethod_var);
+			goto IL_006a;
+		}
+
+IL_0021:
+		{
+			Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * L_3 = __this->get_fu_0();
+			NullCheck(L_3);
+			int32_t L_4;
+			L_4 = FutureBase_error_mBA8200B272D3DB91D1EE78ECE0A10AAB84771C03(L_3, /*hidden argument*/NULL);
+			V_0 = L_4;
+			int32_t L_5 = V_0;
+			if (!L_5)
+			{
+				goto IL_0054;
+			}
+		}
+
+IL_0033:
+		{
+			TaskCompletionSource_1_t98B3237FC25BA25DAAC9E1ED72EA4265692F02CF * L_6 = __this->get_tcs_1();
+			int32_t L_7 = V_0;
+			Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * L_8 = __this->get_fu_0();
+			NullCheck(L_8);
+			String_t* L_9;
+			L_9 = FutureBase_error_message_m6E9B30EF5EC5EE999B91077E60E3B96978DE4774(L_8, /*hidden argument*/NULL);
+			FirebaseException_t80812F0C7BA9277B701A891E7575AC4DAEE1DA47 * L_10 = (FirebaseException_t80812F0C7BA9277B701A891E7575AC4DAEE1DA47 *)il2cpp_codegen_object_new(FirebaseException_t80812F0C7BA9277B701A891E7575AC4DAEE1DA47_il2cpp_TypeInfo_var);
+			FirebaseException__ctor_mCB919E722DF4F366C4E0D9278716CBED5DD8907C(L_10, L_7, L_9, /*hidden argument*/NULL);
+			NullCheck(L_6);
+			TaskCompletionSource_1_SetException_mEC703BD3E8DF60DEBAD638DD1D617657FD1D7A5F(L_6, L_10, /*hidden argument*/TaskCompletionSource_1_SetException_mEC703BD3E8DF60DEBAD638DD1D617657FD1D7A5F_RuntimeMethod_var);
+			goto IL_006a;
+		}
+
+IL_0054:
+		{
+			TaskCompletionSource_1_t98B3237FC25BA25DAAC9E1ED72EA4265692F02CF * L_11 = __this->get_tcs_1();
+			Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * L_12 = __this->get_fu_0();
+			NullCheck(L_12);
+			InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A * L_13;
+			L_13 = Future_InternalDataSnapshot_GetResult_mB737568CE9D114E1F8464CE0F46AD7A3B0E273B3(L_12, /*hidden argument*/NULL);
+			NullCheck(L_11);
+			TaskCompletionSource_1_SetResult_m40BDB5DEA558FEF78598FC3F4B0FCADB03B2F174(L_11, L_13, /*hidden argument*/TaskCompletionSource_1_SetResult_m40BDB5DEA558FEF78598FC3F4B0FCADB03B2F174_RuntimeMethod_var);
+		}
+
+IL_006a:
+		{
+			goto IL_0086;
+		}
+	} // end try (depth: 1)
+	catch(Il2CppExceptionWrapper& e)
+	{
+		__exception_local = (Exception_t *)e.ex;
+		if(il2cpp_codegen_class_is_assignable_from (((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&Exception_t_il2cpp_TypeInfo_var)), il2cpp_codegen_object_class(e.ex)))
+			goto CATCH_006f;
+		throw e;
+	}
+
+CATCH_006f:
+	{ // begin catch(System.Exception)
+		V_1 = ((Exception_t *)__exception_local);
+		Exception_t * L_14 = V_1;
+		String_t* L_15;
+		L_15 = String_Format_mB3D38E5238C3164DB4D7D29339D9E225A4496D17(((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteral32E8916355B734142247F16D33AC51F0ABA2C28F)), L_14, /*hidden argument*/NULL);
+		IL2CPP_RUNTIME_CLASS_INIT(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&LogUtil_tFBAA493D07B1F33B56A3C4A8A0A3CF240AE40E90_il2cpp_TypeInfo_var)));
+		LogUtil_LogMessage_mC36C5CCA27AFA6A1773D0A993DAC4A0C609F6C8B(4, L_15, /*hidden argument*/NULL);
+		goto IL_0086;
+	} // end catch (depth: 1)
+
+IL_0086:
+	{
+		Future_InternalDataSnapshot_tE50D574CB430FB94DB2113492F5A9A1079163782 * L_16 = __this->get_fu_0();
+		NullCheck(L_16);
+		VirtActionInvoker0::Invoke(5 /* System.Void Firebase.FutureBase::Dispose() */, L_16);
+		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+IL2CPP_EXTERN_C  void DelegatePInvokeWrapper_Action_t3C9E886ED952A5C1AC45907686BC24896CA35010 (Action_t3C9E886ED952A5C1AC45907686BC24896CA35010 * __this, const RuntimeMethod* method)
+{
+	typedef void (DEFAULT_CALL *PInvokeFunc)();
+	PInvokeFunc il2cppPInvokeFunc = reinterpret_cast<PInvokeFunc>(il2cpp_codegen_get_method_pointer(((RuntimeDelegate*)__this)->method));
+
+	// Native function invocation
+	il2cppPInvokeFunc();
+
+}
+// System.Void Firebase.Database.Internal.Future_InternalDataSnapshot/Action::.ctor(System.Object,System.IntPtr)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Action__ctor_mD4D4FE593498B18687FE8C1591C34F77F325A11A (Action_t3C9E886ED952A5C1AC45907686BC24896CA35010 * __this, RuntimeObject * ___object0, intptr_t ___method1, const RuntimeMethod* method)
+{
+	__this->set_method_ptr_0(il2cpp_codegen_get_method_pointer((RuntimeMethod*)___method1));
+	__this->set_method_3(___method1);
+	__this->set_m_target_2(___object0);
+}
+// System.Void Firebase.Database.Internal.Future_InternalDataSnapshot/Action::Invoke()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Action_Invoke_m1BF962C259EF45F747580BC1ACB7139C30D3D809 (Action_t3C9E886ED952A5C1AC45907686BC24896CA35010 * __this, const RuntimeMethod* method)
+{
+	DelegateU5BU5D_t677D8FE08A5F99E8EE49150B73966CD6E9BF7DB8* delegateArrayToInvoke = __this->get_delegates_11();
+	Delegate_t** delegatesToInvoke;
+	il2cpp_array_size_t length;
+	if (delegateArrayToInvoke != NULL)
+	{
+		length = delegateArrayToInvoke->max_length;
+		delegatesToInvoke = reinterpret_cast<Delegate_t**>(delegateArrayToInvoke->GetAddressAtUnchecked(0));
+	}
+	else
+	{
+		length = 1;
+		delegatesToInvoke = reinterpret_cast<Delegate_t**>(&__this);
+	}
+
+	for (il2cpp_array_size_t i = 0; i < length; i++)
+	{
+		Delegate_t* currentDelegate = delegatesToInvoke[i];
+		Il2CppMethodPointer targetMethodPointer = currentDelegate->get_method_ptr_0();
+		RuntimeObject* targetThis = currentDelegate->get_m_target_2();
+		RuntimeMethod* targetMethod = (RuntimeMethod*)(currentDelegate->get_method_3());
+		if (!il2cpp_codegen_method_is_virtual(targetMethod))
+		{
+			il2cpp_codegen_raise_execution_engine_exception_if_method_is_not_found(targetMethod);
+		}
+		bool ___methodIsStatic = MethodIsStatic(targetMethod);
+		int ___parameterCount = il2cpp_codegen_method_parameter_count(targetMethod);
+		if (___methodIsStatic)
+		{
+			if (___parameterCount == 0)
+			{
+				// open
+				typedef void (*FunctionPointerType) (const RuntimeMethod*);
+				((FunctionPointerType)targetMethodPointer)(targetMethod);
+			}
+			else
+			{
+				// closed
+				typedef void (*FunctionPointerType) (void*, const RuntimeMethod*);
+				((FunctionPointerType)targetMethodPointer)(targetThis, targetMethod);
+			}
+		}
+		else
+		{
+			// closed
+			if (targetThis != NULL && il2cpp_codegen_method_is_virtual(targetMethod) && !il2cpp_codegen_object_is_of_sealed_type(targetThis) && il2cpp_codegen_delegate_has_invoker((Il2CppDelegate*)__this))
+			{
+				if (il2cpp_codegen_method_is_generic_instance(targetMethod))
+				{
+					if (il2cpp_codegen_method_is_interface_method(targetMethod))
+						GenericInterfaceActionInvoker0::Invoke(targetMethod, targetThis);
+					else
+						GenericVirtActionInvoker0::Invoke(targetMethod, targetThis);
+				}
+				else
+				{
+					if (il2cpp_codegen_method_is_interface_method(targetMethod))
+						InterfaceActionInvoker0::Invoke(il2cpp_codegen_method_get_slot(targetMethod), il2cpp_codegen_method_get_declaring_type(targetMethod), targetThis);
+					else
+						VirtActionInvoker0::Invoke(il2cpp_codegen_method_get_slot(targetMethod), targetThis);
+				}
+			}
+			else
+			{
+				typedef void (*FunctionPointerType) (void*, const RuntimeMethod*);
+				((FunctionPointerType)targetMethodPointer)(targetThis, targetMethod);
+			}
+		}
+	}
+}
+// System.IAsyncResult Firebase.Database.Internal.Future_InternalDataSnapshot/Action::BeginInvoke(System.AsyncCallback,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* Action_BeginInvoke_mE5E18243A8A7897EF1760AA7AAA461F92C50960D (Action_t3C9E886ED952A5C1AC45907686BC24896CA35010 * __this, AsyncCallback_tA7921BEF974919C46FF8F9D9867C567B200BB0EA * ___callback0, RuntimeObject * ___object1, const RuntimeMethod* method)
+{
+	void *__d_args[1] = {0};
+	return (RuntimeObject*)il2cpp_codegen_delegate_begin_invoke((RuntimeDelegate*)__this, __d_args, (RuntimeDelegate*)___callback0, (RuntimeObject*)___object1);;
+}
+// System.Void Firebase.Database.Internal.Future_InternalDataSnapshot/Action::EndInvoke(System.IAsyncResult)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Action_EndInvoke_m4C0BB675CA2DA60083DCF1215151C06450D6DF07 (Action_t3C9E886ED952A5C1AC45907686BC24896CA35010 * __this, RuntimeObject* ___result0, const RuntimeMethod* method)
+{
+	il2cpp_codegen_delegate_end_invoke((Il2CppAsyncResult*) ___result0, 0);
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+IL2CPP_EXTERN_C  void DelegatePInvokeWrapper_SWIG_CompletionDelegate_tA8D1F511687314492DCF200EFA9141D61FE38AC1 (SWIG_CompletionDelegate_tA8D1F511687314492DCF200EFA9141D61FE38AC1 * __this, int32_t ___index0, const RuntimeMethod* method)
+{
+	typedef void (DEFAULT_CALL *PInvokeFunc)(int32_t);
+	PInvokeFunc il2cppPInvokeFunc = reinterpret_cast<PInvokeFunc>(il2cpp_codegen_get_method_pointer(((RuntimeDelegate*)__this)->method));
+
+	// Native function invocation
+	il2cppPInvokeFunc(___index0);
+
+}
+// System.Void Firebase.Database.Internal.Future_InternalDataSnapshot/SWIG_CompletionDelegate::.ctor(System.Object,System.IntPtr)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SWIG_CompletionDelegate__ctor_mE0AC37E93A8DA64EBA7614EFDF0EC8177BD1EE64 (SWIG_CompletionDelegate_tA8D1F511687314492DCF200EFA9141D61FE38AC1 * __this, RuntimeObject * ___object0, intptr_t ___method1, const RuntimeMethod* method)
+{
+	__this->set_method_ptr_0(il2cpp_codegen_get_method_pointer((RuntimeMethod*)___method1));
+	__this->set_method_3(___method1);
+	__this->set_m_target_2(___object0);
+}
+// System.Void Firebase.Database.Internal.Future_InternalDataSnapshot/SWIG_CompletionDelegate::Invoke(System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SWIG_CompletionDelegate_Invoke_m703A41C6CEAB74514175A6213200DF67F6C79EBF (SWIG_CompletionDelegate_tA8D1F511687314492DCF200EFA9141D61FE38AC1 * __this, int32_t ___index0, const RuntimeMethod* method)
+{
+	DelegateU5BU5D_t677D8FE08A5F99E8EE49150B73966CD6E9BF7DB8* delegateArrayToInvoke = __this->get_delegates_11();
+	Delegate_t** delegatesToInvoke;
+	il2cpp_array_size_t length;
+	if (delegateArrayToInvoke != NULL)
+	{
+		length = delegateArrayToInvoke->max_length;
+		delegatesToInvoke = reinterpret_cast<Delegate_t**>(delegateArrayToInvoke->GetAddressAtUnchecked(0));
+	}
+	else
+	{
+		length = 1;
+		delegatesToInvoke = reinterpret_cast<Delegate_t**>(&__this);
+	}
+
+	for (il2cpp_array_size_t i = 0; i < length; i++)
+	{
+		Delegate_t* currentDelegate = delegatesToInvoke[i];
+		Il2CppMethodPointer targetMethodPointer = currentDelegate->get_method_ptr_0();
+		RuntimeObject* targetThis = currentDelegate->get_m_target_2();
+		RuntimeMethod* targetMethod = (RuntimeMethod*)(currentDelegate->get_method_3());
+		if (!il2cpp_codegen_method_is_virtual(targetMethod))
+		{
+			il2cpp_codegen_raise_execution_engine_exception_if_method_is_not_found(targetMethod);
+		}
+		bool ___methodIsStatic = MethodIsStatic(targetMethod);
+		int ___parameterCount = il2cpp_codegen_method_parameter_count(targetMethod);
+		if (___methodIsStatic)
+		{
+			if (___parameterCount == 1)
+			{
+				// open
+				typedef void (*FunctionPointerType) (int32_t, const RuntimeMethod*);
+				((FunctionPointerType)targetMethodPointer)(___index0, targetMethod);
+			}
+			else
+			{
+				// closed
+				typedef void (*FunctionPointerType) (void*, int32_t, const RuntimeMethod*);
+				((FunctionPointerType)targetMethodPointer)(targetThis, ___index0, targetMethod);
+			}
+		}
+		else
+		{
+			// closed
+			if (targetThis != NULL && il2cpp_codegen_method_is_virtual(targetMethod) && !il2cpp_codegen_object_is_of_sealed_type(targetThis) && il2cpp_codegen_delegate_has_invoker((Il2CppDelegate*)__this))
+			{
+				if (il2cpp_codegen_method_is_generic_instance(targetMethod))
+				{
+					if (il2cpp_codegen_method_is_interface_method(targetMethod))
+						GenericInterfaceActionInvoker1< int32_t >::Invoke(targetMethod, targetThis, ___index0);
+					else
+						GenericVirtActionInvoker1< int32_t >::Invoke(targetMethod, targetThis, ___index0);
+				}
+				else
+				{
+					if (il2cpp_codegen_method_is_interface_method(targetMethod))
+						InterfaceActionInvoker1< int32_t >::Invoke(il2cpp_codegen_method_get_slot(targetMethod), il2cpp_codegen_method_get_declaring_type(targetMethod), targetThis, ___index0);
+					else
+						VirtActionInvoker1< int32_t >::Invoke(il2cpp_codegen_method_get_slot(targetMethod), targetThis, ___index0);
+				}
+			}
+			else
+			{
+				typedef void (*FunctionPointerType) (void*, int32_t, const RuntimeMethod*);
+				((FunctionPointerType)targetMethodPointer)(targetThis, ___index0, targetMethod);
+			}
+		}
+	}
+}
+// System.IAsyncResult Firebase.Database.Internal.Future_InternalDataSnapshot/SWIG_CompletionDelegate::BeginInvoke(System.Int32,System.AsyncCallback,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* SWIG_CompletionDelegate_BeginInvoke_m013A3522139019F8A223CB324AEB6D969EE2F6F4 (SWIG_CompletionDelegate_tA8D1F511687314492DCF200EFA9141D61FE38AC1 * __this, int32_t ___index0, AsyncCallback_tA7921BEF974919C46FF8F9D9867C567B200BB0EA * ___callback1, RuntimeObject * ___object2, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Int32_tFDE5F8CD43D10453F6A2E0C77FE48C6CC7009046_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	void *__d_args[2] = {0};
+	__d_args[0] = Box(Int32_tFDE5F8CD43D10453F6A2E0C77FE48C6CC7009046_il2cpp_TypeInfo_var, &___index0);
+	return (RuntimeObject*)il2cpp_codegen_delegate_begin_invoke((RuntimeDelegate*)__this, __d_args, (RuntimeDelegate*)___callback1, (RuntimeObject*)___object2);;
+}
+// System.Void Firebase.Database.Internal.Future_InternalDataSnapshot/SWIG_CompletionDelegate::EndInvoke(System.IAsyncResult)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SWIG_CompletionDelegate_EndInvoke_m1B17CE7321E4119166B6DC80B6CD703F45B4B9B7 (SWIG_CompletionDelegate_tA8D1F511687314492DCF200EFA9141D61FE38AC1 * __this, RuntimeObject* ___result0, const RuntimeMethod* method)
+{
+	il2cpp_codegen_delegate_end_invoke((Il2CppAsyncResult*) ___result0, 0);
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
 // System.Void Firebase.Database.Internal.InternalChildListener/<OnCancelledHandler>c__AnonStorey2::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3COnCancelledHandlerU3Ec__AnonStorey2__ctor_mFFE132800267C1A72DFBDC65B4F1F1E10FBEABE0 (U3COnCancelledHandlerU3Ec__AnonStorey2_tFB771BA61C4535C22FDD7571CB2B344E36051B9A * __this, const RuntimeMethod* method)
 {
@@ -10710,6 +13053,65 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OnValueChangedDelegate_EndInvoke_m0F55B7
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
+// System.Void Firebase.Database.Query/<WrapInternalDataSnapshotTask>c__AnonStorey0::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CWrapInternalDataSnapshotTaskU3Ec__AnonStorey0__ctor_m5BA902CFC5CFE89B09B422D5F4A967CBA50CDE05 (U3CWrapInternalDataSnapshotTaskU3Ec__AnonStorey0_tC297FE6E7D8CE2EA691D22F0AA947B7DDF040BAF * __this, const RuntimeMethod* method)
+{
+	{
+		Object__ctor_m88880E0413421D13FD95325EDCE231707CE1F405(__this, /*hidden argument*/NULL);
+		return;
+	}
+}
+// System.Void Firebase.Database.Query/<WrapInternalDataSnapshotTask>c__AnonStorey0::<>m__0(System.Threading.Tasks.Task`1<Firebase.Database.Internal.InternalDataSnapshot>)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CWrapInternalDataSnapshotTaskU3Ec__AnonStorey0_U3CU3Em__0_m22FFF028B3E9BB0B1DDCBD737A2EFEA9578B5DC0 (U3CWrapInternalDataSnapshotTaskU3Ec__AnonStorey0_tC297FE6E7D8CE2EA691D22F0AA947B7DDF040BAF * __this, Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB * ___task0, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Query_CheckTaskStatus_TisDataSnapshot_t27BF9705C3D362AC0A6D18BE34169040F7F5911D_m0BD48C74FC4E2777FFE0F76E1A04664DFB242143_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&TaskCompletionSource_1_SetResult_m74C29E72B54DDDEE9833B780A78F1D4201BB2103_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Task_1_get_Result_m238D408D4BE81829E0E4D5C073565EF0B62DA816_RuntimeMethod_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		Query_t040D26D9F80119DD12A4B48ABAD1830398144B2C * L_0 = __this->get_U24this_1();
+		Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB * L_1 = ___task0;
+		TaskCompletionSource_1_t0191AA91EA1ABB8621B9AE6BAF286EF65E50DB27 * L_2 = __this->get_tcs_0();
+		NullCheck(L_0);
+		bool L_3;
+		L_3 = Query_CheckTaskStatus_TisDataSnapshot_t27BF9705C3D362AC0A6D18BE34169040F7F5911D_m0BD48C74FC4E2777FFE0F76E1A04664DFB242143(L_0, L_1, L_2, /*hidden argument*/Query_CheckTaskStatus_TisDataSnapshot_t27BF9705C3D362AC0A6D18BE34169040F7F5911D_m0BD48C74FC4E2777FFE0F76E1A04664DFB242143_RuntimeMethod_var);
+		if (!L_3)
+		{
+			goto IL_0038;
+		}
+	}
+	{
+		TaskCompletionSource_1_t0191AA91EA1ABB8621B9AE6BAF286EF65E50DB27 * L_4 = __this->get_tcs_0();
+		Task_1_t2CF02342842EC9BAEC044DA936E059F2108BADAB * L_5 = ___task0;
+		NullCheck(L_5);
+		InternalDataSnapshot_t568D80FFC578B56F60735E5CCD40C35444842A3A * L_6;
+		L_6 = Task_1_get_Result_m238D408D4BE81829E0E4D5C073565EF0B62DA816(L_5, /*hidden argument*/Task_1_get_Result_m238D408D4BE81829E0E4D5C073565EF0B62DA816_RuntimeMethod_var);
+		Query_t040D26D9F80119DD12A4B48ABAD1830398144B2C * L_7 = __this->get_U24this_1();
+		NullCheck(L_7);
+		FirebaseDatabase_tF1A65E0ED193AF145CFAFF4D2A13F851118CE470 * L_8 = L_7->get_database_1();
+		DataSnapshot_t27BF9705C3D362AC0A6D18BE34169040F7F5911D * L_9;
+		L_9 = DataSnapshot_CreateSnapshot_m95E10FC734582079840902AA6B7734600FFD88E2(L_6, L_8, /*hidden argument*/NULL);
+		NullCheck(L_4);
+		TaskCompletionSource_1_SetResult_m74C29E72B54DDDEE9833B780A78F1D4201BB2103(L_4, L_9, /*hidden argument*/TaskCompletionSource_1_SetResult_m74C29E72B54DDDEE9833B780A78F1D4201BB2103_RuntimeMethod_var);
+	}
+
+IL_0038:
+	{
+		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
 IL2CPP_EXTERN_C  void DelegatePInvokeWrapper_ExceptionArgumentDelegate_tAAC96DC361951DB60D42537F7BE5BBEE26731386 (ExceptionArgumentDelegate_tAAC96DC361951DB60D42537F7BE5BBEE26731386 * __this, String_t* ___message0, String_t* ___paramName1, const RuntimeMethod* method)
 {
 	typedef void (DEFAULT_CALL *PInvokeFunc)(char*, char*);
@@ -11289,5 +13691,12 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Task_1_t9C1FE9F18F52F3409B9E970FA
 	{
 		Task_1_t9C1FE9F18F52F3409B9E970FA38801A443AE7849 * L_0 = (Task_1_t9C1FE9F18F52F3409B9E970FA38801A443AE7849 *)__this->get_m_task_0();
 		return (Task_1_t9C1FE9F18F52F3409B9E970FA38801A443AE7849 *)L_0;
+	}
+}
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Task_1_tC1805497876E88B78A2B0CB81C6409E0B381AC17 * TaskCompletionSource_1_get_Task_m7F788C2231343328FBBCFE9EDA916E748F699618_gshared_inline (TaskCompletionSource_1_t5B48A13B0469AA5A5797B645926E284436099903 * __this, const RuntimeMethod* method)
+{
+	{
+		Task_1_tC1805497876E88B78A2B0CB81C6409E0B381AC17 * L_0 = (Task_1_tC1805497876E88B78A2B0CB81C6409E0B381AC17 *)__this->get_m_task_0();
+		return (Task_1_tC1805497876E88B78A2B0CB81C6409E0B381AC17 *)L_0;
 	}
 }

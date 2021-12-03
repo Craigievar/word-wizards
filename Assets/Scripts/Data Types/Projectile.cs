@@ -8,12 +8,18 @@ namespace Com.TypeGames.TSBR
     {
         public Animator animator;
         public AudioManager.SoundType sound;
+        public Character attacker;
 
         // should spawn, animate, then destroy itself
         // called by animation
         public void Remove()
         {
+            if (attacker != null)
+            {
+                Destroy(attacker.gameObject);
+            }
             Destroy(this.gameObject);
+
         }
 
         public void Start()

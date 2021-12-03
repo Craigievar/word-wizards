@@ -1,0 +1,7 @@
+/iOS/
+**/Mac.app
+**/Mac.app/
+**/Mac copy.app/
+/Assets/Firebase
+/Assets/Photon
+*.dylib

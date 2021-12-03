@@ -20,7 +20,7 @@ namespace Com.TypeGames.TSBR
         public InputField emailInput;
         public InputField passwordInput;
         public InputField passwordConfirm;
-        public Text errorText;
+        //public Text errorText;
         public Button signupButton;
         public Button signinButton;
         public Text confirmText;
@@ -28,6 +28,9 @@ namespace Com.TypeGames.TSBR
         public GameObject signUpGroup;
         public GameObject signInGroup;
         public GameObject confirmGroup;
+
+        public GameObject popupPrefab;
+        private GameObject canvas;
 
         public string displayName;
 
@@ -37,8 +40,8 @@ namespace Com.TypeGames.TSBR
 
         void Start()
         {
+            canvas = GameObject.Find("Canvas");
             auth = FirebaseAuth.DefaultInstance;
-            errorText.enabled = false;
 
             if (LocalData.userHasAccount)
             {
@@ -65,8 +68,7 @@ namespace Com.TypeGames.TSBR
             }
             else
             {
-                errorText.text = "Passwords do not match";
-                errorText.gameObject.SetActive(true);
+                ShowError("Passwords do not match");
             }
 
         }
@@ -119,7 +121,10 @@ namespace Com.TypeGames.TSBR
                       {
                           auth.CurrentUser.SendEmailVerificationAsync();
                       }
+                      DatabaseManager.OnUserCreated();
                       ShowConfirmation();
+
+
                   }
                   //UpdateUserProfileAsync(PhotonNetwork.NickName);
                   //LocalData.authManager.UpdateUserProfileAsync("test");
@@ -132,9 +137,7 @@ namespace Com.TypeGames.TSBR
             Debug.Log("Reset pressed");
             if (emailInput.text.Length < 5)
             {
-                errorText.text = "Enter your email to reset";
-                errorText.gameObject.SetActive(true);
-                errorText.enabled = true;
+                ShowError("Enter the email to reset");
             }
 
             Debug.Log("Fetch providers");
@@ -142,16 +145,12 @@ namespace Com.TypeGames.TSBR
                 task => {
                     if (task.IsFaulted)
                     {
-                        errorText.text = "Error with reset request: " + task.Exception;
-                        errorText.gameObject.SetActive(true);
-                        errorText.enabled = true;
+                        ShowError("Error with reset request");
                         return;
                     }
                     if (task.IsCanceled)
                     {
-                        errorText.text = "Reset request cancelled";
-                        errorText.gameObject.SetActive(true);
-                        errorText.enabled = true;
+                        ShowError("Error with reset request (cancelled)");
                         return;
                     }
 
@@ -171,19 +170,16 @@ namespace Com.TypeGames.TSBR
                     if (task.IsFaulted)
                     {
                         Debug.Log("Faulted");
-                        errorText.text = "Error with reset request: " + task.Exception;
+                        ShowError("Error with reset request");
                     }
                     if (task.IsCanceled)
                     {
-                        errorText.text = "Reset request cancelled";
+                        ShowError("Error with reset request");
                     }
 
 
                     Debug.Log("Should be successful");
-
-                    errorText.text = "Sent reset request to " + emailInput.text;
-                    errorText.gameObject.SetActive(true);
-                    errorText.enabled = true;
+                    ShowError("Sent reset request to " + emailInput.text);
                 }
             );
 
@@ -210,9 +206,9 @@ namespace Com.TypeGames.TSBR
                         authErrorCode = String.Format("AuthError.{0}: ",
                           ((Firebase.Auth.AuthError)firebaseEx.ErrorCode).ToString());
                         GetErrorMessage((Firebase.Auth.AuthError)firebaseEx.ErrorCode);
-                        errorText.enabled = true;
                     }
                     Debug.Log(authErrorCode + exception.ToString());
+                    //ShowError("Error. Check your connection.");
                 }
                 EnableUI();
             }
@@ -224,24 +220,29 @@ namespace Com.TypeGames.TSBR
             return complete;
         }
 
-        private void HandleSignInWithSignInResult(Task<Firebase.Auth.SignInResult> task)
+        private async void HandleSignInWithSignInResult(Task<Firebase.Auth.SignInResult> task)
         {
             EnableUI();
             if (LogTaskCompletion(task, "Sign-in"))
             {
                 createdAccount = false;
                 DisplaySignInResult(task.Result, 1);
-                ShowConfirmation();
-            }
 
-            if(auth.CurrentUser.DisplayName != null && auth.CurrentUser.DisplayName.Length > 0)
-            {
-                Debug.Log("Got name from login (" + auth.CurrentUser.DisplayName + ")");
-                LocalData.SetPlayerName(auth.CurrentUser.DisplayName);
-            }
-            else
-            {
-                Debug.Log("Couldn't get name at sign in");
+                Debug.Log("Pulling user data");
+                await DatabaseManager.PullUserData();
+                DatabaseManager.WriteLocalData();
+                ShowConfirmation();
+
+
+                if (auth.CurrentUser.DisplayName != null && auth.CurrentUser.DisplayName.Length > 0)
+                {
+                    Debug.Log("Got name from login (" + auth.CurrentUser.DisplayName + ")");
+                    LocalData.SetPlayerName(auth.CurrentUser.DisplayName);
+                }
+                else
+                {
+                    Debug.Log("Couldn't get name at sign in");
+                }
             }
             
         }
@@ -291,6 +292,7 @@ namespace Com.TypeGames.TSBR
         public void OnSignOutPressed()
         {
             auth.SignOut();
+            DatabaseManager.OnLogout();
         }
         #endregion
 
@@ -335,32 +337,25 @@ namespace Com.TypeGames.TSBR
             switch (errorCode)
             {
                 case AuthError.MissingPassword:
-                    errorText.text = "Missing password.";
-                    errorText.enabled = true;
+                    ShowError("Missing password");
                     break;
                 case AuthError.WeakPassword:
-                    errorText.text = "Too weak of a password.";
-                    errorText.enabled = true;
+                    ShowError("Password is too weak");
                     break;
                 case AuthError.InvalidEmail:
-                    errorText.text = "Invalid email.";
-                    errorText.enabled = true;
+                    ShowError("Invalid Email");
                     break;
                 case AuthError.MissingEmail:
-                    errorText.text = "Missing email.";
-                    errorText.enabled = true;
+                    ShowError("Missing Email");
                     break;
                 case AuthError.UserNotFound:
-                    errorText.text = "Account not found.";
-                    errorText.enabled = true;
+                    ShowError("Account or password incorrect");
                     break;
                 case AuthError.EmailAlreadyInUse:
-                    errorText.text = "Email already in use.";
-                    errorText.enabled = true;
+                    ShowError("Email is already in use");
                     break;
                 default:
-                    errorText.text = "Unknown error occurred.";
-                    errorText.enabled = true;
+                    ShowError("Check your connection");
                     break;
             }
         }
@@ -428,6 +423,11 @@ namespace Com.TypeGames.TSBR
             }
         }
 
+        public void ShowError(string errorText)
+        {
+            GameObject pane = Instantiate(popupPrefab, canvas.transform);
+            pane.GetComponentInChildren<PopUpButton>().SetText(errorText);
+        }
 
 
         #endregion

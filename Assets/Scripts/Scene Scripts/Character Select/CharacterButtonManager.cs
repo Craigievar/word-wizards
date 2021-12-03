@@ -16,10 +16,13 @@ namespace Com.TypeGames.TSBR
         public GameObject characterButtonPrefab;
         public GameObject contentObject;
         public CharacterPaneManager characterPane;
+        public Transform mainCanvas;
 
         // Start is called before the first frame update
         void Start()
         {
+            LocalData.SetUpInfoPane(mainCanvas);
+
             GenerateButtons();
             //wordPane.gameObject.SetActive(false);
 
@@ -61,7 +64,6 @@ namespace Com.TypeGames.TSBR
         public void CharacterSelected(CharacterButton button)
         {
             selectedButton = button;
-            LocalData.character = button.character;
             LocalData.SetCharacter(button.character.id);
             Debug.Log(LocalData.character.name + " selected");
 
@@ -79,18 +81,26 @@ namespace Com.TypeGames.TSBR
                 }
                 else
                 {
-                    button.SetIndicator(Color.red);
+                    button.owned = LocalData.user.charactersOwned.Contains(button.character.id);
+                    if (button.owned)
+                        button.SetIndicator(Color.red);
+                    else
+                        button.SetIndicator(Color.gray);
+                    
                 }
             }
         }
 
         public void GenerateButtons()
         {
-            List<GameObject> characters = LocalData.characterSet.characters.ToList<GameObject>();
-            characters.Remove(LocalData.character.characterPrefab);
-            characters.Insert(0, LocalData.character.characterPrefab);
-            //characters.Add(LocalData.character.characterPrefab);
+            List<Character> characters = LocalData.characterSet.characters.ToList<Character>().Where(x => LocalData.user.charactersOwned.Contains(x.id)).ToList<Character>();
+            List<Character> unowned = LocalData.characterSet.characters.ToList<Character>().Where(x => !LocalData.user.charactersOwned.Contains(x.id)).ToList<Character>();
+            characters.Remove(LocalData.characterSet.GetCharacterById(LocalData.character.id));
+            characters.Insert(0, LocalData.character);
+            characters.AddRange(unowned);
 
+
+            
             for (int i = 0; i < characters.Count; i++)
             {
                 MakeButton(characters[i].GetComponent<Character>());
@@ -109,6 +119,7 @@ namespace Com.TypeGames.TSBR
             button.GetComponentInChildren<Text>().text = character.name;
             //button.GetComponent<CharacterButton>().character = character;
             button.GetComponent<CharacterButton>().SetUp(character, character.icon);
+            button.GetComponent<CharacterButton>().owned = LocalData.user.charactersOwned.Contains(character.id);
             //button.GetComponent<Image>().sprite = character.icon;
 
             if (character == LocalData.character)

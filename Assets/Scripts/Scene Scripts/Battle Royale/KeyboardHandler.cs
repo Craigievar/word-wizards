@@ -43,7 +43,7 @@ namespace Com.TypeGames.TSBR
             if(input.text != null && input.text.Contains(System.Environment.NewLine))
             {
                 Debug.Log("Handle input");
-                handleInput();
+                HandleInput();
                 input.text = "";
             }
 
@@ -56,7 +56,7 @@ namespace Com.TypeGames.TSBR
 
         }
 
-        void handleInput()
+        void HandleInput()
         {
             if(input.text.Equals(""))
             {
@@ -78,7 +78,7 @@ namespace Com.TypeGames.TSBR
             input.enabled = true;
             input.ActivateInputField();
             TouchScreenKeyboard.hideInput = true;
-            Debug.Log("Is it active? " + input.IsActive());
+            //Debug.Log("Is it active? " + input.IsActive());
         }
 
         public void TurnOffKeyboard()

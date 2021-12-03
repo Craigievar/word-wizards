@@ -424,7 +424,8 @@
             "fullManagedTypeName": "UnityEngine.AnimationClip",
             "moduleName": "Animation",
             "usedInScenes": [
-                "Assets/Scenes/Menu.unity"
+                "Assets/Scenes/Menu.unity",
+                "Assets/Scenes/Battle Royale.unity"
             ]
         },
         {
@@ -433,7 +434,8 @@
             "fullManagedTypeName": "UnityEngine.Animator",
             "moduleName": "Animation",
             "usedInScenes": [
-                "Assets/Scenes/Menu.unity"
+                "Assets/Scenes/Menu.unity",
+                "Assets/Scenes/Battle Royale.unity"
             ]
         },
         {
@@ -442,7 +444,8 @@
             "fullManagedTypeName": "UnityEditor.Animations.AnimatorController",
             "moduleName": "Animation",
             "usedInScenes": [
-                "Assets/Scenes/Menu.unity"
+                "Assets/Scenes/Menu.unity",
+                "Assets/Scenes/Battle Royale.unity"
             ]
         },
         {
@@ -451,7 +454,8 @@
             "fullManagedTypeName": "UnityEngine.RuntimeAnimatorController",
             "moduleName": "Animation",
             "usedInScenes": [
-                "Assets/Scenes/Menu.unity"
+                "Assets/Scenes/Menu.unity",
+                "Assets/Scenes/Battle Royale.unity"
             ]
         },
         {
@@ -815,7 +819,8 @@
             "fullManagedTypeName": "UnityEngine.Motion",
             "moduleName": "Animation",
             "usedInScenes": [
-                "Assets/Scenes/Menu.unity"
+                "Assets/Scenes/Menu.unity",
+                "Assets/Scenes/Battle Royale.unity"
             ]
         },
         {
@@ -879,6 +884,20 @@
         {
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
+            "fullManagedTypeName": "Com.TypeGames.TSBR.AddWordListButton",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "Com.TypeGames.TSBR.AlertText",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
             "fullManagedTypeName": "Com.TypeGames.TSBR.AudioManager",
             "moduleName": "",
             "usedInScenes": []
@@ -894,6 +913,13 @@
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
             "fullManagedTypeName": "Com.TypeGames.TSBR.AuthManager",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "Com.TypeGames.TSBR.BotManager",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -935,6 +961,13 @@
         {
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
+            "fullManagedTypeName": "Com.TypeGames.TSBR.CharacterPurchaseConfirmationPane",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
             "fullManagedTypeName": "Com.TypeGames.TSBR.CharacterSet",
             "moduleName": "",
             "usedInScenes": []
@@ -970,6 +1003,13 @@
         {
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
+            "fullManagedTypeName": "Com.TypeGames.TSBR.LobbyUI",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
             "fullManagedTypeName": "Com.TypeGames.TSBR.LocalData",
             "moduleName": "",
             "usedInScenes": []
@@ -977,7 +1017,21 @@
         {
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
+            "fullManagedTypeName": "Com.TypeGames.TSBR.PlayerInfoUI",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
             "fullManagedTypeName": "Com.TypeGames.TSBR.PlayerManager",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "Com.TypeGames.TSBR.PopUpButton",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -999,6 +1053,13 @@
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
             "fullManagedTypeName": "Com.TypeGames.TSBR.Projectile",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "Com.TypeGames.TSBR.PurchaseConfirmationPane",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -1041,6 +1102,13 @@
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
             "fullManagedTypeName": "Com.TypeGames.TSBR.WordPaneManager",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "PermanentInput",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -1250,6 +1318,13 @@
         {
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
+            "fullManagedTypeName": "PreventDeselect",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
             "fullManagedTypeName": "SuperBasicController",
             "moduleName": "",
             "usedInScenes": []
@@ -1356,6 +1431,20 @@
             "managedAssemblyName": "PhotonUnityNetworking.dll",
             "nativeClass": "",
             "fullManagedTypeName": "Photon.Pun.ServerSettings",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "UnityEngine.Advertisements.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.Advertisements.Placeholder",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "UnityEngine.Advertisements.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.Advertisements.Platform.Editor.BannerPlaceholder",
             "moduleName": "",
             "usedInScenes": []
         },

@@ -82,6 +82,7 @@ namespace Com.TypeGames.TSBR
                 if (signedIn)
                 {
                     Debug.Log("Signed in " + user.DisplayName);
+                    LocalData.OnAuthReady();
                     //DisplayDetailedUserInfo(user, 1);
                     //SceneManager.LoadScene("MainScene");
                 }
@@ -89,6 +90,7 @@ namespace Com.TypeGames.TSBR
             else
             {
                 Debug.Log("Need to sign in");
+                Debug.Log("Using default user data");
                 //SceneManager.LoadScene("SignInScene");
             }
         }
@@ -148,7 +150,7 @@ namespace Com.TypeGames.TSBR
                 auth.StateChanged -= AuthStateChanged;
             } catch (Exception e)
             {
-                Debug.Log("Couldn't remove statechanged ref");
+                //Debug.Log("Couldn't remove statechanged ref");
             }
             
             auth = null;

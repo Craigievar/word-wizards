@@ -14,6 +14,9 @@ namespace Com.TypeGames.TSBR
         public GameObject bookPrefab;
         public WordPaneManager wordPane;
         public GameObject contentObject;
+        public GameObject addWordListButtonPrefab;
+        public Transform mainCanvas;
+
 
         // Start is called before the first frame update
         void Start()
@@ -22,6 +25,7 @@ namespace Com.TypeGames.TSBR
             GenerateButtons();
             wordPane.gameObject.SetActive(false);
 
+            LocalData.SetUpInfoPane(mainCanvas);
         }
 
         // Update is called once per frame
@@ -52,6 +56,7 @@ namespace Com.TypeGames.TSBR
         {
 
             wordPane.gameObject.SetActive(true);
+
             wordPane.RenderWordList(button);
 
             //WordListSelected(button);
@@ -60,7 +65,6 @@ namespace Com.TypeGames.TSBR
         public void WordListSelected(WordListButton button)
         {
             selectedButton = button;
-            LocalData.wordList = button.wordList;
             LocalData.SetWordList(button.wordList.id);
             Debug.Log(LocalData.wordList.name + " selected");
             ResetButtons();
@@ -76,22 +80,44 @@ namespace Com.TypeGames.TSBR
                 }
                 else
                 {
-                    button.GetComponent<Image>().color = Color.red;
+                    button.owned = LocalData.user.wordlistsOwned.Contains(button.wordList.id);
+                    if (button.owned)
+                        button.GetComponent<Image>().color = Color.red;
+                    else
+                        button.GetComponent<Image>().color = Color.gray;
                 }
             }
         }
 
         public void GenerateButtons()
         {
+            //todo: add custom wordlists
+            //Instantiate(
+            //    addWordListButtonPrefab,
+            //    contentObject.transform
+            //);
 
-            List<WordList> wordLists = WordListSet.wordListDict.Values.ToList();
-            wordLists.Remove(LocalData.wordList);
+            //List<WordList> wordLists = WordListSet.wordListDict.Values.ToList();
+            List<WordList> wordLists = WordListSet.wordListDict.Values.Where(
+                    wl => LocalData.user.wordlistsOwned.Contains(wl.id)
+                ).ToList<WordList>();
+
+            List<WordList> wordListsUnowned = WordListSet.wordListDict.Values.Where(
+                wl => !LocalData.user.wordlistsOwned.Contains(wl.id)
+                ).ToList<WordList>();
+
+            wordLists.AddRange(LocalData.user.customWordLists);
+            wordLists.AddRange(wordListsUnowned);
+
+            wordLists.RemoveAt(wordLists.IndexOf(wordLists.Find(x => x.id == LocalData.wordList.id)));
             wordLists.Insert(0, LocalData.wordList);
 
             for (int i = 0; i < wordLists.Count; i++)
             {
                 MakeButton(wordLists[i]);
             }
+
+
         }
 
         public void MakeButton(WordList wl)
@@ -103,6 +129,8 @@ namespace Com.TypeGames.TSBR
 
             button.GetComponentInChildren<Text>().text = wl.name;
             button.GetComponent<WordListButton>().wordList = wl;
+            button.GetComponent<WordListButton>().owned = LocalData.user
+                .wordlistsOwned.Contains(wl.id);
 
             if (wl == LocalData.wordList) 
             {
@@ -111,6 +139,8 @@ namespace Com.TypeGames.TSBR
             }
 
         }
+
+
     }
 
 }

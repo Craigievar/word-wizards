@@ -1053,7 +1053,7 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 1
+    m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Account Created!
@@ -3097,13 +3097,13 @@ MonoBehaviour:
   emailInput: {fileID: 772254782}
   passwordInput: {fileID: 858394677}
   passwordConfirm: {fileID: 1299699964}
-  errorText: {fileID: 304550000}
   signupButton: {fileID: 927265778}
   signinButton: {fileID: 1614232135}
   confirmText: {fileID: 644713360}
   signUpGroup: {fileID: 2018997760}
   signInGroup: {fileID: 1679146833}
   confirmGroup: {fileID: 62809009}
+  popupPrefab: {fileID: 6487917709599625297, guid: 86d6bc0a69c654e0cbd9102dca5e7b3d, type: 3}
   displayName: 
 --- !u!1 &1614232133
 GameObject:

@@ -10,6 +10,7 @@ namespace Com.TypeGames.TSBR
         public CharacterButtonManager manager;
         public Image selectionIndicator;
         public Image icon;
+        public bool owned;
 
         public void Start()
         {

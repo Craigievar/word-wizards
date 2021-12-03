@@ -19,7 +19,8 @@ namespace Com.TypeGames.TSBR
             theme,
             fireballAttack,
             playerAttacked,
-            button
+            button,
+            purchase
         }
 
         [Serializable]
@@ -52,6 +53,8 @@ namespace Com.TypeGames.TSBR
                 Destroy(gameObject);
             }
 
+            //LocalData.audioManager = this;
+
             masterVolume = PlayerPrefs.HasKey(masterVolumePrefKey) ?
                 PlayerPrefs.GetFloat(masterVolumePrefKey) : 1.0f;
 
@@ -74,6 +77,12 @@ namespace Com.TypeGames.TSBR
 
             UpdateVolume();
 
+
+        }
+
+        public void Start()
+        {
+            Debug.Log("Playing theme");
             Play(SoundType.theme);
         }
 

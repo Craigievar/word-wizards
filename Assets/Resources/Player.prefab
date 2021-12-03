@@ -80,3 +80,5 @@ MonoBehaviour:
   character: {fileID: 0}
   inGameTimer: 0
   alive: 1
+  firebaseUserId: 
+  isBot: 0

@@ -1,0 +1,2 @@
+/Users/csexauer/tsbr-pun/obj/Debug/PhotonUnityNetworking.csprojAssemblyReference.cache
+/Users/csexauer/tsbr-pun/obj/Debug/PhotonUnityNetworking.csproj.CoreCompileInputs.cache

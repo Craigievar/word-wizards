@@ -21,30 +21,44 @@ namespace Com.TypeGames.TSBR
         public InputField nameManager;
         public GameObject nameChangePane;
 
-        public GameObject verifiedEmailPane;
+        private GameObject canvas;
 
         public TimeKeeper checkEmail { get; set; }
 
         private bool emailLastVerified = true;
 
+        public GameObject popUpPrefab;
+
+        public bool soundsEnabled = false;
+
         // Start is called before the first frame update
         void Start()
         {
+            CheckForEmailVerification();
+
+
+            checkEmail = new TimeKeeper(3000);
             confirmEmail.SetActive(false);
+
+            canvas = GameObject.Find("Canvas");
+
+            LocalData.SetUpInfoPane(canvas.transform);
 
             master.value = LocalData.audioManager.masterVolume;
             music.value = LocalData.audioManager.musicVolume;
             effect.value = LocalData.audioManager.effectVolume;
 
-            checkEmail = new TimeKeeper(3000);
+            soundsEnabled = true;
+
+
 
             HideNameChangePane();
-            HideVerifiedEmailPane();
 
             //Debug.Log(LocalData.authManager.auth.CurrentUser);
             if (LocalData.authManager.auth.CurrentUser == null)
             {
                 authPaneText.text = "Login/Sign Up";
+                confirmEmail.SetActive(false);
             }
             else
             {
@@ -56,6 +70,8 @@ namespace Com.TypeGames.TSBR
 
                 authPaneText.text = "Log Out";
             }
+
+
 
         }
 
@@ -72,12 +88,8 @@ namespace Com.TypeGames.TSBR
 
         public void ShowVerifiedEmailPane()
         {
-            verifiedEmailPane.SetActive(true);
-        }
-
-        public void HideVerifiedEmailPane()
-        {
-            verifiedEmailPane.SetActive(false);
+            GameObject pane = Instantiate(popUpPrefab, canvas.transform);
+            pane.GetComponentInChildren<Text>().text = "Email Verified!";
         }
 
         public void SelectName()
@@ -90,6 +102,7 @@ namespace Com.TypeGames.TSBR
             {
                 //check if it's nasty
                 LocalData.SetPlayerName(nameManager.text);
+                LocalData.infoUI.Refresh();
                 nameManager.text = "";
                 HideNameChangePane();
             }
@@ -105,8 +118,13 @@ namespace Com.TypeGames.TSBR
         void Update()
         {
 
+            CheckForEmailVerification();
 
-            if (checkEmail.ShouldExecute)
+        }
+
+        void CheckForEmailVerification()
+        {
+            if (checkEmail == null || checkEmail.ShouldExecute)
             {
                 if (LocalData.authManager.auth.CurrentUser != null)
                 {
@@ -122,24 +140,34 @@ namespace Com.TypeGames.TSBR
                     }
                 }
 
-                checkEmail.Reset();
+                if(checkEmail!= null)
+                    checkEmail.Reset();
             }
         }
 
         public void AdjustMasterVolume(float value)
         {
+            if (!soundsEnabled)
+                return;
+
             LocalData.audioManager.SetVolume(AudioManager.SoundCategory.master, value);
             LocalData.audioManager.Play(AudioManager.SoundType.button);
         }
 
         public void AdjustMusicVolume(float value)
         {
+            if (!soundsEnabled)
+                return;
+
             LocalData.audioManager.SetVolume(AudioManager.SoundCategory.music, value);
             LocalData.audioManager.Play(AudioManager.SoundType.button);
         }
 
         public void AdjustEffectVolume(float value)
         {
+            if (!soundsEnabled)
+                return;
+
             LocalData.audioManager.SetVolume(AudioManager.SoundCategory.effect, value);
             LocalData.audioManager.Play(AudioManager.SoundType.button);
         }
@@ -155,11 +183,13 @@ namespace Com.TypeGames.TSBR
             if (LocalData.authManager.auth.CurrentUser != null)
             {
                 Debug.Log("Logging out");
+                DatabaseManager.OnLogout();
                 LocalData.authManager.auth.SignOut();
                 authPaneText.text = "Login/Sign Up";
+                confirmEmail.SetActive(false);
             } else
             {
-                Debug.Log("Going to autht screen");
+                Debug.Log("Going to auth screen");
                 LocalData.returnScene = "Settings v2";
                 SceneManager.LoadScene("Auth Management");
             }
@@ -167,12 +197,39 @@ namespace Com.TypeGames.TSBR
 
         public void TestDatabase()
         {
-            DatabaseManager.WriteUser("abcd", "1234");
-            DatabaseManager.OnUserModifiedWordList(1, WordListSet.GetWordListById(1));
-            DatabaseManager.OnUserAcquiredCharacter(1);
-            DatabaseManager.OnUserAcquiredWord("Poop"); //todo make word data type
-            DatabaseManager.OnUserPurchasedWordList(5);
-            DatabaseManager.SetUserField("Money", "500");
+            //DatabaseManager.WriteUser("abcd", "1234");
+            //DatabaseManager.OnUserModifiedWordList(1, WordListSet.GetWordListById(1));
+
+            //DatabaseManager.OnUserAcquiredWord("Poop"); //todo make word data type
+            //DatabaseManager.OnUserPurchasedWordList(5);
+            //DatabaseManager.SetUserField("Money", "500");
+            LocalData.user.setupDone = false;
+            if (!LocalData.user.setupDone)
+            {
+                DatabaseManager.OnUserCreated();
+                //DatabaseManager.IncrementUserField("money", 10);
+                //DatabaseManager.OnUserAcquiredCharacter(1);
+                //DatabaseManager.WriteUser();
+                //DatabaseManager.PullUserData();
+                //LocalData.user = new User();
+                LocalData.user.setupDone = true;
+                LocalData.user.PrintDebug();
+            } else
+            {
+                //DatabaseManager.OnUserPurchasedWordList(WordListSet.GetWordListById(3));
+                //DatabaseManager.OnUserAcquiredCharacter(10, 5);
+                //DatabaseManager.OnUserAcquiredWord("test12345");
+                ////DatabaseManager.OnUserPurchasedWordList(1, 500);
+                //DatabaseManager.OnUserModifiedWordList(1, new WordList(1, "pooptest", "pooptest", new List<string> { "poop" }), 500);
+
+
+
+                //DatabaseManager.ReadUserDataFromJson();
+                //LocalData.user.PrintDebug();
+
+            }
+
+            
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Com.TypeGames.TSBR
         public Animator animator;
         public GameObject projectile;
         public Dictionary<Anim, string> animDict;
-
+        public int price = 5000;
 
         //public Character(int id, string name, string description)
         //{
@@ -34,7 +34,7 @@ namespace Com.TypeGames.TSBR
             Death
         }
 
-        public void Start()
+        public void Awake()
         {
             animDict = new Dictionary<Anim, string>() {
                 { Anim.Idle, "idle" },
@@ -57,7 +57,19 @@ namespace Com.TypeGames.TSBR
 
         public void Attack()
         {
-            Instantiate(projectile, this.transform);
+            GameObject tmp = Instantiate(projectile, this.transform);
+            tmp.transform.localPosition = new Vector3(100f, 0f, 0f);
+            tmp.GetComponent<Projectile>().animator.SetTrigger("attack");
+        }
+
+        public void AttackMe(Transform attackerTransform)
+        {
+            GameObject tmp = Instantiate(projectile, attackerTransform);
+            tmp.GetComponent<Projectile>().animator.SetTrigger("attackMe");
+            tmp.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+            tmp.transform.localRotation = Quaternion.Euler(0, 180, 0);
+            tmp.GetComponent<Projectile>().attacker = this;
+            
         }
     }
 }

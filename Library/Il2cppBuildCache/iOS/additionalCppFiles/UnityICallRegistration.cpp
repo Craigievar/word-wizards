@@ -6,10 +6,6 @@ void RegisterAllStrippedInternalCalls()
 		void Register_Unity_Collections_LowLevel_Unsafe_UnsafeUtility_Free();
 		Register_Unity_Collections_LowLevel_Unsafe_UnsafeUtility_Free();
 
-		//System.Void Unity.Collections.LowLevel.Unsafe.UnsafeUtility::MemCpy(System.Void*,System.Void*,System.Int64)
-		void Register_Unity_Collections_LowLevel_Unsafe_UnsafeUtility_MemCpy();
-		Register_Unity_Collections_LowLevel_Unsafe_UnsafeUtility_MemCpy();
-
 	//End Registrations for type : Unity.Collections.LowLevel.Unsafe.UnsafeUtility
 
 	//Start Registrations for type : Unity.Jobs.JobHandle
@@ -205,6 +201,10 @@ void RegisterAllStrippedInternalCalls()
 		//System.Boolean UnityEngine.Application::get_isPlaying()
 		void Register_UnityEngine_Application_get_isPlaying();
 		Register_UnityEngine_Application_get_isPlaying();
+
+		//System.String UnityEngine.Application::get_persistentDataPath()
+		void Register_UnityEngine_Application_get_persistentDataPath();
+		Register_UnityEngine_Application_get_persistentDataPath();
 
 		//System.String UnityEngine.Application::get_streamingAssetsPath()
 		void Register_UnityEngine_Application_get_streamingAssetsPath();
@@ -1394,6 +1394,10 @@ void RegisterAllStrippedInternalCalls()
 
 	//Start Registrations for type : UnityEngine.JsonUtility
 
+		//System.Object UnityEngine.JsonUtility::FromJsonInternal(System.String,System.Object,System.Type)
+		void Register_UnityEngine_JsonUtility_FromJsonInternal();
+		Register_UnityEngine_JsonUtility_FromJsonInternal();
+
 		//System.String UnityEngine.JsonUtility::ToJsonInternal(System.Object,System.Boolean)
 		void Register_UnityEngine_JsonUtility_ToJsonInternal();
 		Register_UnityEngine_JsonUtility_ToJsonInternal();
@@ -1919,18 +1923,6 @@ void RegisterAllStrippedInternalCalls()
 		Register_UnityEngine_PlayerPrefs_DeleteKey();
 
 	//End Registrations for type : UnityEngine.PlayerPrefs
-
-	//Start Registrations for type : UnityEngine.Profiling.Profiler
-
-		//System.Void UnityEngine.Profiling.Profiler::BeginSampleImpl(System.String,UnityEngine.Object)
-		void Register_UnityEngine_Profiling_Profiler_BeginSampleImpl();
-		Register_UnityEngine_Profiling_Profiler_BeginSampleImpl();
-
-		//System.Void UnityEngine.Profiling.Profiler::EndSample()
-		void Register_UnityEngine_Profiling_Profiler_EndSample();
-		Register_UnityEngine_Profiling_Profiler_EndSample();
-
-	//End Registrations for type : UnityEngine.Profiling.Profiler
 
 	//Start Registrations for type : UnityEngine.QualitySettings
 

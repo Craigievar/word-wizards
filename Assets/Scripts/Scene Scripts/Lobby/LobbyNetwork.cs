@@ -4,6 +4,9 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
+using System.Linq;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
+
 
 namespace Com.TypeGames.TSBR
 {
@@ -15,7 +18,7 @@ namespace Com.TypeGames.TSBR
         private byte maxPlayersPerRoom = 50;
 
         [SerializeField]
-        private byte minPlayersToStart = 2;
+        private int minPlayersToStart = 5;
 
         [Tooltip("The connect button.")]
         [SerializeField]
@@ -28,6 +31,27 @@ namespace Com.TypeGames.TSBR
 
         #endregion
 
+        //[SerializeField]
+        //private Button settingsButton;
+        //[SerializeField]
+        //private Button libraryButton;
+        //[SerializeField]
+        //private Button characterButton;
+        [SerializeField]
+        private LobbyUI lobbyUI;
+
+        private bool isLoadingLevel = false;
+
+        private int myBotCount = 0;
+        private int roomBotCount = 0;
+        private TimeKeeper addBotTimeKeeper;
+        private TimeKeeper startBotsTimeKeeper;
+
+        private int secondsBeforeBots = 10;
+
+        public GameObject popupPrefab;
+        private GameObject canvas;
+
         #region MonoBehavior Callbacks
         void Awake()
         {
@@ -37,12 +61,53 @@ namespace Com.TypeGames.TSBR
 
         void Start()
         {
-
+            canvas = GameObject.Find("Main Canvas");
+            addBotTimeKeeper = new TimeKeeper(1000);
+            startBotsTimeKeeper = new TimeKeeper(secondsBeforeBots * 1000);
+            startBotsTimeKeeper.IsEnabled = false;
         }
 
         void Update()
         {
             //Debug.Log(PhotonNetwork.NickName);
+            if (startBotsTimeKeeper.ShouldExecute && PhotonNetwork.CurrentRoom != null)
+            {
+                addBotTimeKeeper.IsEnabled = true;
+                if (addBotTimeKeeper.ShouldExecute)
+                {
+                    myBotCount += 1;
+                    addBotTimeKeeper.Reset();
+                }
+
+                roomBotCount = PhotonNetwork.CurrentRoom.CustomProperties.ContainsKey("bots") ?
+                    (int)PhotonNetwork.CurrentRoom.CustomProperties["bots"] :
+                    0;
+
+                if(myBotCount >= roomBotCount)
+                {
+                    Hashtable hash = new Hashtable();
+                    roomBotCount = myBotCount;
+                    hash.Add("bots", roomBotCount);
+                    PhotonNetwork.CurrentRoom.SetCustomProperties(hash);
+                }
+
+                Debug.Log(PhotonNetwork.CurrentRoom.PlayerCount + " players and " + roomBotCount + " bots");
+
+                if (PhotonNetwork.IsMasterClient && ((PhotonNetwork.CurrentRoom.PlayerCount
+                    + Mathf.Max(roomBotCount, myBotCount)) >= minPlayersToStart))
+                {
+                    LocalData.botCount = myBotCount;
+
+                    PhotonNetwork.CurrentRoom.IsOpen = false;
+
+                    if(!isLoadingLevel) {
+                        isLoadingLevel = true;
+                        PhotonNetwork.LoadLevel("Battle Royale");
+                    }
+                    
+                }
+            }
+
         }
 
         #endregion
@@ -57,8 +122,9 @@ namespace Com.TypeGames.TSBR
             {
                 //LocalData.audioManager.KillAll(AudioManager.SoundType.theme);
                 Debug.Log("Ok, disconnecting");
+                lobbyUI.EnableNonBattleUI();
                 PhotonNetwork.Disconnect();
-                connectButton.GetComponentInChildren<Text>().text = "Connect";
+                connectButton.GetComponentInChildren<Text>().text = "Battle";
                 return;
             }
 
@@ -68,6 +134,8 @@ namespace Com.TypeGames.TSBR
 
                 connectButton.GetComponentInChildren<Text>().text = "Connecting";
                 isConnecting = true;
+                lobbyUI.DisableNonBattleUI();
+
                 if (PhotonNetwork.IsConnected)
                 {
                     PhotonNetwork.JoinRandomRoom();
@@ -77,6 +145,14 @@ namespace Com.TypeGames.TSBR
                     PhotonNetwork.ConnectUsingSettings();
                     PhotonNetwork.GameVersion = gameVersion;
                 }
+                return;
+            }
+
+            if (isConnecting)
+            {
+                connectButton.GetComponentInChildren<Text>().text = "Battle";
+                PhotonNetwork.Disconnect();
+                lobbyUI.EnableNonBattleUI();
             }
         }
 
@@ -100,9 +176,18 @@ namespace Com.TypeGames.TSBR
         public override void OnDisconnected(DisconnectCause cause)
         {
             connectButton.SetActive(true);
+            lobbyUI.EnableNonBattleUI();
             connectButton.GetComponentInChildren<Text>().text = "Connect";
             //base.OnDisconnected(cause);
             Debug.LogWarningFormat("Disconnected for reason {0}", cause);
+
+            if(cause != DisconnectCause.DisconnectByClientLogic)
+            {
+                GameObject pane = Instantiate(popupPrefab, canvas.transform);
+                pane.GetComponentInChildren<PopUpButton>().SetText("Network Error. " +
+                    "Please check your connection");
+
+            }
             //LocalData.audioManager.KillAll(AudioManager.SoundType.theme);
             isConnecting = false;
         }
@@ -121,6 +206,13 @@ namespace Com.TypeGames.TSBR
         {
             Debug.Log("Joined Room");
             connectButton.GetComponentInChildren<Text>().text = "Waiting...";
+
+            myBotCount = 0;
+            addBotTimeKeeper.Reset();
+            addBotTimeKeeper.IsEnabled = false;
+            startBotsTimeKeeper.Reset();
+            startBotsTimeKeeper.IsEnabled = true;
+
             //base.OnJoinedRoom();
             isConnecting = false;
 
@@ -132,28 +224,46 @@ namespace Com.TypeGames.TSBR
             //    // Load the Room Level.
             //    //PhotonNetwork.LoadLevel("Battle Royale");
             //}
-            if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount >= minPlayersToStart)
-            {
-                Debug.Log("Master client and enough players, loading");
+            //if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount >= minPlayersToStart)
+            //{
+            //    Debug.Log("Master client and enough players, loading");
 
-                PhotonNetwork.LoadLevel("Battle Royale");
-            }
+            //    PhotonNetwork.LoadLevel("Battle Royale");
+            //}
+
         }
         #endregion
         public override void OnPlayerEnteredRoom(Player other)
         {
             Debug.LogFormat("OnPlayerEnteredRoom() {0}", other.NickName); // not seen if you're the player connecting
 
+            startBotsTimeKeeper.Reset();
 
-            if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount >= minPlayersToStart)
+            if (PhotonNetwork.IsMasterClient && (PhotonNetwork.CurrentRoom.PlayerCount
+                + Mathf.Max(roomBotCount, myBotCount)) >= minPlayersToStart)
             {
                 Debug.Log("Master client and enough players, loading");
-
+                LocalData.botCount = myBotCount;
+                PhotonNetwork.CurrentRoom.IsOpen = false;
                 PhotonNetwork.LoadLevel("Battle Royale");
             }
         }
 
+        //public void EnableNonBattleUI()
+        //{
+        //    Debug.Log("Enabling UI");
+        //    characterButton.interactable = true;
+        //    settingsButton.interactable = true;
+        //    libraryButton.interactable = true;
+        //}
 
+        //public void DisableNonBattleUI()
+        //{
+        //    Debug.Log("Disabling UI");
+        //    characterButton.interactable = false;
+        //    settingsButton.interactable = false;
+        //    libraryButton.interactable = false;
+        //}
 
     }
 }

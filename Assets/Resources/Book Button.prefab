@@ -146,7 +146,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54f95a72d77d40f3986a1706e6a060a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wordList:
+    id: 0
+    name: 
+    description: 
+    words: []
+    price: 0
   manager: {fileID: 0}
+  owned: 0
 --- !u!1 &4370350819823265062
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,11 +220,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 80
+    m_Font: {fileID: 12800000, guid: ef514b61a8d364229aa0de893881cb33, type: 3}
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 8
+    m_MinSize: 6
     m_MaxSize: 80
     m_Alignment: 4
     m_AlignByGeometry: 0
